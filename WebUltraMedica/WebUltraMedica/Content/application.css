@@ -1,0 +1,16 @@
+.content {
+  width: 1000px;
+  margin: 0 auto;
+  clear: both; }
+
+.login-box {
+  border: 3px solid #ecf0f1;
+  background-color: #82b6ea;
+  padding: 2em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 22em;
+  margin: 0 auto;
+  clear: both; }
+

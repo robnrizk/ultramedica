@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="34713AB0-4EF5-4480-A862-C7F44CBE281B" ModuleId="WebUltraMedica" />
+  <Module PersistentId="D33684AB-AC57-4B6F-8DC5-3FEAF15A5EC3" ModuleId="WebUltraMedica.Tests" />
+</Modules>
