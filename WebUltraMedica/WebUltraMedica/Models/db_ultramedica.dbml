@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_ULTRAMEDICA" Class="db_ultramedicaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=USER-PC\SQLEXPRESS;Initial Catalog=DB_ULTRAMEDICA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ULTRAMEDICAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_R_COMPANY" Member="TBL_R_COMPANies">
+    <Type Name="TBL_R_COMPANY">
+      <Column Name="COMPANY_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="COMPANY_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY_STATUS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="TBL_R_COMPANY_TBL_R_FO" Member="TBL_R_FOs" ThisKey="COMPANY_ID" OtherKey="COMPANY_ID" Type="TBL_R_FO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_SPIRO" Member="TBL_T_SPIROs">
+    <Type Name="TBL_T_SPIRO">
+      <Column Name="SPIRO_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SPIROMETRY_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SPIROMETRY_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_SPIRO" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_FO" Member="TBL_R_FOs">
+    <Type Name="TBL_R_FO">
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SEX" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MESS_STATUS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="COMPANY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="TBL_R_FO_TBL_T_FO" Member="TBL_T_FOs" ThisKey="EMPLOYEE_ID" OtherKey="EMPLOYEE_ID" Type="TBL_T_FO" />
+      <Association Name="TBL_R_COMPANY_TBL_R_FO" Member="TBL_R_COMPANY" ThisKey="COMPANY_ID" OtherKey="COMPANY_ID" Type="TBL_R_COMPANY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_ROLE" Member="TBL_R_ROLEs">
+    <Type Name="TBL_R_ROLE">
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_R_ROLE_TBL_R_USER" Member="TBL_R_USERs" ThisKey="ROLE_ID" OtherKey="ROLE_ID" Type="TBL_R_USER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_ULTRAEMPLOYEE" Member="TBL_R_ULTRAEMPLOYEEs">
+    <Type Name="TBL_R_ULTRAEMPLOYEE">
+      <Column Name="NIK" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="POSISI" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="TBL_R_ULTRAEMPLOYEE_TBL_R_USER" Member="TBL_R_USERs" ThisKey="NIK" OtherKey="NIK" Type="TBL_R_USER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_USER" Member="TBL_R_USERs">
+    <Type Name="TBL_R_USER">
+      <Column Name="NIK" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TBL_R_ROLE_TBL_R_USER" Member="TBL_R_ROLE" ThisKey="ROLE_ID" OtherKey="ROLE_ID" Type="TBL_R_ROLE" IsForeignKey="true" />
+      <Association Name="TBL_R_ULTRAEMPLOYEE_TBL_R_USER" Member="TBL_R_ULTRAEMPLOYEE" ThisKey="NIK" OtherKey="NIK" Type="TBL_R_ULTRAEMPLOYEE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_AUDIO" Member="TBL_T_AUDIOs">
+    <Type Name="TBL_T_AUDIO">
+      <Column Name="AUDIO_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AUDIOMETRY_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AUDIOMETRY_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_AUDIO" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EKG" Member="TBL_T_EKGs">
+    <Type Name="TBL_T_EKG">
+      <Column Name="EKG_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EKG_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EKG_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_EKG" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_FISIK" Member="TBL_T_FISIKs">
+    <Type Name="TBL_T_FISIK">
+      <Column Name="FISIK_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEMPAT_KERJA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="POSISI_KERJA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="METODE_KERJA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="RIWAYAT_ASMA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_EPILEPSI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_LEPRA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_ANSIETAS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_DEPRESI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_DM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_PROSTAT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_HEMOROID" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_KELAMIN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VAKSIN_HEPATITIS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_OPERASI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RIWAYAT_KECELAKAAN_KERJA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SUMMARY_RIWAYAT_PENYAKIT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="KEBIASAAN_ALKOHOL" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="KEBIASAAN_OLAHRAGA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="KEBIASAAN_MEROKOK" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="KEBIASAAN_NARKOBA" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="TINGGI_BADAN" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="BERAT_BADAN" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="LKR_DD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LKR_PRT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="T_SISTOL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="T_DIASTOL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NADI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RESPIRASI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VISUS_JAUH_TANPA_KACMATA" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="VISUS_JAUH_DENGAN" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="VISUS_DEKAT_TANPA_KACAMATA" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="VISUS_DEKAT_DENGAN_KACAMATA" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="BUTA_WARNA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ANAMNESA_KELUHAN_UTAMA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ANAMNESA_KELUHAN_TAMBAHAN" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MATA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TELINGA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HIDUNG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MULUT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FARING" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TONSIL" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="THYROID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="LYMP_NODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DADA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PERUT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HERNIA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ANUS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PAYUDARA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="VARICHES_HEMOROID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="KULIT_KUKU" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PULMO_SIST_RESPIRASI" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="COR_SIST_CV" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="HATI_LIEN_GIT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SUG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SIST_REPROD" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EXTRIMITAS_ATAS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EXTRIMITAS_BAWAH" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="OTOT_TULANG_LAIN" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="BAU_MULUT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="KARIES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SISA_AKAR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REFLEX_PATOLOGIS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PARESTESI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PARESE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LASSAGUESIGN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PATRICK_SIGN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CONTRA_PATRICK_SIGN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SUMMARY_KESIMPULAN" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_FISIK" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_FO" Member="TBL_T_FOs">
+    <Type Name="TBL_T_FO">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_SPIRO" Member="TBL_T_SPIROs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_SPIRO" />
+      <Association Name="TBL_T_FO_TBL_T_AUDIO" Member="TBL_T_AUDIOs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_AUDIO" />
+      <Association Name="TBL_T_FO_TBL_T_EKG" Member="TBL_T_EKGs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_EKG" />
+      <Association Name="TBL_T_FO_TBL_T_FISIK" Member="TBL_T_FISIKs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FISIK" />
+      <Association Name="TBL_T_FO_TBL_T_LAB" Member="TBL_T_LABs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_LAB" />
+      <Association Name="TBL_T_FO_TBL_T_RONTGEN" Member="TBL_T_RONTGENs" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_RONTGEN" />
+      <Association Name="TBL_R_FO_TBL_T_FO" Member="TBL_R_FO" ThisKey="EMPLOYEE_ID" OtherKey="EMPLOYEE_ID" Type="TBL_R_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_LABS" Member="TBL_T_LABs">
+    <Type Name="TBL_T_LAB">
+      <Column Name="LABORATORIUM_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HB" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="HCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEUKOSIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TROMBOSIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ERITROSIT" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="LED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIFLIM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIFMON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIFGRAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HBSAG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AHBS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VDRL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHOLESTEROL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TRIGLISERIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HDL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LDL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BUN" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="CREATINE" Type="System.Decimal" DbType="Decimal(18,1)" CanBeNull="true" />
+      <Column Name="UA" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="BSN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2JPP]" Member="_2JPP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="REDUKSI_PUASA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="REDUKSI_2JPP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WARNA_URINE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BJ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KETON" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BIL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NITRIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EPITEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URINE_LEKOSIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URINE_ERITROSIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BAKTERI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SIL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="KRISTAL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LAB_RESUME" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_LAB" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_RONTGEN" Member="TBL_T_RONTGENs">
+    <Type Name="TBL_T_RONTGEN">
+      <Column Name="RONTGEN_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RONTGEN_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="RONTGEN_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_T_FO_TBL_T_RONTGEN" Member="TBL_T_FO" ThisKey="LAB_ID" OtherKey="LAB_ID" Type="TBL_T_FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
