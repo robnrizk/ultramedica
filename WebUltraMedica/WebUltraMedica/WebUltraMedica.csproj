@@ -68,40 +68,79 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\EmployRegController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FisikController.cs" />
+    <Compile Include="Controllers\FOController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\db_ultramedica.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_ultramedica.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\EmployReg.cs" />
+    <Compile Include="Models\EMPLOYEE.cs" />
+    <Compile Include="Models\FISIK.cs" />
+    <Compile Include="Models\FO.cs" />
+    <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\application.css">
+    <Content Include="Content\css\application.css">
       <DependentUpon>application.scss</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\chosen_v1.0.0\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen_v1.0.0\chosen-sprite.png" />
+    <Content Include="Content\chosen_v1.0.0\chosen.css" />
+    <Content Include="Content\chosen_v1.0.0\chosen.jquery.js" />
+    <Content Include="Content\chosen_v1.0.0\chosen.jquery.min.js" />
+    <Content Include="Content\chosen_v1.0.0\chosen.min.css" />
+    <Content Include="Content\chosen_v1.0.0\chosen.proto.js" />
+    <Content Include="Content\chosen_v1.0.0\chosen.proto.min.js" />
+    <Content Include="Content\chosen_v1.0.0\docsupport\chosen.png" />
+    <Content Include="Content\chosen_v1.0.0\docsupport\oss-credit.png" />
+    <Content Include="Content\chosen_v1.0.0\docsupport\prism.css" />
+    <Content Include="Content\chosen_v1.0.0\docsupport\prism.js" />
+    <Content Include="Content\chosen_v1.0.0\docsupport\style.css" />
+    <Content Include="Content\chosen_v1.0.0\index.html" />
+    <Content Include="Content\chosen_v1.0.0\index.proto.html" />
+    <Content Include="Content\chosen_v1.0.0\options.html" />
     <Content Include="Content\css\bootflat-extensions.css" />
     <Content Include="Content\css\bootflat-square.css" />
     <Content Include="Content\css\bootflat.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\cms-fonts.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\images\animated-overlay.gif" />
+    <Content Include="Content\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_25_3da8e3_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\css\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_e74c3c_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\css\jquery-ui-1.10.4.custom.css" />
     <Content Include="Content\img\check_flat\default.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\head.js" />
     <Content Include="Scripts\jquery-1.10.1.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
     <Content Include="Scripts\js\bootstrap.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\html5shiv.js" />
@@ -111,7 +150,21 @@
     <Content Include="Scripts\js\jquery-1.4.1.min.js" />
     <Content Include="Scripts\js\jquery.icheck.js" />
     <Content Include="Scripts\js\respond.min.js" />
-    <Content Include="Views\EmployReg\Index.aspx" />
+    <Content Include="Views\Employee\Create.aspx" />
+    <Content Include="Views\Employee\Edit.aspx" />
+    <Content Include="Views\Employee\form.ascx" />
+    <Content Include="Views\Employee\Index.aspx" />
+    <Content Include="Views\Fisik\Create.aspx" />
+    <Content Include="Views\Fisik\form.ascx" />
+    <Content Include="Views\Fisik\Index.aspx" />
+    <Content Include="Views\FO\Create.aspx" />
+    <Content Include="Views\FO\Edit.aspx" />
+    <Content Include="Views\FO\form.ascx" />
+    <Content Include="Views\FO\Index.aspx" />
+    <Content Include="Views\User\Create.aspx" />
+    <Content Include="Views\User\Edit.aspx" />
+    <Content Include="Views\User\form.ascx" />
+    <Content Include="Views\User\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -119,7 +172,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -144,7 +196,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\application.scss">
+    <None Include="Content\css\application.scss">
       <Compile>True</Compile>
       <Minify>True</Minify>
       <CompileStyle>Nested</CompileStyle>
@@ -156,6 +208,74 @@
     <None Include="Content\fonts\fontawesome-webfont.woff" />
     <None Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\MainForm.Master" />
+    <None Include="Content\fonts\museosans-300-webfont.eot" />
+    <None Include="Content\fonts\museosans-300-webfont.svg" />
+    <None Include="Content\fonts\museosans-300-webfont.ttf" />
+    <None Include="Content\fonts\museosans-300-webfont.woff" />
+    <None Include="Content\fonts\museosans_100-webfont.eot" />
+    <None Include="Content\fonts\museosans_100-webfont.svg" />
+    <None Include="Content\fonts\museosans_100-webfont.ttf" />
+    <None Include="Content\fonts\museosans_100-webfont.woff" />
+    <None Include="Content\fonts\museosans_100italic-webfont.eot" />
+    <None Include="Content\fonts\museosans_100italic-webfont.svg" />
+    <None Include="Content\fonts\museosans_100italic-webfont.ttf" />
+    <None Include="Content\fonts\museosans_100italic-webfont.woff" />
+    <None Include="Content\fonts\museosans_300-webfont.eot" />
+    <None Include="Content\fonts\museosans_300-webfont.svg" />
+    <None Include="Content\fonts\museosans_300-webfont.ttf" />
+    <None Include="Content\fonts\museosans_300-webfont.woff" />
+    <None Include="Content\fonts\museosans_300italic-webfont.eot" />
+    <None Include="Content\fonts\museosans_300italic-webfont.svg" />
+    <None Include="Content\fonts\museosans_300italic-webfont.ttf" />
+    <None Include="Content\fonts\museosans_300italic-webfont.woff" />
+    <None Include="Content\fonts\museosans_500-webfont.eot" />
+    <None Include="Content\fonts\museosans_500-webfont.svg" />
+    <None Include="Content\fonts\museosans_500-webfont.ttf" />
+    <None Include="Content\fonts\museosans_500-webfont.woff" />
+    <None Include="Content\fonts\museosans_500_italic-webfont.eot" />
+    <None Include="Content\fonts\museosans_500_italic-webfont.svg" />
+    <None Include="Content\fonts\museosans_500_italic-webfont.ttf" />
+    <None Include="Content\fonts\museosans_500_italic-webfont.woff" />
+    <None Include="Content\fonts\museosans_700-webfont.eot" />
+    <None Include="Content\fonts\museosans_700-webfont.svg" />
+    <None Include="Content\fonts\museosans_700-webfont.ttf" />
+    <None Include="Content\fonts\museosans_700-webfont.woff" />
+    <None Include="Content\fonts\museosans_700italic-webfont.eot" />
+    <None Include="Content\fonts\museosans_700italic-webfont.svg" />
+    <None Include="Content\fonts\museosans_700italic-webfont.ttf" />
+    <None Include="Content\fonts\museosans_700italic-webfont.woff" />
+    <None Include="Content\fonts\museosans_900-webfont.eot" />
+    <None Include="Content\fonts\museosans_900-webfont.svg" />
+    <None Include="Content\fonts\museosans_900-webfont.ttf" />
+    <None Include="Content\fonts\museosans_900-webfont.woff" />
+    <None Include="Content\fonts\museosans_900italic-webfont.eot" />
+    <None Include="Content\fonts\museosans_900italic-webfont.svg" />
+    <None Include="Content\fonts\museosans_900italic-webfont.ttf" />
+    <None Include="Content\fonts\museosans_900italic-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_100-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_100-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_100-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_100-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_1000-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_1000-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_1000-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_1000-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_300-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_300-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_300-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_300-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_500-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_500-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_500-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_500-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_700-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_700-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_700-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_700-webfont.woff" />
+    <None Include="Content\fonts\museo_slab_900-webfont.eot" />
+    <None Include="Content\fonts\museo_slab_900-webfont.svg" />
+    <None Include="Content\fonts\museo_slab_900-webfont.ttf" />
+    <None Include="Content\fonts\museo_slab_900-webfont.woff" />
     <None Include="Models\db_ultramedica.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>db_ultramedica.designer.cs</LastGenOutput>

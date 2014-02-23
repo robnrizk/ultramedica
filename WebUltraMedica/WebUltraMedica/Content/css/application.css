@@ -1,0 +1,85 @@
+.clear {
+  clear: both; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+#main {
+  width: 1000px;
+  margin: 0 auto;
+  clear: both;
+  padding: 100px 0 100px 0;
+  overflow: hidden;
+  /**for validation*/ }
+  #main input[type=text], #main input[type=password], #main select {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60%;
+    height: 28px; }
+  #main input[readonly=readonly] {
+    background-color: #ecf0f1;
+    color: #a0b2b3; }
+  #main fieldset {
+    padding-bottom: 2em; }
+  #main .input-validation-error {
+    border-color: #a5281b;
+    background-color: #fa7878; }
+  #main .field-validation-error {
+    display: block;
+    color: #a5281b;
+    padding-left: 11em; }
+  #main .content {
+    font-size: 1em;
+    font-weight: 100; }
+    #main .content input[type=text], #main .content input[type=password] {
+      border-style: solid;
+      border-color: #ddd #eee #eee #ddd;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      font-weight: 200; }
+    #main .content label {
+      clear: left;
+      width: 12em; }
+    #main .content .content-col {
+      float: left;
+      width: 50%; }
+    #main .content .content-data {
+      padding: 4px 6px;
+      border-width: 1px;
+      font-weight: 200;
+      vertical-align: top; }
+    #main .content .content-col-ful {
+      float: left;
+      width: 100%; }
+    #main .content .content-group {
+      padding-bottom: 5px;
+      vertical-align: top; }
+    #main .content .actions {
+      margin: 2em auto 1em auto;
+      text-align: center;
+      width: 100%; }
+      #main .content .actions .btn {
+        margin-right: 0.8em; }
+
+.content {
+  width: 1000px;
+  margin: 0 auto;
+  clear: both; }
+
+.login-box {
+  border: 3px solid #ecf0f1;
+  background-color: #82b6ea;
+  padding: 2em;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  width: 22em;
+  margin: 0 auto;
+  clear: both; }
+

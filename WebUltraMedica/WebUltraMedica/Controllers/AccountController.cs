@@ -37,24 +37,27 @@ namespace WebUltraMedica.Controllers
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public ActionResult LogOn(USER model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                if (MembershipService.ValidateUser(model.UserName, model.Password))
+                using (var data = new db_ultramedicaDataContext())
                 {
-                    FormsService.SignIn(model.UserName, model.RememberMe);
-                    if (!String.IsNullOrEmpty(returnUrl))
+                    var username = model.USERNAME;
+                    var password = model.PASSWORD;
+
+                    var employee = data.USERs.SingleOrDefault(m => m.USERNAME.Equals(model.USERNAME) &&
+                                                                       model.PASSWORD.Equals(model.PASSWORD));
+
+                    if(employee != null)
                     {
-                        return Redirect(returnUrl);
+                       FormsAuthentication.SetAuthCookie(username, false);
+                       {
+                           Session["user"] = employee;
+                           Session["roles"] = employee.ROLES;
+                            return RedirectToAction("Index", "Employee");
+                       }
                     }
-                    else
-                    {
-                        return RedirectToAction("LogOn", "Account");
-                    }
-                }
-                else
-                {
                     ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 }
             }
@@ -69,7 +72,8 @@ namespace WebUltraMedica.Controllers
 
         public ActionResult LogOff()
         {
-            FormsService.SignOut();
+            Session.Remove("user");
+            FormsAuthentication.SignOut();
 
             return RedirectToAction("LogOn", "Account");
         }

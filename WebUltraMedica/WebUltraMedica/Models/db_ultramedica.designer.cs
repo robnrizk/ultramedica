@@ -30,42 +30,39 @@ namespace WebUltraMedica.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTBL_R_COMPANY(TBL_R_COMPANY instance);
-    partial void UpdateTBL_R_COMPANY(TBL_R_COMPANY instance);
-    partial void DeleteTBL_R_COMPANY(TBL_R_COMPANY instance);
-    partial void InsertTBL_T_SPIRO(TBL_T_SPIRO instance);
-    partial void UpdateTBL_T_SPIRO(TBL_T_SPIRO instance);
-    partial void DeleteTBL_T_SPIRO(TBL_T_SPIRO instance);
-    partial void InsertTBL_R_FO(TBL_R_FO instance);
-    partial void UpdateTBL_R_FO(TBL_R_FO instance);
-    partial void DeleteTBL_R_FO(TBL_R_FO instance);
-    partial void InsertTBL_R_ROLE(TBL_R_ROLE instance);
-    partial void UpdateTBL_R_ROLE(TBL_R_ROLE instance);
-    partial void DeleteTBL_R_ROLE(TBL_R_ROLE instance);
-    partial void InsertTBL_R_ULTRAEMPLOYEE(TBL_R_ULTRAEMPLOYEE instance);
-    partial void UpdateTBL_R_ULTRAEMPLOYEE(TBL_R_ULTRAEMPLOYEE instance);
-    partial void DeleteTBL_R_ULTRAEMPLOYEE(TBL_R_ULTRAEMPLOYEE instance);
-    partial void InsertTBL_R_USER(TBL_R_USER instance);
-    partial void UpdateTBL_R_USER(TBL_R_USER instance);
-    partial void DeleteTBL_R_USER(TBL_R_USER instance);
-    partial void InsertTBL_T_AUDIO(TBL_T_AUDIO instance);
-    partial void UpdateTBL_T_AUDIO(TBL_T_AUDIO instance);
-    partial void DeleteTBL_T_AUDIO(TBL_T_AUDIO instance);
-    partial void InsertTBL_T_EKG(TBL_T_EKG instance);
-    partial void UpdateTBL_T_EKG(TBL_T_EKG instance);
-    partial void DeleteTBL_T_EKG(TBL_T_EKG instance);
-    partial void InsertTBL_T_FISIK(TBL_T_FISIK instance);
-    partial void UpdateTBL_T_FISIK(TBL_T_FISIK instance);
-    partial void DeleteTBL_T_FISIK(TBL_T_FISIK instance);
-    partial void InsertTBL_T_FO(TBL_T_FO instance);
-    partial void UpdateTBL_T_FO(TBL_T_FO instance);
-    partial void DeleteTBL_T_FO(TBL_T_FO instance);
-    partial void InsertTBL_T_LAB(TBL_T_LAB instance);
-    partial void UpdateTBL_T_LAB(TBL_T_LAB instance);
-    partial void DeleteTBL_T_LAB(TBL_T_LAB instance);
-    partial void InsertTBL_T_RONTGEN(TBL_T_RONTGEN instance);
-    partial void UpdateTBL_T_RONTGEN(TBL_T_RONTGEN instance);
-    partial void DeleteTBL_T_RONTGEN(TBL_T_RONTGEN instance);
+    partial void InsertAUDIO(AUDIO instance);
+    partial void UpdateAUDIO(AUDIO instance);
+    partial void DeleteAUDIO(AUDIO instance);
+    partial void InsertCOMPANY(COMPANY instance);
+    partial void UpdateCOMPANY(COMPANY instance);
+    partial void DeleteCOMPANY(COMPANY instance);
+    partial void InsertEKG(EKG instance);
+    partial void UpdateEKG(EKG instance);
+    partial void DeleteEKG(EKG instance);
+    partial void InsertFO(FO instance);
+    partial void UpdateFO(FO instance);
+    partial void DeleteFO(FO instance);
+    partial void InsertLAB(LAB instance);
+    partial void UpdateLAB(LAB instance);
+    partial void DeleteLAB(LAB instance);
+    partial void InsertROLE(ROLE instance);
+    partial void UpdateROLE(ROLE instance);
+    partial void DeleteROLE(ROLE instance);
+    partial void InsertRONTGEN(RONTGEN instance);
+    partial void UpdateRONTGEN(RONTGEN instance);
+    partial void DeleteRONTGEN(RONTGEN instance);
+    partial void InsertSPIRO(SPIRO instance);
+    partial void UpdateSPIRO(SPIRO instance);
+    partial void DeleteSPIRO(SPIRO instance);
+    partial void InsertEMPLOYEE(EMPLOYEE instance);
+    partial void UpdateEMPLOYEE(EMPLOYEE instance);
+    partial void DeleteEMPLOYEE(EMPLOYEE instance);
+    partial void InsertUSER(USER instance);
+    partial void UpdateUSER(USER instance);
+    partial void DeleteUSER(USER instance);
+    partial void InsertFISIK(FISIK instance);
+    partial void UpdateFISIK(FISIK instance);
+    partial void DeleteFISIK(FISIK instance);
     #endregion
 		
 		public db_ultramedicaDataContext() : 
@@ -98,105 +95,334 @@ namespace WebUltraMedica.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TBL_R_COMPANY> TBL_R_COMPANies
+		public System.Data.Linq.Table<AUDIO> AUDIOs
 		{
 			get
 			{
-				return this.GetTable<TBL_R_COMPANY>();
+				return this.GetTable<AUDIO>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_SPIRO> TBL_T_SPIROs
+		public System.Data.Linq.Table<COMPANY> COMPANies
 		{
 			get
 			{
-				return this.GetTable<TBL_T_SPIRO>();
+				return this.GetTable<COMPANY>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_R_FO> TBL_R_FOs
+		public System.Data.Linq.Table<EKG> EKGs
 		{
 			get
 			{
-				return this.GetTable<TBL_R_FO>();
+				return this.GetTable<EKG>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_R_ROLE> TBL_R_ROLEs
+		public System.Data.Linq.Table<FO> FOs
 		{
 			get
 			{
-				return this.GetTable<TBL_R_ROLE>();
+				return this.GetTable<FO>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_R_ULTRAEMPLOYEE> TBL_R_ULTRAEMPLOYEEs
+		public System.Data.Linq.Table<LAB> LABs
 		{
 			get
 			{
-				return this.GetTable<TBL_R_ULTRAEMPLOYEE>();
+				return this.GetTable<LAB>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_R_USER> TBL_R_USERs
+		public System.Data.Linq.Table<ROLE> ROLEs
 		{
 			get
 			{
-				return this.GetTable<TBL_R_USER>();
+				return this.GetTable<ROLE>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_AUDIO> TBL_T_AUDIOs
+		public System.Data.Linq.Table<RONTGEN> RONTGENs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_AUDIO>();
+				return this.GetTable<RONTGEN>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_EKG> TBL_T_EKGs
+		public System.Data.Linq.Table<SPIRO> SPIROs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_EKG>();
+				return this.GetTable<SPIRO>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_FISIK> TBL_T_FISIKs
+		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_FISIK>();
+				return this.GetTable<EMPLOYEE>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_FO> TBL_T_FOs
+		public System.Data.Linq.Table<USER> USERs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_FO>();
+				return this.GetTable<USER>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_LAB> TBL_T_LABs
+		public System.Data.Linq.Table<MASTER_SELECT> MASTER_SELECTs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_LAB>();
+				return this.GetTable<MASTER_SELECT>();
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_T_RONTGEN> TBL_T_RONTGENs
+		public System.Data.Linq.Table<FISIK> FISIKs
 		{
 			get
 			{
-				return this.GetTable<TBL_T_RONTGEN>();
+				return this.GetTable<FISIK>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_COMPANY")]
-	public partial class TBL_R_COMPANY : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AUDIO")]
+	public partial class AUDIO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AUDIO_ID;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
+		
+		private string _AUDIOMETRY_RESULT;
+		
+		private string _AUDIOMETRY_FILE_NAME;
+		
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAUDIO_IDChanging(int value);
+    partial void OnAUDIO_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
+    partial void OnAUDIOMETRY_RESULTChanging(string value);
+    partial void OnAUDIOMETRY_RESULTChanged();
+    partial void OnAUDIOMETRY_FILE_NAMEChanging(string value);
+    partial void OnAUDIOMETRY_FILE_NAMEChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
+    #endregion
+		
+		public AUDIO()
+		{
+			this._FO = default(EntityRef<FO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIO_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AUDIO_ID
+		{
+			get
+			{
+				return this._AUDIO_ID;
+			}
+			set
+			{
+				if ((this._AUDIO_ID != value))
+				{
+					this.OnAUDIO_IDChanging(value);
+					this.SendPropertyChanging();
+					this._AUDIO_ID = value;
+					this.SendPropertyChanged("AUDIO_ID");
+					this.OnAUDIO_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMPLOYEE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIOMETRY_RESULT", DbType="VarChar(30)")]
+		public string AUDIOMETRY_RESULT
+		{
+			get
+			{
+				return this._AUDIOMETRY_RESULT;
+			}
+			set
+			{
+				if ((this._AUDIOMETRY_RESULT != value))
+				{
+					this.OnAUDIOMETRY_RESULTChanging(value);
+					this.SendPropertyChanging();
+					this._AUDIOMETRY_RESULT = value;
+					this.SendPropertyChanged("AUDIOMETRY_RESULT");
+					this.OnAUDIOMETRY_RESULTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIOMETRY_FILE_NAME", DbType="VarChar(50)")]
+		public string AUDIOMETRY_FILE_NAME
+		{
+			get
+			{
+				return this._AUDIOMETRY_FILE_NAME;
+			}
+			set
+			{
+				if ((this._AUDIOMETRY_FILE_NAME != value))
+				{
+					this.OnAUDIOMETRY_FILE_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._AUDIOMETRY_FILE_NAME = value;
+					this.SendPropertyChanged("AUDIOMETRY_FILE_NAME");
+					this.OnAUDIOMETRY_FILE_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(15)")]
+		public string CHECKED_BY
+		{
+			get
+			{
+				return this._CHECKED_BY;
+			}
+			set
+			{
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_AUDIO", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
+				if (((previousValue != value) 
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FO.Entity = null;
+						previousValue.AUDIOs.Remove(this);
+					}
+					this._FO.Entity = value;
+					if ((value != null))
+					{
+						value.AUDIOs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
+					}
+					this.SendPropertyChanged("FO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.COMPANY")]
+	public partial class COMPANY : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -207,7 +433,7 @@ namespace WebUltraMedica.Models
 		
 		private bool _COMPANY_STATUS;
 		
-		private EntitySet<TBL_R_FO> _TBL_R_FOs;
+		private EntitySet<EMPLOYEE> _EMPLOYEEs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -221,9 +447,9 @@ namespace WebUltraMedica.Models
     partial void OnCOMPANY_STATUSChanged();
     #endregion
 		
-		public TBL_R_COMPANY()
+		public COMPANY()
 		{
-			this._TBL_R_FOs = new EntitySet<TBL_R_FO>(new Action<TBL_R_FO>(this.attach_TBL_R_FOs), new Action<TBL_R_FO>(this.detach_TBL_R_FOs));
+			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
 			OnCreated();
 		}
 		
@@ -287,16 +513,16 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_COMPANY_TBL_R_FO", Storage="_TBL_R_FOs", ThisKey="COMPANY_ID", OtherKey="COMPANY_ID")]
-		public EntitySet<TBL_R_FO> TBL_R_FOs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COMPANY_EMPLOYEE", Storage="_EMPLOYEEs", ThisKey="COMPANY_ID", OtherKey="COMPANY_ID")]
+		public EntitySet<EMPLOYEE> EMPLOYEEs
 		{
 			get
 			{
-				return this._TBL_R_FOs;
+				return this._EMPLOYEEs;
 			}
 			set
 			{
-				this._TBL_R_FOs.Assign(value);
+				this._EMPLOYEEs.Assign(value);
 			}
 		}
 		
@@ -320,34 +546,2042 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		private void attach_TBL_R_FOs(TBL_R_FO entity)
+		private void attach_EMPLOYEEs(EMPLOYEE entity)
 		{
 			this.SendPropertyChanging();
-			entity.TBL_R_COMPANY = this;
+			entity.COMPANY = this;
 		}
 		
-		private void detach_TBL_R_FOs(TBL_R_FO entity)
+		private void detach_EMPLOYEEs(EMPLOYEE entity)
 		{
 			this.SendPropertyChanging();
-			entity.TBL_R_COMPANY = null;
+			entity.COMPANY = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_SPIRO")]
-	public partial class TBL_T_SPIRO : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EKG")]
+	public partial class EKG : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EKG_ID;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
+		
+		private string _EKG_RESULT;
+		
+		private string _EKG_FILE_NAME;
+		
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEKG_IDChanging(int value);
+    partial void OnEKG_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
+    partial void OnEKG_RESULTChanging(string value);
+    partial void OnEKG_RESULTChanged();
+    partial void OnEKG_FILE_NAMEChanging(string value);
+    partial void OnEKG_FILE_NAMEChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
+    #endregion
+		
+		public EKG()
+		{
+			this._FO = default(EntityRef<FO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int EKG_ID
+		{
+			get
+			{
+				return this._EKG_ID;
+			}
+			set
+			{
+				if ((this._EKG_ID != value))
+				{
+					this.OnEKG_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EKG_ID = value;
+					this.SendPropertyChanged("EKG_ID");
+					this.OnEKG_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMPLOYEE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_RESULT", DbType="VarChar(30)")]
+		public string EKG_RESULT
+		{
+			get
+			{
+				return this._EKG_RESULT;
+			}
+			set
+			{
+				if ((this._EKG_RESULT != value))
+				{
+					this.OnEKG_RESULTChanging(value);
+					this.SendPropertyChanging();
+					this._EKG_RESULT = value;
+					this.SendPropertyChanged("EKG_RESULT");
+					this.OnEKG_RESULTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_FILE_NAME", DbType="VarChar(50)")]
+		public string EKG_FILE_NAME
+		{
+			get
+			{
+				return this._EKG_FILE_NAME;
+			}
+			set
+			{
+				if ((this._EKG_FILE_NAME != value))
+				{
+					this.OnEKG_FILE_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EKG_FILE_NAME = value;
+					this.SendPropertyChanged("EKG_FILE_NAME");
+					this.OnEKG_FILE_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(15)")]
+		public string CHECKED_BY
+		{
+			get
+			{
+				return this._CHECKED_BY;
+			}
+			set
+			{
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_EKG", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
+				if (((previousValue != value) 
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FO.Entity = null;
+						previousValue.EKGs.Remove(this);
+					}
+					this._FO.Entity = value;
+					if ((value != null))
+					{
+						value.EKGs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
+					}
+					this.SendPropertyChanged("FO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FO")]
+	public partial class FO : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LAB_ID;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
+		
+		private System.Nullable<System.DateTime> _DATE;
+		
+		private string _DISTRICT;
+		
+		private EntitySet<AUDIO> _AUDIOs;
+		
+		private EntitySet<EKG> _EKGs;
+		
+		private EntitySet<LAB> _LABs;
+		
+		private EntitySet<RONTGEN> _RONTGENs;
+		
+		private EntitySet<SPIRO> _SPIROs;
+		
+		private EntitySet<FISIK> _FISIKs;
+		
+		private EntityRef<EMPLOYEE> _EMPLOYEE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLAB_IDChanging(int value);
+    partial void OnLAB_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
+    partial void OnDATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnDATEChanged();
+    partial void OnDISTRICTChanging(string value);
+    partial void OnDISTRICTChanged();
+    #endregion
+		
+		public FO()
+		{
+			this._AUDIOs = new EntitySet<AUDIO>(new Action<AUDIO>(this.attach_AUDIOs), new Action<AUDIO>(this.detach_AUDIOs));
+			this._EKGs = new EntitySet<EKG>(new Action<EKG>(this.attach_EKGs), new Action<EKG>(this.detach_EKGs));
+			this._LABs = new EntitySet<LAB>(new Action<LAB>(this.attach_LABs), new Action<LAB>(this.detach_LABs));
+			this._RONTGENs = new EntitySet<RONTGEN>(new Action<RONTGEN>(this.attach_RONTGENs), new Action<RONTGEN>(this.detach_RONTGENs));
+			this._SPIROs = new EntitySet<SPIRO>(new Action<SPIRO>(this.attach_SPIROs), new Action<SPIRO>(this.detach_SPIROs));
+			this._FISIKs = new EntitySet<FISIK>(new Action<FISIK>(this.attach_FISIKs), new Action<FISIK>(this.detach_FISIKs));
+			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
+		public int LAB_ID
+		{
+			get
+			{
+				return this._LAB_ID;
+			}
+			set
+			{
+				if ((this._LAB_ID != value))
+				{
+					this.OnLAB_IDChanging(value);
+					this.SendPropertyChanging();
+					this._LAB_ID = value;
+					this.SendPropertyChanged("LAB_ID");
+					this.OnLAB_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMPLOYEE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> DATE
+		{
+			get
+			{
+				return this._DATE;
+			}
+			set
+			{
+				if ((this._DATE != value))
+				{
+					this.OnDATEChanging(value);
+					this.SendPropertyChanging();
+					this._DATE = value;
+					this.SendPropertyChanged("DATE");
+					this.OnDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(20)")]
+		public string DISTRICT
+		{
+			get
+			{
+				return this._DISTRICT;
+			}
+			set
+			{
+				if ((this._DISTRICT != value))
+				{
+					this.OnDISTRICTChanging(value);
+					this.SendPropertyChanging();
+					this._DISTRICT = value;
+					this.SendPropertyChanged("DISTRICT");
+					this.OnDISTRICTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_AUDIO", Storage="_AUDIOs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<AUDIO> AUDIOs
+		{
+			get
+			{
+				return this._AUDIOs;
+			}
+			set
+			{
+				this._AUDIOs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_EKG", Storage="_EKGs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<EKG> EKGs
+		{
+			get
+			{
+				return this._EKGs;
+			}
+			set
+			{
+				this._EKGs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_LAB", Storage="_LABs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<LAB> LABs
+		{
+			get
+			{
+				return this._LABs;
+			}
+			set
+			{
+				this._LABs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_RONTGEN", Storage="_RONTGENs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<RONTGEN> RONTGENs
+		{
+			get
+			{
+				return this._RONTGENs;
+			}
+			set
+			{
+				this._RONTGENs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_SPIRO", Storage="_SPIROs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<SPIRO> SPIROs
+		{
+			get
+			{
+				return this._SPIROs;
+			}
+			set
+			{
+				this._SPIROs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_FISIK", Storage="_FISIKs", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP")]
+		public EntitySet<FISIK> FISIKs
+		{
+			get
+			{
+				return this._FISIKs;
+			}
+			set
+			{
+				this._FISIKs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_FO", Storage="_EMPLOYEE", ThisKey="EMPLOYEE_ID", OtherKey="EMPLOYEE_ID", IsForeignKey=true)]
+		public EMPLOYEE EMPLOYEE
+		{
+			get
+			{
+				return this._EMPLOYEE.Entity;
+			}
+			set
+			{
+				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
+				if (((previousValue != value) 
+							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EMPLOYEE.Entity = null;
+						previousValue.FOs.Remove(this);
+					}
+					this._EMPLOYEE.Entity = value;
+					if ((value != null))
+					{
+						value.FOs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(string);
+					}
+					this.SendPropertyChanged("EMPLOYEE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AUDIOs(AUDIO entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_AUDIOs(AUDIO entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+		
+		private void attach_EKGs(EKG entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_EKGs(EKG entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+		
+		private void attach_LABs(LAB entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_LABs(LAB entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+		
+		private void attach_RONTGENs(RONTGEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_RONTGENs(RONTGEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+		
+		private void attach_SPIROs(SPIRO entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_SPIROs(SPIRO entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+		
+		private void attach_FISIKs(FISIK entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = this;
+		}
+		
+		private void detach_FISIKs(FISIK entity)
+		{
+			this.SendPropertyChanging();
+			entity.FO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LABS")]
+	public partial class LAB : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LABORATORIUM_ID;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
+		
+		private System.Nullable<decimal> _HB;
+		
+		private System.Nullable<int> _HCT;
+		
+		private System.Nullable<int> _LEUKOSIT;
+		
+		private System.Nullable<int> _TROMBOSIT;
+		
+		private System.Nullable<decimal> _ERITROSIT;
+		
+		private System.Nullable<int> _LED;
+		
+		private System.Nullable<int> _DIFLIM;
+		
+		private System.Nullable<int> _DIFMON;
+		
+		private System.Nullable<int> _DIFGRAN;
+		
+		private System.Nullable<bool> _HBSAG;
+		
+		private System.Nullable<int> _AHBS;
+		
+		private System.Nullable<int> _VDRL;
+		
+		private System.Nullable<int> _CHOLESTEROL;
+		
+		private System.Nullable<int> _TRIGLISERIN;
+		
+		private System.Nullable<int> _HDL;
+		
+		private System.Nullable<int> _LDL;
+		
+		private System.Nullable<decimal> _BUN;
+		
+		private System.Nullable<decimal> _CREATINE;
+		
+		private System.Nullable<decimal> _UA;
+		
+		private System.Nullable<int> _BSN;
+		
+		private System.Nullable<int> @__2JPP;
+		
+		private System.Nullable<int> _OT;
+		
+		private System.Nullable<int> _PT;
+		
+		private System.Nullable<bool> _REDUKSI_PUASA;
+		
+		private System.Nullable<bool> _REDUKSI_2JPP;
+		
+		private string _WARNA_URINE;
+		
+		private System.Nullable<int> _BJ;
+		
+		private System.Nullable<int> _PH;
+		
+		private System.Nullable<bool> _KETON;
+		
+		private System.Nullable<bool> _BIL;
+		
+		private System.Nullable<bool> _NITRIT;
+		
+		private System.Nullable<int> _EPITEL;
+		
+		private System.Nullable<int> _URINE_LEKOSIT;
+		
+		private System.Nullable<int> _URINE_ERITROSIT;
+		
+		private System.Nullable<bool> _BAKTERI;
+		
+		private System.Nullable<bool> _SIL;
+		
+		private System.Nullable<bool> _KRISTAL;
+		
+		private string _LAB_RESUME;
+		
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLABORATORIUM_IDChanging(int value);
+    partial void OnLABORATORIUM_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
+    partial void OnHBChanging(System.Nullable<decimal> value);
+    partial void OnHBChanged();
+    partial void OnHCTChanging(System.Nullable<int> value);
+    partial void OnHCTChanged();
+    partial void OnLEUKOSITChanging(System.Nullable<int> value);
+    partial void OnLEUKOSITChanged();
+    partial void OnTROMBOSITChanging(System.Nullable<int> value);
+    partial void OnTROMBOSITChanged();
+    partial void OnERITROSITChanging(System.Nullable<decimal> value);
+    partial void OnERITROSITChanged();
+    partial void OnLEDChanging(System.Nullable<int> value);
+    partial void OnLEDChanged();
+    partial void OnDIFLIMChanging(System.Nullable<int> value);
+    partial void OnDIFLIMChanged();
+    partial void OnDIFMONChanging(System.Nullable<int> value);
+    partial void OnDIFMONChanged();
+    partial void OnDIFGRANChanging(System.Nullable<int> value);
+    partial void OnDIFGRANChanged();
+    partial void OnHBSAGChanging(System.Nullable<bool> value);
+    partial void OnHBSAGChanged();
+    partial void OnAHBSChanging(System.Nullable<int> value);
+    partial void OnAHBSChanged();
+    partial void OnVDRLChanging(System.Nullable<int> value);
+    partial void OnVDRLChanged();
+    partial void OnCHOLESTEROLChanging(System.Nullable<int> value);
+    partial void OnCHOLESTEROLChanged();
+    partial void OnTRIGLISERINChanging(System.Nullable<int> value);
+    partial void OnTRIGLISERINChanged();
+    partial void OnHDLChanging(System.Nullable<int> value);
+    partial void OnHDLChanged();
+    partial void OnLDLChanging(System.Nullable<int> value);
+    partial void OnLDLChanged();
+    partial void OnBUNChanging(System.Nullable<decimal> value);
+    partial void OnBUNChanged();
+    partial void OnCREATINEChanging(System.Nullable<decimal> value);
+    partial void OnCREATINEChanged();
+    partial void OnUAChanging(System.Nullable<decimal> value);
+    partial void OnUAChanged();
+    partial void OnBSNChanging(System.Nullable<int> value);
+    partial void OnBSNChanged();
+    partial void On_2JPPChanging(System.Nullable<int> value);
+    partial void On_2JPPChanged();
+    partial void OnOTChanging(System.Nullable<int> value);
+    partial void OnOTChanged();
+    partial void OnPTChanging(System.Nullable<int> value);
+    partial void OnPTChanged();
+    partial void OnREDUKSI_PUASAChanging(System.Nullable<bool> value);
+    partial void OnREDUKSI_PUASAChanged();
+    partial void OnREDUKSI_2JPPChanging(System.Nullable<bool> value);
+    partial void OnREDUKSI_2JPPChanged();
+    partial void OnWARNA_URINEChanging(string value);
+    partial void OnWARNA_URINEChanged();
+    partial void OnBJChanging(System.Nullable<int> value);
+    partial void OnBJChanged();
+    partial void OnPHChanging(System.Nullable<int> value);
+    partial void OnPHChanged();
+    partial void OnKETONChanging(System.Nullable<bool> value);
+    partial void OnKETONChanged();
+    partial void OnBILChanging(System.Nullable<bool> value);
+    partial void OnBILChanged();
+    partial void OnNITRITChanging(System.Nullable<bool> value);
+    partial void OnNITRITChanged();
+    partial void OnEPITELChanging(System.Nullable<int> value);
+    partial void OnEPITELChanged();
+    partial void OnURINE_LEKOSITChanging(System.Nullable<int> value);
+    partial void OnURINE_LEKOSITChanged();
+    partial void OnURINE_ERITROSITChanging(System.Nullable<int> value);
+    partial void OnURINE_ERITROSITChanged();
+    partial void OnBAKTERIChanging(System.Nullable<bool> value);
+    partial void OnBAKTERIChanged();
+    partial void OnSILChanging(System.Nullable<bool> value);
+    partial void OnSILChanged();
+    partial void OnKRISTALChanging(System.Nullable<bool> value);
+    partial void OnKRISTALChanged();
+    partial void OnLAB_RESUMEChanging(string value);
+    partial void OnLAB_RESUMEChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
+    #endregion
+		
+		public LAB()
+		{
+			this._FO = default(EntityRef<FO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABORATORIUM_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int LABORATORIUM_ID
+		{
+			get
+			{
+				return this._LABORATORIUM_ID;
+			}
+			set
+			{
+				if ((this._LABORATORIUM_ID != value))
+				{
+					this.OnLABORATORIUM_IDChanging(value);
+					this.SendPropertyChanging();
+					this._LABORATORIUM_ID = value;
+					this.SendPropertyChanged("LABORATORIUM_ID");
+					this.OnLABORATORIUM_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMPLOYEE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HB", DbType="Decimal(18,1)")]
+		public System.Nullable<decimal> HB
+		{
+			get
+			{
+				return this._HB;
+			}
+			set
+			{
+				if ((this._HB != value))
+				{
+					this.OnHBChanging(value);
+					this.SendPropertyChanging();
+					this._HB = value;
+					this.SendPropertyChanged("HB");
+					this.OnHBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HCT", DbType="Int")]
+		public System.Nullable<int> HCT
+		{
+			get
+			{
+				return this._HCT;
+			}
+			set
+			{
+				if ((this._HCT != value))
+				{
+					this.OnHCTChanging(value);
+					this.SendPropertyChanging();
+					this._HCT = value;
+					this.SendPropertyChanged("HCT");
+					this.OnHCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEUKOSIT", DbType="Int")]
+		public System.Nullable<int> LEUKOSIT
+		{
+			get
+			{
+				return this._LEUKOSIT;
+			}
+			set
+			{
+				if ((this._LEUKOSIT != value))
+				{
+					this.OnLEUKOSITChanging(value);
+					this.SendPropertyChanging();
+					this._LEUKOSIT = value;
+					this.SendPropertyChanged("LEUKOSIT");
+					this.OnLEUKOSITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TROMBOSIT", DbType="Int")]
+		public System.Nullable<int> TROMBOSIT
+		{
+			get
+			{
+				return this._TROMBOSIT;
+			}
+			set
+			{
+				if ((this._TROMBOSIT != value))
+				{
+					this.OnTROMBOSITChanging(value);
+					this.SendPropertyChanging();
+					this._TROMBOSIT = value;
+					this.SendPropertyChanged("TROMBOSIT");
+					this.OnTROMBOSITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ERITROSIT", DbType="Decimal(18,1)")]
+		public System.Nullable<decimal> ERITROSIT
+		{
+			get
+			{
+				return this._ERITROSIT;
+			}
+			set
+			{
+				if ((this._ERITROSIT != value))
+				{
+					this.OnERITROSITChanging(value);
+					this.SendPropertyChanging();
+					this._ERITROSIT = value;
+					this.SendPropertyChanged("ERITROSIT");
+					this.OnERITROSITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LED", DbType="Int")]
+		public System.Nullable<int> LED
+		{
+			get
+			{
+				return this._LED;
+			}
+			set
+			{
+				if ((this._LED != value))
+				{
+					this.OnLEDChanging(value);
+					this.SendPropertyChanging();
+					this._LED = value;
+					this.SendPropertyChanged("LED");
+					this.OnLEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFLIM", DbType="Int")]
+		public System.Nullable<int> DIFLIM
+		{
+			get
+			{
+				return this._DIFLIM;
+			}
+			set
+			{
+				if ((this._DIFLIM != value))
+				{
+					this.OnDIFLIMChanging(value);
+					this.SendPropertyChanging();
+					this._DIFLIM = value;
+					this.SendPropertyChanged("DIFLIM");
+					this.OnDIFLIMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFMON", DbType="Int")]
+		public System.Nullable<int> DIFMON
+		{
+			get
+			{
+				return this._DIFMON;
+			}
+			set
+			{
+				if ((this._DIFMON != value))
+				{
+					this.OnDIFMONChanging(value);
+					this.SendPropertyChanging();
+					this._DIFMON = value;
+					this.SendPropertyChanged("DIFMON");
+					this.OnDIFMONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFGRAN", DbType="Int")]
+		public System.Nullable<int> DIFGRAN
+		{
+			get
+			{
+				return this._DIFGRAN;
+			}
+			set
+			{
+				if ((this._DIFGRAN != value))
+				{
+					this.OnDIFGRANChanging(value);
+					this.SendPropertyChanging();
+					this._DIFGRAN = value;
+					this.SendPropertyChanged("DIFGRAN");
+					this.OnDIFGRANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HBSAG", DbType="Bit")]
+		public System.Nullable<bool> HBSAG
+		{
+			get
+			{
+				return this._HBSAG;
+			}
+			set
+			{
+				if ((this._HBSAG != value))
+				{
+					this.OnHBSAGChanging(value);
+					this.SendPropertyChanging();
+					this._HBSAG = value;
+					this.SendPropertyChanged("HBSAG");
+					this.OnHBSAGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AHBS", DbType="Int")]
+		public System.Nullable<int> AHBS
+		{
+			get
+			{
+				return this._AHBS;
+			}
+			set
+			{
+				if ((this._AHBS != value))
+				{
+					this.OnAHBSChanging(value);
+					this.SendPropertyChanging();
+					this._AHBS = value;
+					this.SendPropertyChanged("AHBS");
+					this.OnAHBSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VDRL", DbType="Int")]
+		public System.Nullable<int> VDRL
+		{
+			get
+			{
+				return this._VDRL;
+			}
+			set
+			{
+				if ((this._VDRL != value))
+				{
+					this.OnVDRLChanging(value);
+					this.SendPropertyChanging();
+					this._VDRL = value;
+					this.SendPropertyChanged("VDRL");
+					this.OnVDRLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHOLESTEROL", DbType="Int")]
+		public System.Nullable<int> CHOLESTEROL
+		{
+			get
+			{
+				return this._CHOLESTEROL;
+			}
+			set
+			{
+				if ((this._CHOLESTEROL != value))
+				{
+					this.OnCHOLESTEROLChanging(value);
+					this.SendPropertyChanging();
+					this._CHOLESTEROL = value;
+					this.SendPropertyChanged("CHOLESTEROL");
+					this.OnCHOLESTEROLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRIGLISERIN", DbType="Int")]
+		public System.Nullable<int> TRIGLISERIN
+		{
+			get
+			{
+				return this._TRIGLISERIN;
+			}
+			set
+			{
+				if ((this._TRIGLISERIN != value))
+				{
+					this.OnTRIGLISERINChanging(value);
+					this.SendPropertyChanging();
+					this._TRIGLISERIN = value;
+					this.SendPropertyChanged("TRIGLISERIN");
+					this.OnTRIGLISERINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HDL", DbType="Int")]
+		public System.Nullable<int> HDL
+		{
+			get
+			{
+				return this._HDL;
+			}
+			set
+			{
+				if ((this._HDL != value))
+				{
+					this.OnHDLChanging(value);
+					this.SendPropertyChanging();
+					this._HDL = value;
+					this.SendPropertyChanged("HDL");
+					this.OnHDLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LDL", DbType="Int")]
+		public System.Nullable<int> LDL
+		{
+			get
+			{
+				return this._LDL;
+			}
+			set
+			{
+				if ((this._LDL != value))
+				{
+					this.OnLDLChanging(value);
+					this.SendPropertyChanging();
+					this._LDL = value;
+					this.SendPropertyChanged("LDL");
+					this.OnLDLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUN", DbType="Decimal(18,1)")]
+		public System.Nullable<decimal> BUN
+		{
+			get
+			{
+				return this._BUN;
+			}
+			set
+			{
+				if ((this._BUN != value))
+				{
+					this.OnBUNChanging(value);
+					this.SendPropertyChanging();
+					this._BUN = value;
+					this.SendPropertyChanged("BUN");
+					this.OnBUNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATINE", DbType="Decimal(18,1)")]
+		public System.Nullable<decimal> CREATINE
+		{
+			get
+			{
+				return this._CREATINE;
+			}
+			set
+			{
+				if ((this._CREATINE != value))
+				{
+					this.OnCREATINEChanging(value);
+					this.SendPropertyChanging();
+					this._CREATINE = value;
+					this.SendPropertyChanged("CREATINE");
+					this.OnCREATINEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UA", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> UA
+		{
+			get
+			{
+				return this._UA;
+			}
+			set
+			{
+				if ((this._UA != value))
+				{
+					this.OnUAChanging(value);
+					this.SendPropertyChanging();
+					this._UA = value;
+					this.SendPropertyChanged("UA");
+					this.OnUAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BSN", DbType="Int")]
+		public System.Nullable<int> BSN
+		{
+			get
+			{
+				return this._BSN;
+			}
+			set
+			{
+				if ((this._BSN != value))
+				{
+					this.OnBSNChanging(value);
+					this.SendPropertyChanging();
+					this._BSN = value;
+					this.SendPropertyChanged("BSN");
+					this.OnBSNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2JPP]", Storage="__2JPP", DbType="Int")]
+		public System.Nullable<int> _2JPP
+		{
+			get
+			{
+				return this.@__2JPP;
+			}
+			set
+			{
+				if ((this.@__2JPP != value))
+				{
+					this.On_2JPPChanging(value);
+					this.SendPropertyChanging();
+					this.@__2JPP = value;
+					this.SendPropertyChanged("_2JPP");
+					this.On_2JPPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT", DbType="Int")]
+		public System.Nullable<int> OT
+		{
+			get
+			{
+				return this._OT;
+			}
+			set
+			{
+				if ((this._OT != value))
+				{
+					this.OnOTChanging(value);
+					this.SendPropertyChanging();
+					this._OT = value;
+					this.SendPropertyChanged("OT");
+					this.OnOTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PT", DbType="Int")]
+		public System.Nullable<int> PT
+		{
+			get
+			{
+				return this._PT;
+			}
+			set
+			{
+				if ((this._PT != value))
+				{
+					this.OnPTChanging(value);
+					this.SendPropertyChanging();
+					this._PT = value;
+					this.SendPropertyChanged("PT");
+					this.OnPTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REDUKSI_PUASA", DbType="Bit")]
+		public System.Nullable<bool> REDUKSI_PUASA
+		{
+			get
+			{
+				return this._REDUKSI_PUASA;
+			}
+			set
+			{
+				if ((this._REDUKSI_PUASA != value))
+				{
+					this.OnREDUKSI_PUASAChanging(value);
+					this.SendPropertyChanging();
+					this._REDUKSI_PUASA = value;
+					this.SendPropertyChanged("REDUKSI_PUASA");
+					this.OnREDUKSI_PUASAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REDUKSI_2JPP", DbType="Bit")]
+		public System.Nullable<bool> REDUKSI_2JPP
+		{
+			get
+			{
+				return this._REDUKSI_2JPP;
+			}
+			set
+			{
+				if ((this._REDUKSI_2JPP != value))
+				{
+					this.OnREDUKSI_2JPPChanging(value);
+					this.SendPropertyChanging();
+					this._REDUKSI_2JPP = value;
+					this.SendPropertyChanged("REDUKSI_2JPP");
+					this.OnREDUKSI_2JPPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WARNA_URINE", DbType="VarChar(20)")]
+		public string WARNA_URINE
+		{
+			get
+			{
+				return this._WARNA_URINE;
+			}
+			set
+			{
+				if ((this._WARNA_URINE != value))
+				{
+					this.OnWARNA_URINEChanging(value);
+					this.SendPropertyChanging();
+					this._WARNA_URINE = value;
+					this.SendPropertyChanged("WARNA_URINE");
+					this.OnWARNA_URINEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BJ", DbType="Int")]
+		public System.Nullable<int> BJ
+		{
+			get
+			{
+				return this._BJ;
+			}
+			set
+			{
+				if ((this._BJ != value))
+				{
+					this.OnBJChanging(value);
+					this.SendPropertyChanging();
+					this._BJ = value;
+					this.SendPropertyChanged("BJ");
+					this.OnBJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PH", DbType="Int")]
+		public System.Nullable<int> PH
+		{
+			get
+			{
+				return this._PH;
+			}
+			set
+			{
+				if ((this._PH != value))
+				{
+					this.OnPHChanging(value);
+					this.SendPropertyChanging();
+					this._PH = value;
+					this.SendPropertyChanged("PH");
+					this.OnPHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KETON", DbType="Bit")]
+		public System.Nullable<bool> KETON
+		{
+			get
+			{
+				return this._KETON;
+			}
+			set
+			{
+				if ((this._KETON != value))
+				{
+					this.OnKETONChanging(value);
+					this.SendPropertyChanging();
+					this._KETON = value;
+					this.SendPropertyChanged("KETON");
+					this.OnKETONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIL", DbType="Bit")]
+		public System.Nullable<bool> BIL
+		{
+			get
+			{
+				return this._BIL;
+			}
+			set
+			{
+				if ((this._BIL != value))
+				{
+					this.OnBILChanging(value);
+					this.SendPropertyChanging();
+					this._BIL = value;
+					this.SendPropertyChanged("BIL");
+					this.OnBILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NITRIT", DbType="Bit")]
+		public System.Nullable<bool> NITRIT
+		{
+			get
+			{
+				return this._NITRIT;
+			}
+			set
+			{
+				if ((this._NITRIT != value))
+				{
+					this.OnNITRITChanging(value);
+					this.SendPropertyChanging();
+					this._NITRIT = value;
+					this.SendPropertyChanged("NITRIT");
+					this.OnNITRITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EPITEL", DbType="Int")]
+		public System.Nullable<int> EPITEL
+		{
+			get
+			{
+				return this._EPITEL;
+			}
+			set
+			{
+				if ((this._EPITEL != value))
+				{
+					this.OnEPITELChanging(value);
+					this.SendPropertyChanging();
+					this._EPITEL = value;
+					this.SendPropertyChanged("EPITEL");
+					this.OnEPITELChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URINE_LEKOSIT", DbType="Int")]
+		public System.Nullable<int> URINE_LEKOSIT
+		{
+			get
+			{
+				return this._URINE_LEKOSIT;
+			}
+			set
+			{
+				if ((this._URINE_LEKOSIT != value))
+				{
+					this.OnURINE_LEKOSITChanging(value);
+					this.SendPropertyChanging();
+					this._URINE_LEKOSIT = value;
+					this.SendPropertyChanged("URINE_LEKOSIT");
+					this.OnURINE_LEKOSITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URINE_ERITROSIT", DbType="Int")]
+		public System.Nullable<int> URINE_ERITROSIT
+		{
+			get
+			{
+				return this._URINE_ERITROSIT;
+			}
+			set
+			{
+				if ((this._URINE_ERITROSIT != value))
+				{
+					this.OnURINE_ERITROSITChanging(value);
+					this.SendPropertyChanging();
+					this._URINE_ERITROSIT = value;
+					this.SendPropertyChanged("URINE_ERITROSIT");
+					this.OnURINE_ERITROSITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAKTERI", DbType="Bit")]
+		public System.Nullable<bool> BAKTERI
+		{
+			get
+			{
+				return this._BAKTERI;
+			}
+			set
+			{
+				if ((this._BAKTERI != value))
+				{
+					this.OnBAKTERIChanging(value);
+					this.SendPropertyChanging();
+					this._BAKTERI = value;
+					this.SendPropertyChanged("BAKTERI");
+					this.OnBAKTERIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIL", DbType="Bit")]
+		public System.Nullable<bool> SIL
+		{
+			get
+			{
+				return this._SIL;
+			}
+			set
+			{
+				if ((this._SIL != value))
+				{
+					this.OnSILChanging(value);
+					this.SendPropertyChanging();
+					this._SIL = value;
+					this.SendPropertyChanged("SIL");
+					this.OnSILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KRISTAL", DbType="Bit")]
+		public System.Nullable<bool> KRISTAL
+		{
+			get
+			{
+				return this._KRISTAL;
+			}
+			set
+			{
+				if ((this._KRISTAL != value))
+				{
+					this.OnKRISTALChanging(value);
+					this.SendPropertyChanging();
+					this._KRISTAL = value;
+					this.SendPropertyChanged("KRISTAL");
+					this.OnKRISTALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_RESUME", DbType="VarChar(MAX)")]
+		public string LAB_RESUME
+		{
+			get
+			{
+				return this._LAB_RESUME;
+			}
+			set
+			{
+				if ((this._LAB_RESUME != value))
+				{
+					this.OnLAB_RESUMEChanging(value);
+					this.SendPropertyChanging();
+					this._LAB_RESUME = value;
+					this.SendPropertyChanged("LAB_RESUME");
+					this.OnLAB_RESUMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(50)")]
+		public string CHECKED_BY
+		{
+			get
+			{
+				return this._CHECKED_BY;
+			}
+			set
+			{
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_LAB", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
+				if (((previousValue != value) 
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FO.Entity = null;
+						previousValue.LABs.Remove(this);
+					}
+					this._FO.Entity = value;
+					if ((value != null))
+					{
+						value.LABs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
+					}
+					this.SendPropertyChanged("FO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ROLE")]
+	public partial class ROLE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ROLE_ID;
+		
+		private string _ROLE_NAME;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnROLE_IDChanging(int value);
+    partial void OnROLE_IDChanged();
+    partial void OnROLE_NAMEChanging(string value);
+    partial void OnROLE_NAMEChanged();
+    #endregion
+		
+		public ROLE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ROLE_ID
+		{
+			get
+			{
+				return this._ROLE_ID;
+			}
+			set
+			{
+				if ((this._ROLE_ID != value))
+				{
+					this.OnROLE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._ROLE_ID = value;
+					this.SendPropertyChanged("ROLE_ID");
+					this.OnROLE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE_NAME", DbType="VarChar(50)")]
+		public string ROLE_NAME
+		{
+			get
+			{
+				return this._ROLE_NAME;
+			}
+			set
+			{
+				if ((this._ROLE_NAME != value))
+				{
+					this.OnROLE_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._ROLE_NAME = value;
+					this.SendPropertyChanged("ROLE_NAME");
+					this.OnROLE_NAMEChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RONTGEN")]
+	public partial class RONTGEN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RONTGEN_ID;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
+		
+		private string _RONTGEN_RESULT;
+		
+		private string _RONTGEN_FILE_NAME;
+		
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRONTGEN_IDChanging(int value);
+    partial void OnRONTGEN_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
+    partial void OnRONTGEN_RESULTChanging(string value);
+    partial void OnRONTGEN_RESULTChanged();
+    partial void OnRONTGEN_FILE_NAMEChanging(string value);
+    partial void OnRONTGEN_FILE_NAMEChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
+    #endregion
+		
+		public RONTGEN()
+		{
+			this._FO = default(EntityRef<FO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RONTGEN_ID
+		{
+			get
+			{
+				return this._RONTGEN_ID;
+			}
+			set
+			{
+				if ((this._RONTGEN_ID != value))
+				{
+					this.OnRONTGEN_IDChanging(value);
+					this.SendPropertyChanging();
+					this._RONTGEN_ID = value;
+					this.SendPropertyChanged("RONTGEN_ID");
+					this.OnRONTGEN_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEMPLOYEE_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_RESULT", DbType="VarChar(30)")]
+		public string RONTGEN_RESULT
+		{
+			get
+			{
+				return this._RONTGEN_RESULT;
+			}
+			set
+			{
+				if ((this._RONTGEN_RESULT != value))
+				{
+					this.OnRONTGEN_RESULTChanging(value);
+					this.SendPropertyChanging();
+					this._RONTGEN_RESULT = value;
+					this.SendPropertyChanged("RONTGEN_RESULT");
+					this.OnRONTGEN_RESULTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_FILE_NAME", DbType="VarChar(50)")]
+		public string RONTGEN_FILE_NAME
+		{
+			get
+			{
+				return this._RONTGEN_FILE_NAME;
+			}
+			set
+			{
+				if ((this._RONTGEN_FILE_NAME != value))
+				{
+					this.OnRONTGEN_FILE_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._RONTGEN_FILE_NAME = value;
+					this.SendPropertyChanged("RONTGEN_FILE_NAME");
+					this.OnRONTGEN_FILE_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(15)")]
+		public string CHECKED_BY
+		{
+			get
+			{
+				return this._CHECKED_BY;
+			}
+			set
+			{
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_RONTGEN", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
+				if (((previousValue != value) 
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FO.Entity = null;
+						previousValue.RONTGENs.Remove(this);
+					}
+					this._FO.Entity = value;
+					if ((value != null))
+					{
+						value.RONTGENs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
+					}
+					else
+					{
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
+					}
+					this.SendPropertyChanged("FO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SPIRO")]
+	public partial class SPIRO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _SPIRO_ID;
 		
-		private int _LAB_ID;
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
 		
 		private string _SPIROMETRY_RESULT;
 		
 		private string _SPIROMETRY_FILE_NAME;
 		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -355,17 +2589,21 @@ namespace WebUltraMedica.Models
     partial void OnCreated();
     partial void OnSPIRO_IDChanging(int value);
     partial void OnSPIRO_IDChanged();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
     partial void OnSPIROMETRY_RESULTChanging(string value);
     partial void OnSPIROMETRY_RESULTChanged();
     partial void OnSPIROMETRY_FILE_NAMEChanging(string value);
     partial void OnSPIROMETRY_FILE_NAMEChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
     #endregion
 		
-		public TBL_T_SPIRO()
+		public SPIRO()
 		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
+			this._FO = default(EntityRef<FO>);
 			OnCreated();
 		}
 		
@@ -389,26 +2627,50 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
-		public int LAB_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string EMPLOYEE_ID
 		{
 			get
 			{
-				return this._LAB_ID;
+				return this._EMPLOYEE_ID;
 			}
 			set
 			{
-				if ((this._LAB_ID != value))
+				if ((this._EMPLOYEE_ID != value))
 				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
+					if (this._FO.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnLAB_IDChanging(value);
+					this.OnEMPLOYEE_IDChanging(value);
 					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
 				}
 			}
 		}
@@ -453,36 +2715,58 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_SPIRO", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(15)")]
+		public string CHECKED_BY
 		{
 			get
 			{
-				return this._TBL_T_FO.Entity;
+				return this._CHECKED_BY;
 			}
 			set
 			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_SPIRO", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
 				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_SPIROs.Remove(this);
+						this._FO.Entity = null;
+						previousValue.SPIROs.Remove(this);
 					}
-					this._TBL_T_FO.Entity = value;
+					this._FO.Entity = value;
 					if ((value != null))
 					{
-						value.TBL_T_SPIROs.Add(this);
-						this._LAB_ID = value.LAB_ID;
+						value.SPIROs.Add(this);
+						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
 					}
 					else
 					{
-						this._LAB_ID = default(int);
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
 					}
-					this.SendPropertyChanged("TBL_T_FO");
+					this.SendPropertyChanged("FO");
 				}
 			}
 		}
@@ -508,15 +2792,13 @@ namespace WebUltraMedica.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_FO")]
-	public partial class TBL_R_FO : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE")]
+	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _EMPLOYEE_ID;
-		
-		private string _NRP;
+		private string _EMPLOYEE_ID;
 		
 		private string _NAME;
 		
@@ -536,18 +2818,16 @@ namespace WebUltraMedica.Models
 		
 		private bool _STATUS;
 		
-		private EntitySet<TBL_T_FO> _TBL_T_FOs;
+		private EntitySet<FO> _FOs;
 		
-		private EntityRef<TBL_R_COMPANY> _TBL_R_COMPANY;
+		private EntityRef<COMPANY> _COMPANY;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnEMPLOYEE_IDChanging(int value);
+    partial void OnEMPLOYEE_IDChanging(string value);
     partial void OnEMPLOYEE_IDChanged();
-    partial void OnNRPChanging(string value);
-    partial void OnNRPChanged();
     partial void OnNAMEChanging(string value);
     partial void OnNAMEChanged();
     partial void OnSEXChanging(string value);
@@ -568,15 +2848,15 @@ namespace WebUltraMedica.Models
     partial void OnSTATUSChanged();
     #endregion
 		
-		public TBL_R_FO()
+		public EMPLOYEE()
 		{
-			this._TBL_T_FOs = new EntitySet<TBL_T_FO>(new Action<TBL_T_FO>(this.attach_TBL_T_FOs), new Action<TBL_T_FO>(this.detach_TBL_T_FOs));
-			this._TBL_R_COMPANY = default(EntityRef<TBL_R_COMPANY>);
+			this._FOs = new EntitySet<FO>(new Action<FO>(this.attach_FOs), new Action<FO>(this.detach_FOs));
+			this._COMPANY = default(EntityRef<COMPANY>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EMPLOYEE_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string EMPLOYEE_ID
 		{
 			get
 			{
@@ -591,26 +2871,6 @@ namespace WebUltraMedica.Models
 					this._EMPLOYEE_ID = value;
 					this.SendPropertyChanged("EMPLOYEE_ID");
 					this.OnEMPLOYEE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
-		public string NRP
-		{
-			get
-			{
-				return this._NRP;
-			}
-			set
-			{
-				if ((this._NRP != value))
-				{
-					this.OnNRPChanging(value);
-					this.SendPropertyChanging();
-					this._NRP = value;
-					this.SendPropertyChanged("NRP");
-					this.OnNRPChanged();
 				}
 			}
 		}
@@ -715,7 +2975,7 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRICT", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string DISTRICT
 		{
 			get
@@ -766,7 +3026,7 @@ namespace WebUltraMedica.Models
 			{
 				if ((this._COMPANY_ID != value))
 				{
-					if (this._TBL_R_COMPANY.HasLoadedOrAssignedValue)
+					if (this._COMPANY.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -799,49 +3059,49 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_FO_TBL_T_FO", Storage="_TBL_T_FOs", ThisKey="EMPLOYEE_ID", OtherKey="EMPLOYEE_ID")]
-		public EntitySet<TBL_T_FO> TBL_T_FOs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_FO", Storage="_FOs", ThisKey="EMPLOYEE_ID", OtherKey="EMPLOYEE_ID")]
+		public EntitySet<FO> FOs
 		{
 			get
 			{
-				return this._TBL_T_FOs;
+				return this._FOs;
 			}
 			set
 			{
-				this._TBL_T_FOs.Assign(value);
+				this._FOs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_COMPANY_TBL_R_FO", Storage="_TBL_R_COMPANY", ThisKey="COMPANY_ID", OtherKey="COMPANY_ID", IsForeignKey=true)]
-		public TBL_R_COMPANY TBL_R_COMPANY
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="COMPANY_EMPLOYEE", Storage="_COMPANY", ThisKey="COMPANY_ID", OtherKey="COMPANY_ID", IsForeignKey=true)]
+		public COMPANY COMPANY
 		{
 			get
 			{
-				return this._TBL_R_COMPANY.Entity;
+				return this._COMPANY.Entity;
 			}
 			set
 			{
-				TBL_R_COMPANY previousValue = this._TBL_R_COMPANY.Entity;
+				COMPANY previousValue = this._COMPANY.Entity;
 				if (((previousValue != value) 
-							|| (this._TBL_R_COMPANY.HasLoadedOrAssignedValue == false)))
+							|| (this._COMPANY.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TBL_R_COMPANY.Entity = null;
-						previousValue.TBL_R_FOs.Remove(this);
+						this._COMPANY.Entity = null;
+						previousValue.EMPLOYEEs.Remove(this);
 					}
-					this._TBL_R_COMPANY.Entity = value;
+					this._COMPANY.Entity = value;
 					if ((value != null))
 					{
-						value.TBL_R_FOs.Add(this);
+						value.EMPLOYEEs.Add(this);
 						this._COMPANY_ID = value.COMPANY_ID;
 					}
 					else
 					{
 						this._COMPANY_ID = default(int);
 					}
-					this.SendPropertyChanged("TBL_R_COMPANY");
+					this.SendPropertyChanged("COMPANY");
 				}
 			}
 		}
@@ -866,135 +3126,21 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		private void attach_TBL_T_FOs(TBL_T_FO entity)
+		private void attach_FOs(FO entity)
 		{
 			this.SendPropertyChanging();
-			entity.TBL_R_FO = this;
+			entity.EMPLOYEE = this;
 		}
 		
-		private void detach_TBL_T_FOs(TBL_T_FO entity)
+		private void detach_FOs(FO entity)
 		{
 			this.SendPropertyChanging();
-			entity.TBL_R_FO = null;
+			entity.EMPLOYEE = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_ROLE")]
-	public partial class TBL_R_ROLE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ROLE_ID;
-		
-		private string _ROLE_NAME;
-		
-		private EntitySet<TBL_R_USER> _TBL_R_USERs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnROLE_IDChanging(int value);
-    partial void OnROLE_IDChanged();
-    partial void OnROLE_NAMEChanging(string value);
-    partial void OnROLE_NAMEChanged();
-    #endregion
-		
-		public TBL_R_ROLE()
-		{
-			this._TBL_R_USERs = new EntitySet<TBL_R_USER>(new Action<TBL_R_USER>(this.attach_TBL_R_USERs), new Action<TBL_R_USER>(this.detach_TBL_R_USERs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ROLE_ID
-		{
-			get
-			{
-				return this._ROLE_ID;
-			}
-			set
-			{
-				if ((this._ROLE_ID != value))
-				{
-					this.OnROLE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._ROLE_ID = value;
-					this.SendPropertyChanged("ROLE_ID");
-					this.OnROLE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE_NAME", DbType="VarChar(50)")]
-		public string ROLE_NAME
-		{
-			get
-			{
-				return this._ROLE_NAME;
-			}
-			set
-			{
-				if ((this._ROLE_NAME != value))
-				{
-					this.OnROLE_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._ROLE_NAME = value;
-					this.SendPropertyChanged("ROLE_NAME");
-					this.OnROLE_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_ROLE_TBL_R_USER", Storage="_TBL_R_USERs", ThisKey="ROLE_ID", OtherKey="ROLE_ID")]
-		public EntitySet<TBL_R_USER> TBL_R_USERs
-		{
-			get
-			{
-				return this._TBL_R_USERs;
-			}
-			set
-			{
-				this._TBL_R_USERs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TBL_R_USERs(TBL_R_USER entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_R_ROLE = this;
-		}
-		
-		private void detach_TBL_R_USERs(TBL_R_USER entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_R_ROLE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_ULTRAEMPLOYEE")]
-	public partial class TBL_R_ULTRAEMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[USER]")]
+	public partial class USER : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1005,7 +3151,11 @@ namespace WebUltraMedica.Models
 		
 		private string _POSISI;
 		
-		private EntitySet<TBL_R_USER> _TBL_R_USERs;
+		private string _USERNAME;
+		
+		private string _PASSWORD;
+		
+		private string _ROLES;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1017,11 +3167,16 @@ namespace WebUltraMedica.Models
     partial void OnNAMAChanged();
     partial void OnPOSISIChanging(string value);
     partial void OnPOSISIChanged();
+    partial void OnUSERNAMEChanging(string value);
+    partial void OnUSERNAMEChanged();
+    partial void OnPASSWORDChanging(string value);
+    partial void OnPASSWORDChanged();
+    partial void OnROLESChanging(string value);
+    partial void OnROLESChanged();
     #endregion
 		
-		public TBL_R_ULTRAEMPLOYEE()
+		public USER()
 		{
-			this._TBL_R_USERs = new EntitySet<TBL_R_USER>(new Action<TBL_R_USER>(this.attach_TBL_R_USERs), new Action<TBL_R_USER>(this.detach_TBL_R_USERs));
 			OnCreated();
 		}
 		
@@ -1085,16 +3240,63 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_ULTRAEMPLOYEE_TBL_R_USER", Storage="_TBL_R_USERs", ThisKey="NIK", OtherKey="NIK")]
-		public EntitySet<TBL_R_USER> TBL_R_USERs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50)")]
+		public string USERNAME
 		{
 			get
 			{
-				return this._TBL_R_USERs;
+				return this._USERNAME;
 			}
 			set
 			{
-				this._TBL_R_USERs.Assign(value);
+				if ((this._USERNAME != value))
+				{
+					this.OnUSERNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._USERNAME = value;
+					this.SendPropertyChanged("USERNAME");
+					this.OnUSERNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORD", DbType="VarChar(20)")]
+		public string PASSWORD
+		{
+			get
+			{
+				return this._PASSWORD;
+			}
+			set
+			{
+				if ((this._PASSWORD != value))
+				{
+					this.OnPASSWORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASSWORD = value;
+					this.SendPropertyChanged("PASSWORD");
+					this.OnPASSWORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLES", DbType="VarChar(255)")]
+		public string ROLES
+		{
+			get
+			{
+				return this._ROLES;
+			}
+			set
+			{
+				if ((this._ROLES != value))
+				{
+					this.OnROLESChanging(value);
+					this.SendPropertyChanging();
+					this._ROLES = value;
+					this.SendPropertyChanged("ROLES");
+					this.OnROLESChanged();
+				}
 			}
 		}
 		
@@ -1117,551 +3319,88 @@ namespace WebUltraMedica.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_TBL_R_USERs(TBL_R_USER entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_R_ULTRAEMPLOYEE = this;
-		}
-		
-		private void detach_TBL_R_USERs(TBL_R_USER entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_R_ULTRAEMPLOYEE = null;
-		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_USER")]
-	public partial class TBL_R_USER : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MASTER_SELECT")]
+	public partial class MASTER_SELECT
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private string _KEY_SELECT;
 		
-		private string _NIK;
+		private string _VALUE;
 		
-		private int _ROLE_ID;
+		private string _TEXT;
 		
-		private EntityRef<TBL_R_ROLE> _TBL_R_ROLE;
-		
-		private EntityRef<TBL_R_ULTRAEMPLOYEE> _TBL_R_ULTRAEMPLOYEE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNIKChanging(string value);
-    partial void OnNIKChanged();
-    partial void OnROLE_IDChanging(int value);
-    partial void OnROLE_IDChanged();
-    #endregion
-		
-		public TBL_R_USER()
+		public MASTER_SELECT()
 		{
-			this._TBL_R_ROLE = default(EntityRef<TBL_R_ROLE>);
-			this._TBL_R_ULTRAEMPLOYEE = default(EntityRef<TBL_R_ULTRAEMPLOYEE>);
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIK", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string NIK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_SELECT", DbType="VarChar(50)")]
+		public string KEY_SELECT
 		{
 			get
 			{
-				return this._NIK;
+				return this._KEY_SELECT;
 			}
 			set
 			{
-				if ((this._NIK != value))
+				if ((this._KEY_SELECT != value))
 				{
-					if (this._TBL_R_ULTRAEMPLOYEE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNIKChanging(value);
-					this.SendPropertyChanging();
-					this._NIK = value;
-					this.SendPropertyChanged("NIK");
-					this.OnNIKChanged();
+					this._KEY_SELECT = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ROLE_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALUE", DbType="VarChar(50)")]
+		public string VALUE
 		{
 			get
 			{
-				return this._ROLE_ID;
+				return this._VALUE;
 			}
 			set
 			{
-				if ((this._ROLE_ID != value))
+				if ((this._VALUE != value))
 				{
-					if (this._TBL_R_ROLE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnROLE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._ROLE_ID = value;
-					this.SendPropertyChanged("ROLE_ID");
-					this.OnROLE_IDChanged();
+					this._VALUE = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_ROLE_TBL_R_USER", Storage="_TBL_R_ROLE", ThisKey="ROLE_ID", OtherKey="ROLE_ID", IsForeignKey=true)]
-		public TBL_R_ROLE TBL_R_ROLE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEXT", DbType="VarChar(255)")]
+		public string TEXT
 		{
 			get
 			{
-				return this._TBL_R_ROLE.Entity;
+				return this._TEXT;
 			}
 			set
 			{
-				TBL_R_ROLE previousValue = this._TBL_R_ROLE.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_R_ROLE.HasLoadedOrAssignedValue == false)))
+				if ((this._TEXT != value))
 				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_R_ROLE.Entity = null;
-						previousValue.TBL_R_USERs.Remove(this);
-					}
-					this._TBL_R_ROLE.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_R_USERs.Add(this);
-						this._ROLE_ID = value.ROLE_ID;
-					}
-					else
-					{
-						this._ROLE_ID = default(int);
-					}
-					this.SendPropertyChanged("TBL_R_ROLE");
+					this._TEXT = value;
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_ULTRAEMPLOYEE_TBL_R_USER", Storage="_TBL_R_ULTRAEMPLOYEE", ThisKey="NIK", OtherKey="NIK", IsForeignKey=true)]
-		public TBL_R_ULTRAEMPLOYEE TBL_R_ULTRAEMPLOYEE
-		{
-			get
-			{
-				return this._TBL_R_ULTRAEMPLOYEE.Entity;
-			}
-			set
-			{
-				TBL_R_ULTRAEMPLOYEE previousValue = this._TBL_R_ULTRAEMPLOYEE.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_R_ULTRAEMPLOYEE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_R_ULTRAEMPLOYEE.Entity = null;
-						previousValue.TBL_R_USERs.Remove(this);
-					}
-					this._TBL_R_ULTRAEMPLOYEE.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_R_USERs.Add(this);
-						this._NIK = value.NIK;
-					}
-					else
-					{
-						this._NIK = default(string);
-					}
-					this.SendPropertyChanged("TBL_R_ULTRAEMPLOYEE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_AUDIO")]
-	public partial class TBL_T_AUDIO : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AUDIO_ID;
-		
-		private System.Nullable<int> _LAB_ID;
-		
-		private string _AUDIOMETRY_RESULT;
-		
-		private string _AUDIOMETRY_FILE_NAME;
-		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAUDIO_IDChanging(int value);
-    partial void OnAUDIO_IDChanged();
-    partial void OnLAB_IDChanging(System.Nullable<int> value);
-    partial void OnLAB_IDChanged();
-    partial void OnAUDIOMETRY_RESULTChanging(string value);
-    partial void OnAUDIOMETRY_RESULTChanged();
-    partial void OnAUDIOMETRY_FILE_NAMEChanging(string value);
-    partial void OnAUDIOMETRY_FILE_NAMEChanged();
-    #endregion
-		
-		public TBL_T_AUDIO()
-		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIO_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AUDIO_ID
-		{
-			get
-			{
-				return this._AUDIO_ID;
-			}
-			set
-			{
-				if ((this._AUDIO_ID != value))
-				{
-					this.OnAUDIO_IDChanging(value);
-					this.SendPropertyChanging();
-					this._AUDIO_ID = value;
-					this.SendPropertyChanged("AUDIO_ID");
-					this.OnAUDIO_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int")]
-		public System.Nullable<int> LAB_ID
-		{
-			get
-			{
-				return this._LAB_ID;
-			}
-			set
-			{
-				if ((this._LAB_ID != value))
-				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAB_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIOMETRY_RESULT", DbType="VarChar(30)")]
-		public string AUDIOMETRY_RESULT
-		{
-			get
-			{
-				return this._AUDIOMETRY_RESULT;
-			}
-			set
-			{
-				if ((this._AUDIOMETRY_RESULT != value))
-				{
-					this.OnAUDIOMETRY_RESULTChanging(value);
-					this.SendPropertyChanging();
-					this._AUDIOMETRY_RESULT = value;
-					this.SendPropertyChanged("AUDIOMETRY_RESULT");
-					this.OnAUDIOMETRY_RESULTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDIOMETRY_FILE_NAME", DbType="VarChar(50)")]
-		public string AUDIOMETRY_FILE_NAME
-		{
-			get
-			{
-				return this._AUDIOMETRY_FILE_NAME;
-			}
-			set
-			{
-				if ((this._AUDIOMETRY_FILE_NAME != value))
-				{
-					this.OnAUDIOMETRY_FILE_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._AUDIOMETRY_FILE_NAME = value;
-					this.SendPropertyChanged("AUDIOMETRY_FILE_NAME");
-					this.OnAUDIOMETRY_FILE_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_AUDIO", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
-		{
-			get
-			{
-				return this._TBL_T_FO.Entity;
-			}
-			set
-			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_AUDIOs.Remove(this);
-					}
-					this._TBL_T_FO.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_T_AUDIOs.Add(this);
-						this._LAB_ID = value.LAB_ID;
-					}
-					else
-					{
-						this._LAB_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TBL_T_FO");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_EKG")]
-	public partial class TBL_T_EKG : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EKG_ID;
-		
-		private int _LAB_ID;
-		
-		private string _EKG_RESULT;
-		
-		private string _EKG_FILE_NAME;
-		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEKG_IDChanging(int value);
-    partial void OnEKG_IDChanged();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
-    partial void OnEKG_RESULTChanging(string value);
-    partial void OnEKG_RESULTChanged();
-    partial void OnEKG_FILE_NAMEChanging(string value);
-    partial void OnEKG_FILE_NAMEChanged();
-    #endregion
-		
-		public TBL_T_EKG()
-		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int EKG_ID
-		{
-			get
-			{
-				return this._EKG_ID;
-			}
-			set
-			{
-				if ((this._EKG_ID != value))
-				{
-					this.OnEKG_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EKG_ID = value;
-					this.SendPropertyChanged("EKG_ID");
-					this.OnEKG_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
-		public int LAB_ID
-		{
-			get
-			{
-				return this._LAB_ID;
-			}
-			set
-			{
-				if ((this._LAB_ID != value))
-				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAB_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_RESULT", DbType="VarChar(30)")]
-		public string EKG_RESULT
-		{
-			get
-			{
-				return this._EKG_RESULT;
-			}
-			set
-			{
-				if ((this._EKG_RESULT != value))
-				{
-					this.OnEKG_RESULTChanging(value);
-					this.SendPropertyChanging();
-					this._EKG_RESULT = value;
-					this.SendPropertyChanged("EKG_RESULT");
-					this.OnEKG_RESULTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EKG_FILE_NAME", DbType="VarChar(50)")]
-		public string EKG_FILE_NAME
-		{
-			get
-			{
-				return this._EKG_FILE_NAME;
-			}
-			set
-			{
-				if ((this._EKG_FILE_NAME != value))
-				{
-					this.OnEKG_FILE_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._EKG_FILE_NAME = value;
-					this.SendPropertyChanged("EKG_FILE_NAME");
-					this.OnEKG_FILE_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_EKG", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
-		{
-			get
-			{
-				return this._TBL_T_FO.Entity;
-			}
-			set
-			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_EKGs.Remove(this);
-					}
-					this._TBL_T_FO.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_T_EKGs.Add(this);
-						this._LAB_ID = value.LAB_ID;
-					}
-					else
-					{
-						this._LAB_ID = default(int);
-					}
-					this.SendPropertyChanged("TBL_T_FO");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_FISIK")]
-	public partial class TBL_T_FISIK : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FISIK")]
+	public partial class FISIK : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _FISIK_ID;
 		
-		private int _LAB_ID;
+		private string _EMPLOYEE_ID;
+		
+		private string _YEAR_CHECKUP;
 		
 		private string _TEMPAT_KERJA;
 		
 		private string _POSISI_KERJA;
+		
+		private string _PAPARAN;
 		
 		private string _METODE_KERJA;
 		
@@ -1699,9 +3438,11 @@ namespace WebUltraMedica.Models
 		
 		private string _KEBIASAAN_NARKOBA;
 		
-		private string _TINGGI_BADAN;
+		private System.Nullable<int> _TINGGI_BADAN;
 		
-		private string _BERAT_BADAN;
+		private System.Nullable<int> _BERAT_BADAN;
+		
+		private System.Nullable<decimal> _BMI;
 		
 		private System.Nullable<int> _LKR_DD;
 		
@@ -1797,7 +3538,9 @@ namespace WebUltraMedica.Models
 		
 		private string _SUMMARY_KESIMPULAN;
 		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
+		private string _CHECKED_BY;
+		
+		private EntityRef<FO> _FO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1805,12 +3548,16 @@ namespace WebUltraMedica.Models
     partial void OnCreated();
     partial void OnFISIK_IDChanging(int value);
     partial void OnFISIK_IDChanged();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
+    partial void OnEMPLOYEE_IDChanging(string value);
+    partial void OnEMPLOYEE_IDChanged();
+    partial void OnYEAR_CHECKUPChanging(string value);
+    partial void OnYEAR_CHECKUPChanged();
     partial void OnTEMPAT_KERJAChanging(string value);
     partial void OnTEMPAT_KERJAChanged();
     partial void OnPOSISI_KERJAChanging(string value);
     partial void OnPOSISI_KERJAChanged();
+    partial void OnPAPARANChanging(string value);
+    partial void OnPAPARANChanged();
     partial void OnMETODE_KERJAChanging(string value);
     partial void OnMETODE_KERJAChanged();
     partial void OnRIWAYAT_ASMAChanging(System.Nullable<bool> value);
@@ -1847,10 +3594,12 @@ namespace WebUltraMedica.Models
     partial void OnKEBIASAAN_MEROKOKChanged();
     partial void OnKEBIASAAN_NARKOBAChanging(string value);
     partial void OnKEBIASAAN_NARKOBAChanged();
-    partial void OnTINGGI_BADANChanging(string value);
+    partial void OnTINGGI_BADANChanging(System.Nullable<int> value);
     partial void OnTINGGI_BADANChanged();
-    partial void OnBERAT_BADANChanging(string value);
+    partial void OnBERAT_BADANChanging(System.Nullable<int> value);
     partial void OnBERAT_BADANChanged();
+    partial void OnBMIChanging(System.Nullable<decimal> value);
+    partial void OnBMIChanged();
     partial void OnLKR_DDChanging(System.Nullable<int> value);
     partial void OnLKR_DDChanged();
     partial void OnLKR_PRTChanging(System.Nullable<int> value);
@@ -1945,11 +3694,13 @@ namespace WebUltraMedica.Models
     partial void OnCONTRA_PATRICK_SIGNChanged();
     partial void OnSUMMARY_KESIMPULANChanging(string value);
     partial void OnSUMMARY_KESIMPULANChanged();
+    partial void OnCHECKED_BYChanging(string value);
+    partial void OnCHECKED_BYChanged();
     #endregion
 		
-		public TBL_T_FISIK()
+		public FISIK()
 		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
+			this._FO = default(EntityRef<FO>);
 			OnCreated();
 		}
 		
@@ -1973,26 +3724,50 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
-		public int LAB_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="VarChar(20)")]
+		public string EMPLOYEE_ID
 		{
 			get
 			{
-				return this._LAB_ID;
+				return this._EMPLOYEE_ID;
 			}
 			set
 			{
-				if ((this._LAB_ID != value))
+				if ((this._EMPLOYEE_ID != value))
 				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
+					if (this._FO.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnLAB_IDChanging(value);
+					this.OnEMPLOYEE_IDChanging(value);
 					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
+					this._EMPLOYEE_ID = value;
+					this.SendPropertyChanged("EMPLOYEE_ID");
+					this.OnEMPLOYEE_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="VarChar(4) NOT NULL", CanBeNull=false)]
+		public string YEAR_CHECKUP
+		{
+			get
+			{
+				return this._YEAR_CHECKUP;
+			}
+			set
+			{
+				if ((this._YEAR_CHECKUP != value))
+				{
+					if (this._FO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnYEAR_CHECKUPChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_CHECKUP = value;
+					this.SendPropertyChanged("YEAR_CHECKUP");
+					this.OnYEAR_CHECKUPChanged();
 				}
 			}
 		}
@@ -2033,6 +3808,26 @@ namespace WebUltraMedica.Models
 					this._POSISI_KERJA = value;
 					this.SendPropertyChanged("POSISI_KERJA");
 					this.OnPOSISI_KERJAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAPARAN", DbType="VarChar(1)")]
+		public string PAPARAN
+		{
+			get
+			{
+				return this._PAPARAN;
+			}
+			set
+			{
+				if ((this._PAPARAN != value))
+				{
+					this.OnPAPARANChanging(value);
+					this.SendPropertyChanging();
+					this._PAPARAN = value;
+					this.SendPropertyChanged("PAPARAN");
+					this.OnPAPARANChanged();
 				}
 			}
 		}
@@ -2397,8 +4192,8 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINGGI_BADAN", DbType="VarChar(5)")]
-		public string TINGGI_BADAN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINGGI_BADAN", DbType="Int")]
+		public System.Nullable<int> TINGGI_BADAN
 		{
 			get
 			{
@@ -2417,8 +4212,8 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_BADAN", DbType="VarChar(5)")]
-		public string BERAT_BADAN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BERAT_BADAN", DbType="Int")]
+		public System.Nullable<int> BERAT_BADAN
 		{
 			get
 			{
@@ -2433,6 +4228,26 @@ namespace WebUltraMedica.Models
 					this._BERAT_BADAN = value;
 					this.SendPropertyChanged("BERAT_BADAN");
 					this.OnBERAT_BADANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BMI", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BMI
+		{
+			get
+			{
+				return this._BMI;
+			}
+			set
+			{
+				if ((this._BMI != value))
+				{
+					this.OnBMIChanging(value);
+					this.SendPropertyChanging();
+					this._BMI = value;
+					this.SendPropertyChanged("BMI");
+					this.OnBMIChanged();
 				}
 			}
 		}
@@ -3377,1593 +5192,58 @@ namespace WebUltraMedica.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_FISIK", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKED_BY", DbType="VarChar(15)")]
+		public string CHECKED_BY
 		{
 			get
 			{
-				return this._TBL_T_FO.Entity;
+				return this._CHECKED_BY;
 			}
 			set
 			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
+				if ((this._CHECKED_BY != value))
+				{
+					this.OnCHECKED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CHECKED_BY = value;
+					this.SendPropertyChanged("CHECKED_BY");
+					this.OnCHECKED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FO_FISIK", Storage="_FO", ThisKey="EMPLOYEE_ID,YEAR_CHECKUP", OtherKey="EMPLOYEE_ID,YEAR_CHECKUP", IsForeignKey=true)]
+		public FO FO
+		{
+			get
+			{
+				return this._FO.Entity;
+			}
+			set
+			{
+				FO previousValue = this._FO.Entity;
 				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
+							|| (this._FO.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_FISIKs.Remove(this);
+						this._FO.Entity = null;
+						previousValue.FISIKs.Remove(this);
 					}
-					this._TBL_T_FO.Entity = value;
+					this._FO.Entity = value;
 					if ((value != null))
 					{
-						value.TBL_T_FISIKs.Add(this);
-						this._LAB_ID = value.LAB_ID;
-					}
-					else
-					{
-						this._LAB_ID = default(int);
-					}
-					this.SendPropertyChanged("TBL_T_FO");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_FO")]
-	public partial class TBL_T_FO : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LAB_ID;
-		
-		private int _EMPLOYEE_ID;
-		
-		private int _YEAR_CHECKUP;
-		
-		private System.Nullable<System.DateTime> _DATE;
-		
-		private EntitySet<TBL_T_SPIRO> _TBL_T_SPIROs;
-		
-		private EntitySet<TBL_T_AUDIO> _TBL_T_AUDIOs;
-		
-		private EntitySet<TBL_T_EKG> _TBL_T_EKGs;
-		
-		private EntitySet<TBL_T_FISIK> _TBL_T_FISIKs;
-		
-		private EntitySet<TBL_T_LAB> _TBL_T_LABs;
-		
-		private EntitySet<TBL_T_RONTGEN> _TBL_T_RONTGENs;
-		
-		private EntityRef<TBL_R_FO> _TBL_R_FO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
-    partial void OnEMPLOYEE_IDChanging(int value);
-    partial void OnEMPLOYEE_IDChanged();
-    partial void OnYEAR_CHECKUPChanging(int value);
-    partial void OnYEAR_CHECKUPChanged();
-    partial void OnDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnDATEChanged();
-    #endregion
-		
-		public TBL_T_FO()
-		{
-			this._TBL_T_SPIROs = new EntitySet<TBL_T_SPIRO>(new Action<TBL_T_SPIRO>(this.attach_TBL_T_SPIROs), new Action<TBL_T_SPIRO>(this.detach_TBL_T_SPIROs));
-			this._TBL_T_AUDIOs = new EntitySet<TBL_T_AUDIO>(new Action<TBL_T_AUDIO>(this.attach_TBL_T_AUDIOs), new Action<TBL_T_AUDIO>(this.detach_TBL_T_AUDIOs));
-			this._TBL_T_EKGs = new EntitySet<TBL_T_EKG>(new Action<TBL_T_EKG>(this.attach_TBL_T_EKGs), new Action<TBL_T_EKG>(this.detach_TBL_T_EKGs));
-			this._TBL_T_FISIKs = new EntitySet<TBL_T_FISIK>(new Action<TBL_T_FISIK>(this.attach_TBL_T_FISIKs), new Action<TBL_T_FISIK>(this.detach_TBL_T_FISIKs));
-			this._TBL_T_LABs = new EntitySet<TBL_T_LAB>(new Action<TBL_T_LAB>(this.attach_TBL_T_LABs), new Action<TBL_T_LAB>(this.detach_TBL_T_LABs));
-			this._TBL_T_RONTGENs = new EntitySet<TBL_T_RONTGEN>(new Action<TBL_T_RONTGEN>(this.attach_TBL_T_RONTGENs), new Action<TBL_T_RONTGEN>(this.detach_TBL_T_RONTGENs));
-			this._TBL_R_FO = default(EntityRef<TBL_R_FO>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int LAB_ID
-		{
-			get
-			{
-				return this._LAB_ID;
-			}
-			set
-			{
-				if ((this._LAB_ID != value))
-				{
-					this.OnLAB_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="Int NOT NULL")]
-		public int EMPLOYEE_ID
-		{
-			get
-			{
-				return this._EMPLOYEE_ID;
-			}
-			set
-			{
-				if ((this._EMPLOYEE_ID != value))
-				{
-					if (this._TBL_R_FO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEMPLOYEE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EMPLOYEE_ID = value;
-					this.SendPropertyChanged("EMPLOYEE_ID");
-					this.OnEMPLOYEE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_CHECKUP", DbType="Int NOT NULL")]
-		public int YEAR_CHECKUP
-		{
-			get
-			{
-				return this._YEAR_CHECKUP;
-			}
-			set
-			{
-				if ((this._YEAR_CHECKUP != value))
-				{
-					this.OnYEAR_CHECKUPChanging(value);
-					this.SendPropertyChanging();
-					this._YEAR_CHECKUP = value;
-					this.SendPropertyChanged("YEAR_CHECKUP");
-					this.OnYEAR_CHECKUPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> DATE
-		{
-			get
-			{
-				return this._DATE;
-			}
-			set
-			{
-				if ((this._DATE != value))
-				{
-					this.OnDATEChanging(value);
-					this.SendPropertyChanging();
-					this._DATE = value;
-					this.SendPropertyChanged("DATE");
-					this.OnDATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_SPIRO", Storage="_TBL_T_SPIROs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_SPIRO> TBL_T_SPIROs
-		{
-			get
-			{
-				return this._TBL_T_SPIROs;
-			}
-			set
-			{
-				this._TBL_T_SPIROs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_AUDIO", Storage="_TBL_T_AUDIOs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_AUDIO> TBL_T_AUDIOs
-		{
-			get
-			{
-				return this._TBL_T_AUDIOs;
-			}
-			set
-			{
-				this._TBL_T_AUDIOs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_EKG", Storage="_TBL_T_EKGs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_EKG> TBL_T_EKGs
-		{
-			get
-			{
-				return this._TBL_T_EKGs;
-			}
-			set
-			{
-				this._TBL_T_EKGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_FISIK", Storage="_TBL_T_FISIKs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_FISIK> TBL_T_FISIKs
-		{
-			get
-			{
-				return this._TBL_T_FISIKs;
-			}
-			set
-			{
-				this._TBL_T_FISIKs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_LAB", Storage="_TBL_T_LABs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_LAB> TBL_T_LABs
-		{
-			get
-			{
-				return this._TBL_T_LABs;
-			}
-			set
-			{
-				this._TBL_T_LABs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_RONTGEN", Storage="_TBL_T_RONTGENs", ThisKey="LAB_ID", OtherKey="LAB_ID")]
-		public EntitySet<TBL_T_RONTGEN> TBL_T_RONTGENs
-		{
-			get
-			{
-				return this._TBL_T_RONTGENs;
-			}
-			set
-			{
-				this._TBL_T_RONTGENs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_R_FO_TBL_T_FO", Storage="_TBL_R_FO", ThisKey="EMPLOYEE_ID", OtherKey="EMPLOYEE_ID", IsForeignKey=true)]
-		public TBL_R_FO TBL_R_FO
-		{
-			get
-			{
-				return this._TBL_R_FO.Entity;
-			}
-			set
-			{
-				TBL_R_FO previousValue = this._TBL_R_FO.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_R_FO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_R_FO.Entity = null;
-						previousValue.TBL_T_FOs.Remove(this);
-					}
-					this._TBL_R_FO.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_T_FOs.Add(this);
+						value.FISIKs.Add(this);
 						this._EMPLOYEE_ID = value.EMPLOYEE_ID;
+						this._YEAR_CHECKUP = value.YEAR_CHECKUP;
 					}
 					else
 					{
-						this._EMPLOYEE_ID = default(int);
+						this._EMPLOYEE_ID = default(string);
+						this._YEAR_CHECKUP = default(string);
 					}
-					this.SendPropertyChanged("TBL_R_FO");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TBL_T_SPIROs(TBL_T_SPIRO entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_SPIROs(TBL_T_SPIRO entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-		
-		private void attach_TBL_T_AUDIOs(TBL_T_AUDIO entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_AUDIOs(TBL_T_AUDIO entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-		
-		private void attach_TBL_T_EKGs(TBL_T_EKG entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_EKGs(TBL_T_EKG entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-		
-		private void attach_TBL_T_FISIKs(TBL_T_FISIK entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_FISIKs(TBL_T_FISIK entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-		
-		private void attach_TBL_T_LABs(TBL_T_LAB entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_LABs(TBL_T_LAB entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-		
-		private void attach_TBL_T_RONTGENs(TBL_T_RONTGEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = this;
-		}
-		
-		private void detach_TBL_T_RONTGENs(TBL_T_RONTGEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.TBL_T_FO = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_LABS")]
-	public partial class TBL_T_LAB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _LABORATORIUM_ID;
-		
-		private int _LAB_ID;
-		
-		private System.Nullable<decimal> _HB;
-		
-		private System.Nullable<int> _HCT;
-		
-		private System.Nullable<int> _LEUKOSIT;
-		
-		private System.Nullable<int> _TROMBOSIT;
-		
-		private System.Nullable<decimal> _ERITROSIT;
-		
-		private System.Nullable<int> _LED;
-		
-		private System.Nullable<int> _DIFLIM;
-		
-		private System.Nullable<int> _DIFMON;
-		
-		private System.Nullable<int> _DIFGRAN;
-		
-		private System.Nullable<bool> _HBSAG;
-		
-		private System.Nullable<int> _AHBS;
-		
-		private System.Nullable<int> _VDRL;
-		
-		private System.Nullable<int> _CHOLESTEROL;
-		
-		private System.Nullable<int> _TRIGLISERIN;
-		
-		private System.Nullable<int> _HDL;
-		
-		private System.Nullable<int> _LDL;
-		
-		private System.Nullable<decimal> _BUN;
-		
-		private System.Nullable<decimal> _CREATINE;
-		
-		private System.Nullable<decimal> _UA;
-		
-		private System.Nullable<int> _BSN;
-		
-		private System.Nullable<int> @__2JPP;
-		
-		private System.Nullable<int> _OT;
-		
-		private System.Nullable<int> _PT;
-		
-		private System.Nullable<bool> _REDUKSI_PUASA;
-		
-		private System.Nullable<bool> _REDUKSI_2JPP;
-		
-		private string _WARNA_URINE;
-		
-		private System.Nullable<int> _BJ;
-		
-		private System.Nullable<int> _PH;
-		
-		private System.Nullable<bool> _KETON;
-		
-		private System.Nullable<bool> _BIL;
-		
-		private System.Nullable<bool> _NITRIT;
-		
-		private System.Nullable<int> _EPITEL;
-		
-		private System.Nullable<int> _URINE_LEKOSIT;
-		
-		private System.Nullable<int> _URINE_ERITROSIT;
-		
-		private System.Nullable<bool> _BAKTERI;
-		
-		private System.Nullable<bool> _SIL;
-		
-		private System.Nullable<bool> _KRISTAL;
-		
-		private System.Nullable<bool> _LAB_RESUME;
-		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLABORATORIUM_IDChanging(int value);
-    partial void OnLABORATORIUM_IDChanged();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
-    partial void OnHBChanging(System.Nullable<decimal> value);
-    partial void OnHBChanged();
-    partial void OnHCTChanging(System.Nullable<int> value);
-    partial void OnHCTChanged();
-    partial void OnLEUKOSITChanging(System.Nullable<int> value);
-    partial void OnLEUKOSITChanged();
-    partial void OnTROMBOSITChanging(System.Nullable<int> value);
-    partial void OnTROMBOSITChanged();
-    partial void OnERITROSITChanging(System.Nullable<decimal> value);
-    partial void OnERITROSITChanged();
-    partial void OnLEDChanging(System.Nullable<int> value);
-    partial void OnLEDChanged();
-    partial void OnDIFLIMChanging(System.Nullable<int> value);
-    partial void OnDIFLIMChanged();
-    partial void OnDIFMONChanging(System.Nullable<int> value);
-    partial void OnDIFMONChanged();
-    partial void OnDIFGRANChanging(System.Nullable<int> value);
-    partial void OnDIFGRANChanged();
-    partial void OnHBSAGChanging(System.Nullable<bool> value);
-    partial void OnHBSAGChanged();
-    partial void OnAHBSChanging(System.Nullable<int> value);
-    partial void OnAHBSChanged();
-    partial void OnVDRLChanging(System.Nullable<int> value);
-    partial void OnVDRLChanged();
-    partial void OnCHOLESTEROLChanging(System.Nullable<int> value);
-    partial void OnCHOLESTEROLChanged();
-    partial void OnTRIGLISERINChanging(System.Nullable<int> value);
-    partial void OnTRIGLISERINChanged();
-    partial void OnHDLChanging(System.Nullable<int> value);
-    partial void OnHDLChanged();
-    partial void OnLDLChanging(System.Nullable<int> value);
-    partial void OnLDLChanged();
-    partial void OnBUNChanging(System.Nullable<decimal> value);
-    partial void OnBUNChanged();
-    partial void OnCREATINEChanging(System.Nullable<decimal> value);
-    partial void OnCREATINEChanged();
-    partial void OnUAChanging(System.Nullable<decimal> value);
-    partial void OnUAChanged();
-    partial void OnBSNChanging(System.Nullable<int> value);
-    partial void OnBSNChanged();
-    partial void On_2JPPChanging(System.Nullable<int> value);
-    partial void On_2JPPChanged();
-    partial void OnOTChanging(System.Nullable<int> value);
-    partial void OnOTChanged();
-    partial void OnPTChanging(System.Nullable<int> value);
-    partial void OnPTChanged();
-    partial void OnREDUKSI_PUASAChanging(System.Nullable<bool> value);
-    partial void OnREDUKSI_PUASAChanged();
-    partial void OnREDUKSI_2JPPChanging(System.Nullable<bool> value);
-    partial void OnREDUKSI_2JPPChanged();
-    partial void OnWARNA_URINEChanging(string value);
-    partial void OnWARNA_URINEChanged();
-    partial void OnBJChanging(System.Nullable<int> value);
-    partial void OnBJChanged();
-    partial void OnPHChanging(System.Nullable<int> value);
-    partial void OnPHChanged();
-    partial void OnKETONChanging(System.Nullable<bool> value);
-    partial void OnKETONChanged();
-    partial void OnBILChanging(System.Nullable<bool> value);
-    partial void OnBILChanged();
-    partial void OnNITRITChanging(System.Nullable<bool> value);
-    partial void OnNITRITChanged();
-    partial void OnEPITELChanging(System.Nullable<int> value);
-    partial void OnEPITELChanged();
-    partial void OnURINE_LEKOSITChanging(System.Nullable<int> value);
-    partial void OnURINE_LEKOSITChanged();
-    partial void OnURINE_ERITROSITChanging(System.Nullable<int> value);
-    partial void OnURINE_ERITROSITChanged();
-    partial void OnBAKTERIChanging(System.Nullable<bool> value);
-    partial void OnBAKTERIChanged();
-    partial void OnSILChanging(System.Nullable<bool> value);
-    partial void OnSILChanged();
-    partial void OnKRISTALChanging(System.Nullable<bool> value);
-    partial void OnKRISTALChanged();
-    partial void OnLAB_RESUMEChanging(System.Nullable<bool> value);
-    partial void OnLAB_RESUMEChanged();
-    #endregion
-		
-		public TBL_T_LAB()
-		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABORATORIUM_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int LABORATORIUM_ID
-		{
-			get
-			{
-				return this._LABORATORIUM_ID;
-			}
-			set
-			{
-				if ((this._LABORATORIUM_ID != value))
-				{
-					this.OnLABORATORIUM_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LABORATORIUM_ID = value;
-					this.SendPropertyChanged("LABORATORIUM_ID");
-					this.OnLABORATORIUM_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
-		public int LAB_ID
-		{
-			get
-			{
-				return this._LAB_ID;
-			}
-			set
-			{
-				if ((this._LAB_ID != value))
-				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAB_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HB", DbType="Decimal(18,1)")]
-		public System.Nullable<decimal> HB
-		{
-			get
-			{
-				return this._HB;
-			}
-			set
-			{
-				if ((this._HB != value))
-				{
-					this.OnHBChanging(value);
-					this.SendPropertyChanging();
-					this._HB = value;
-					this.SendPropertyChanged("HB");
-					this.OnHBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HCT", DbType="Int")]
-		public System.Nullable<int> HCT
-		{
-			get
-			{
-				return this._HCT;
-			}
-			set
-			{
-				if ((this._HCT != value))
-				{
-					this.OnHCTChanging(value);
-					this.SendPropertyChanging();
-					this._HCT = value;
-					this.SendPropertyChanged("HCT");
-					this.OnHCTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEUKOSIT", DbType="Int")]
-		public System.Nullable<int> LEUKOSIT
-		{
-			get
-			{
-				return this._LEUKOSIT;
-			}
-			set
-			{
-				if ((this._LEUKOSIT != value))
-				{
-					this.OnLEUKOSITChanging(value);
-					this.SendPropertyChanging();
-					this._LEUKOSIT = value;
-					this.SendPropertyChanged("LEUKOSIT");
-					this.OnLEUKOSITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TROMBOSIT", DbType="Int")]
-		public System.Nullable<int> TROMBOSIT
-		{
-			get
-			{
-				return this._TROMBOSIT;
-			}
-			set
-			{
-				if ((this._TROMBOSIT != value))
-				{
-					this.OnTROMBOSITChanging(value);
-					this.SendPropertyChanging();
-					this._TROMBOSIT = value;
-					this.SendPropertyChanged("TROMBOSIT");
-					this.OnTROMBOSITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ERITROSIT", DbType="Decimal(18,1)")]
-		public System.Nullable<decimal> ERITROSIT
-		{
-			get
-			{
-				return this._ERITROSIT;
-			}
-			set
-			{
-				if ((this._ERITROSIT != value))
-				{
-					this.OnERITROSITChanging(value);
-					this.SendPropertyChanging();
-					this._ERITROSIT = value;
-					this.SendPropertyChanged("ERITROSIT");
-					this.OnERITROSITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LED", DbType="Int")]
-		public System.Nullable<int> LED
-		{
-			get
-			{
-				return this._LED;
-			}
-			set
-			{
-				if ((this._LED != value))
-				{
-					this.OnLEDChanging(value);
-					this.SendPropertyChanging();
-					this._LED = value;
-					this.SendPropertyChanged("LED");
-					this.OnLEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFLIM", DbType="Int")]
-		public System.Nullable<int> DIFLIM
-		{
-			get
-			{
-				return this._DIFLIM;
-			}
-			set
-			{
-				if ((this._DIFLIM != value))
-				{
-					this.OnDIFLIMChanging(value);
-					this.SendPropertyChanging();
-					this._DIFLIM = value;
-					this.SendPropertyChanged("DIFLIM");
-					this.OnDIFLIMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFMON", DbType="Int")]
-		public System.Nullable<int> DIFMON
-		{
-			get
-			{
-				return this._DIFMON;
-			}
-			set
-			{
-				if ((this._DIFMON != value))
-				{
-					this.OnDIFMONChanging(value);
-					this.SendPropertyChanging();
-					this._DIFMON = value;
-					this.SendPropertyChanged("DIFMON");
-					this.OnDIFMONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFGRAN", DbType="Int")]
-		public System.Nullable<int> DIFGRAN
-		{
-			get
-			{
-				return this._DIFGRAN;
-			}
-			set
-			{
-				if ((this._DIFGRAN != value))
-				{
-					this.OnDIFGRANChanging(value);
-					this.SendPropertyChanging();
-					this._DIFGRAN = value;
-					this.SendPropertyChanged("DIFGRAN");
-					this.OnDIFGRANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HBSAG", DbType="Bit")]
-		public System.Nullable<bool> HBSAG
-		{
-			get
-			{
-				return this._HBSAG;
-			}
-			set
-			{
-				if ((this._HBSAG != value))
-				{
-					this.OnHBSAGChanging(value);
-					this.SendPropertyChanging();
-					this._HBSAG = value;
-					this.SendPropertyChanged("HBSAG");
-					this.OnHBSAGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AHBS", DbType="Int")]
-		public System.Nullable<int> AHBS
-		{
-			get
-			{
-				return this._AHBS;
-			}
-			set
-			{
-				if ((this._AHBS != value))
-				{
-					this.OnAHBSChanging(value);
-					this.SendPropertyChanging();
-					this._AHBS = value;
-					this.SendPropertyChanged("AHBS");
-					this.OnAHBSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VDRL", DbType="Int")]
-		public System.Nullable<int> VDRL
-		{
-			get
-			{
-				return this._VDRL;
-			}
-			set
-			{
-				if ((this._VDRL != value))
-				{
-					this.OnVDRLChanging(value);
-					this.SendPropertyChanging();
-					this._VDRL = value;
-					this.SendPropertyChanged("VDRL");
-					this.OnVDRLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHOLESTEROL", DbType="Int")]
-		public System.Nullable<int> CHOLESTEROL
-		{
-			get
-			{
-				return this._CHOLESTEROL;
-			}
-			set
-			{
-				if ((this._CHOLESTEROL != value))
-				{
-					this.OnCHOLESTEROLChanging(value);
-					this.SendPropertyChanging();
-					this._CHOLESTEROL = value;
-					this.SendPropertyChanged("CHOLESTEROL");
-					this.OnCHOLESTEROLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRIGLISERIN", DbType="Int")]
-		public System.Nullable<int> TRIGLISERIN
-		{
-			get
-			{
-				return this._TRIGLISERIN;
-			}
-			set
-			{
-				if ((this._TRIGLISERIN != value))
-				{
-					this.OnTRIGLISERINChanging(value);
-					this.SendPropertyChanging();
-					this._TRIGLISERIN = value;
-					this.SendPropertyChanged("TRIGLISERIN");
-					this.OnTRIGLISERINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HDL", DbType="Int")]
-		public System.Nullable<int> HDL
-		{
-			get
-			{
-				return this._HDL;
-			}
-			set
-			{
-				if ((this._HDL != value))
-				{
-					this.OnHDLChanging(value);
-					this.SendPropertyChanging();
-					this._HDL = value;
-					this.SendPropertyChanged("HDL");
-					this.OnHDLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LDL", DbType="Int")]
-		public System.Nullable<int> LDL
-		{
-			get
-			{
-				return this._LDL;
-			}
-			set
-			{
-				if ((this._LDL != value))
-				{
-					this.OnLDLChanging(value);
-					this.SendPropertyChanging();
-					this._LDL = value;
-					this.SendPropertyChanged("LDL");
-					this.OnLDLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUN", DbType="Decimal(18,1)")]
-		public System.Nullable<decimal> BUN
-		{
-			get
-			{
-				return this._BUN;
-			}
-			set
-			{
-				if ((this._BUN != value))
-				{
-					this.OnBUNChanging(value);
-					this.SendPropertyChanging();
-					this._BUN = value;
-					this.SendPropertyChanged("BUN");
-					this.OnBUNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATINE", DbType="Decimal(18,1)")]
-		public System.Nullable<decimal> CREATINE
-		{
-			get
-			{
-				return this._CREATINE;
-			}
-			set
-			{
-				if ((this._CREATINE != value))
-				{
-					this.OnCREATINEChanging(value);
-					this.SendPropertyChanging();
-					this._CREATINE = value;
-					this.SendPropertyChanged("CREATINE");
-					this.OnCREATINEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UA", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> UA
-		{
-			get
-			{
-				return this._UA;
-			}
-			set
-			{
-				if ((this._UA != value))
-				{
-					this.OnUAChanging(value);
-					this.SendPropertyChanging();
-					this._UA = value;
-					this.SendPropertyChanged("UA");
-					this.OnUAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BSN", DbType="Int")]
-		public System.Nullable<int> BSN
-		{
-			get
-			{
-				return this._BSN;
-			}
-			set
-			{
-				if ((this._BSN != value))
-				{
-					this.OnBSNChanging(value);
-					this.SendPropertyChanging();
-					this._BSN = value;
-					this.SendPropertyChanged("BSN");
-					this.OnBSNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2JPP]", Storage="__2JPP", DbType="Int")]
-		public System.Nullable<int> _2JPP
-		{
-			get
-			{
-				return this.@__2JPP;
-			}
-			set
-			{
-				if ((this.@__2JPP != value))
-				{
-					this.On_2JPPChanging(value);
-					this.SendPropertyChanging();
-					this.@__2JPP = value;
-					this.SendPropertyChanged("_2JPP");
-					this.On_2JPPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT", DbType="Int")]
-		public System.Nullable<int> OT
-		{
-			get
-			{
-				return this._OT;
-			}
-			set
-			{
-				if ((this._OT != value))
-				{
-					this.OnOTChanging(value);
-					this.SendPropertyChanging();
-					this._OT = value;
-					this.SendPropertyChanged("OT");
-					this.OnOTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PT", DbType="Int")]
-		public System.Nullable<int> PT
-		{
-			get
-			{
-				return this._PT;
-			}
-			set
-			{
-				if ((this._PT != value))
-				{
-					this.OnPTChanging(value);
-					this.SendPropertyChanging();
-					this._PT = value;
-					this.SendPropertyChanged("PT");
-					this.OnPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REDUKSI_PUASA", DbType="Bit")]
-		public System.Nullable<bool> REDUKSI_PUASA
-		{
-			get
-			{
-				return this._REDUKSI_PUASA;
-			}
-			set
-			{
-				if ((this._REDUKSI_PUASA != value))
-				{
-					this.OnREDUKSI_PUASAChanging(value);
-					this.SendPropertyChanging();
-					this._REDUKSI_PUASA = value;
-					this.SendPropertyChanged("REDUKSI_PUASA");
-					this.OnREDUKSI_PUASAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REDUKSI_2JPP", DbType="Bit")]
-		public System.Nullable<bool> REDUKSI_2JPP
-		{
-			get
-			{
-				return this._REDUKSI_2JPP;
-			}
-			set
-			{
-				if ((this._REDUKSI_2JPP != value))
-				{
-					this.OnREDUKSI_2JPPChanging(value);
-					this.SendPropertyChanging();
-					this._REDUKSI_2JPP = value;
-					this.SendPropertyChanged("REDUKSI_2JPP");
-					this.OnREDUKSI_2JPPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WARNA_URINE", DbType="VarChar(20)")]
-		public string WARNA_URINE
-		{
-			get
-			{
-				return this._WARNA_URINE;
-			}
-			set
-			{
-				if ((this._WARNA_URINE != value))
-				{
-					this.OnWARNA_URINEChanging(value);
-					this.SendPropertyChanging();
-					this._WARNA_URINE = value;
-					this.SendPropertyChanged("WARNA_URINE");
-					this.OnWARNA_URINEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BJ", DbType="Int")]
-		public System.Nullable<int> BJ
-		{
-			get
-			{
-				return this._BJ;
-			}
-			set
-			{
-				if ((this._BJ != value))
-				{
-					this.OnBJChanging(value);
-					this.SendPropertyChanging();
-					this._BJ = value;
-					this.SendPropertyChanged("BJ");
-					this.OnBJChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PH", DbType="Int")]
-		public System.Nullable<int> PH
-		{
-			get
-			{
-				return this._PH;
-			}
-			set
-			{
-				if ((this._PH != value))
-				{
-					this.OnPHChanging(value);
-					this.SendPropertyChanging();
-					this._PH = value;
-					this.SendPropertyChanged("PH");
-					this.OnPHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KETON", DbType="Bit")]
-		public System.Nullable<bool> KETON
-		{
-			get
-			{
-				return this._KETON;
-			}
-			set
-			{
-				if ((this._KETON != value))
-				{
-					this.OnKETONChanging(value);
-					this.SendPropertyChanging();
-					this._KETON = value;
-					this.SendPropertyChanged("KETON");
-					this.OnKETONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIL", DbType="Bit")]
-		public System.Nullable<bool> BIL
-		{
-			get
-			{
-				return this._BIL;
-			}
-			set
-			{
-				if ((this._BIL != value))
-				{
-					this.OnBILChanging(value);
-					this.SendPropertyChanging();
-					this._BIL = value;
-					this.SendPropertyChanged("BIL");
-					this.OnBILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NITRIT", DbType="Bit")]
-		public System.Nullable<bool> NITRIT
-		{
-			get
-			{
-				return this._NITRIT;
-			}
-			set
-			{
-				if ((this._NITRIT != value))
-				{
-					this.OnNITRITChanging(value);
-					this.SendPropertyChanging();
-					this._NITRIT = value;
-					this.SendPropertyChanged("NITRIT");
-					this.OnNITRITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EPITEL", DbType="Int")]
-		public System.Nullable<int> EPITEL
-		{
-			get
-			{
-				return this._EPITEL;
-			}
-			set
-			{
-				if ((this._EPITEL != value))
-				{
-					this.OnEPITELChanging(value);
-					this.SendPropertyChanging();
-					this._EPITEL = value;
-					this.SendPropertyChanged("EPITEL");
-					this.OnEPITELChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URINE_LEKOSIT", DbType="Int")]
-		public System.Nullable<int> URINE_LEKOSIT
-		{
-			get
-			{
-				return this._URINE_LEKOSIT;
-			}
-			set
-			{
-				if ((this._URINE_LEKOSIT != value))
-				{
-					this.OnURINE_LEKOSITChanging(value);
-					this.SendPropertyChanging();
-					this._URINE_LEKOSIT = value;
-					this.SendPropertyChanged("URINE_LEKOSIT");
-					this.OnURINE_LEKOSITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URINE_ERITROSIT", DbType="Int")]
-		public System.Nullable<int> URINE_ERITROSIT
-		{
-			get
-			{
-				return this._URINE_ERITROSIT;
-			}
-			set
-			{
-				if ((this._URINE_ERITROSIT != value))
-				{
-					this.OnURINE_ERITROSITChanging(value);
-					this.SendPropertyChanging();
-					this._URINE_ERITROSIT = value;
-					this.SendPropertyChanged("URINE_ERITROSIT");
-					this.OnURINE_ERITROSITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAKTERI", DbType="Bit")]
-		public System.Nullable<bool> BAKTERI
-		{
-			get
-			{
-				return this._BAKTERI;
-			}
-			set
-			{
-				if ((this._BAKTERI != value))
-				{
-					this.OnBAKTERIChanging(value);
-					this.SendPropertyChanging();
-					this._BAKTERI = value;
-					this.SendPropertyChanged("BAKTERI");
-					this.OnBAKTERIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIL", DbType="Bit")]
-		public System.Nullable<bool> SIL
-		{
-			get
-			{
-				return this._SIL;
-			}
-			set
-			{
-				if ((this._SIL != value))
-				{
-					this.OnSILChanging(value);
-					this.SendPropertyChanging();
-					this._SIL = value;
-					this.SendPropertyChanged("SIL");
-					this.OnSILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KRISTAL", DbType="Bit")]
-		public System.Nullable<bool> KRISTAL
-		{
-			get
-			{
-				return this._KRISTAL;
-			}
-			set
-			{
-				if ((this._KRISTAL != value))
-				{
-					this.OnKRISTALChanging(value);
-					this.SendPropertyChanging();
-					this._KRISTAL = value;
-					this.SendPropertyChanged("KRISTAL");
-					this.OnKRISTALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_RESUME", DbType="Bit")]
-		public System.Nullable<bool> LAB_RESUME
-		{
-			get
-			{
-				return this._LAB_RESUME;
-			}
-			set
-			{
-				if ((this._LAB_RESUME != value))
-				{
-					this.OnLAB_RESUMEChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_RESUME = value;
-					this.SendPropertyChanged("LAB_RESUME");
-					this.OnLAB_RESUMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_LAB", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
-		{
-			get
-			{
-				return this._TBL_T_FO.Entity;
-			}
-			set
-			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_LABs.Remove(this);
-					}
-					this._TBL_T_FO.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_T_LABs.Add(this);
-						this._LAB_ID = value.LAB_ID;
-					}
-					else
-					{
-						this._LAB_ID = default(int);
-					}
-					this.SendPropertyChanged("TBL_T_FO");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_RONTGEN")]
-	public partial class TBL_T_RONTGEN : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _RONTGEN_ID;
-		
-		private int _LAB_ID;
-		
-		private string _RONTGEN_RESULT;
-		
-		private string _RONTGEN_FILE_NAME;
-		
-		private EntityRef<TBL_T_FO> _TBL_T_FO;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRONTGEN_IDChanging(int value);
-    partial void OnRONTGEN_IDChanged();
-    partial void OnLAB_IDChanging(int value);
-    partial void OnLAB_IDChanged();
-    partial void OnRONTGEN_RESULTChanging(string value);
-    partial void OnRONTGEN_RESULTChanged();
-    partial void OnRONTGEN_FILE_NAMEChanging(string value);
-    partial void OnRONTGEN_FILE_NAMEChanged();
-    #endregion
-		
-		public TBL_T_RONTGEN()
-		{
-			this._TBL_T_FO = default(EntityRef<TBL_T_FO>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int RONTGEN_ID
-		{
-			get
-			{
-				return this._RONTGEN_ID;
-			}
-			set
-			{
-				if ((this._RONTGEN_ID != value))
-				{
-					this.OnRONTGEN_IDChanging(value);
-					this.SendPropertyChanging();
-					this._RONTGEN_ID = value;
-					this.SendPropertyChanged("RONTGEN_ID");
-					this.OnRONTGEN_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAB_ID", DbType="Int NOT NULL")]
-		public int LAB_ID
-		{
-			get
-			{
-				return this._LAB_ID;
-			}
-			set
-			{
-				if ((this._LAB_ID != value))
-				{
-					if (this._TBL_T_FO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLAB_IDChanging(value);
-					this.SendPropertyChanging();
-					this._LAB_ID = value;
-					this.SendPropertyChanged("LAB_ID");
-					this.OnLAB_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_RESULT", DbType="VarChar(30)")]
-		public string RONTGEN_RESULT
-		{
-			get
-			{
-				return this._RONTGEN_RESULT;
-			}
-			set
-			{
-				if ((this._RONTGEN_RESULT != value))
-				{
-					this.OnRONTGEN_RESULTChanging(value);
-					this.SendPropertyChanging();
-					this._RONTGEN_RESULT = value;
-					this.SendPropertyChanged("RONTGEN_RESULT");
-					this.OnRONTGEN_RESULTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RONTGEN_FILE_NAME", DbType="VarChar(50)")]
-		public string RONTGEN_FILE_NAME
-		{
-			get
-			{
-				return this._RONTGEN_FILE_NAME;
-			}
-			set
-			{
-				if ((this._RONTGEN_FILE_NAME != value))
-				{
-					this.OnRONTGEN_FILE_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._RONTGEN_FILE_NAME = value;
-					this.SendPropertyChanged("RONTGEN_FILE_NAME");
-					this.OnRONTGEN_FILE_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TBL_T_FO_TBL_T_RONTGEN", Storage="_TBL_T_FO", ThisKey="LAB_ID", OtherKey="LAB_ID", IsForeignKey=true)]
-		public TBL_T_FO TBL_T_FO
-		{
-			get
-			{
-				return this._TBL_T_FO.Entity;
-			}
-			set
-			{
-				TBL_T_FO previousValue = this._TBL_T_FO.Entity;
-				if (((previousValue != value) 
-							|| (this._TBL_T_FO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TBL_T_FO.Entity = null;
-						previousValue.TBL_T_RONTGENs.Remove(this);
-					}
-					this._TBL_T_FO.Entity = value;
-					if ((value != null))
-					{
-						value.TBL_T_RONTGENs.Add(this);
-						this._LAB_ID = value.LAB_ID;
-					}
-					else
-					{
-						this._LAB_ID = default(int);
-					}
-					this.SendPropertyChanged("TBL_T_FO");
+					this.SendPropertyChanged("FO");
 				}
 			}
 		}

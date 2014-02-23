@@ -1,0 +1,54 @@
+﻿$bgcolor: #eeeeee;
+$darkred: #B21212;
+$yellow: #FFFC19;
+$red: #FF0000;
+$lightblue: #1485CC;
+$darkblue: #0971B2;
+
+$white:#fff;
+$black: #000;
+$grey: #ccc;
+$fontfamily: Source Sans Pro, sans-serif;
+
+$page-width: 1000px;
+
+@mixin centered($width) {width:$width; margin:0 auto; clear:both;}
+@mixin rounded($rad) {-moz-border-radius:$rad; -webkit-border-radius:$rad; border-radius:$rad;}
+@mixin fake-shadow {border:0; border-top:2px solid #d9d9d9; border-left:2px solid #d7d7d7;}
+
+.clear {clear:both;}
+.left {float:left;}
+.right {float:right;}
+
+#main{@include centered($page-width); padding: 100px 0 100px 0; overflow: hidden;
+	
+	input[type=text], input[type=password], select {
+		@include rounded(5px); padding:5px; width:60%; height:28px;
+	}
+	input[readonly=readonly] { background-color: #ecf0f1; color: #a0b2b3;}
+	fieldset {padding-bottom: 2em;}
+
+	/**for validation*/
+	.input-validation-error{border-color: #a5281b; background-color: #fa7878;}
+	.field-validation-error{display:block; color: #a5281b; padding-left:11em;}
+
+	.content{font-size:1em; font-weight: 100;
+		input[type=text], input[type=password] {
+					border-style: solid; border-color: #ddd #eee #eee #ddd; -webkit-box-shadow: none;
+					-moz-box-shadow: none; box-shadow: none; font-weight:200; }
+		label {clear: left; width:12em;}
+
+		.content-col {float:left; width:50%;}
+
+		.content-data {padding: 4px 6px; border-width: 1px; font-weight: 200; vertical-align: top;}
+
+		.content-col-ful {float:left; width:100%;}
+
+		.content-group{padding-bottom:5px;vertical-align: top;}
+
+		.actions {margin:2em auto 1em auto; text-align:center; width: 100%;
+			.btn {margin-right:0.8em}}
+	}
+}
+.content {@include centered($page-width);}
+.login-box {border: 3px solid #ecf0f1; background-color: #82b6ea; padding: 2em; @include rounded(10px); @include centered(22em);}

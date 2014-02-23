@@ -1,39 +1,75 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="WebUltraMedica.Models" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/application.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/css/application.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
     <link href="../../Content/css/bootflat.css" rel="stylesheet" media="screen"/>
     <link href="../../Content/css/bootflat-extensions.css" rel="stylesheet" media="screen"/>
     <link href="../../Content/css/bootflat-square.css" rel="stylesheet" media="screen"/>
+    <link href="../../Content/chosen_v1.0.0/chosen.css" rel="stylesheet" media="screen"/>
+     <link href="../../Content/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" media="screen"/>
+    
+    <script type="text/javascript" src="../../Scripts/head.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../Content/chosen_v1.0.0/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/MicrosoftAjax.js"></script>
+    <script type="text/javascript" src="../../Scripts/MicrosoftMvcValidation.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery-ui-1.10.4.custom.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-square navbar-default" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-square navbar-default navbar-bottom" role="navigation">
         <div class="content">
             <div class="navbar-header">
                 <a href="" class="navbar-brand">Ultra Medica</a>
             </div>
+            <% var user = (USER) Session["user"];
+               var roles = user.ROLES.Split(';');%>
             <div class="collapse navbar-collapse navbar-ex3-collapse">
-				<p class="navbar-text">Signed in as Sinata Robby</p>
-                <a href="#" class="btn btn-primary navbar-btn">Sign out</a>
+				<p class="navbar-text">Selamat Datang <%: user.NAMA %></p>
+                <a href="/Account/LogOff" class="btn btn-primary navbar-btn">Keluar</a>
                 <ul class="nav navbar-nav navbar-right">
 				    <li class="dropdown">
+					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master<b class="caret"></b></a>
+					    <ul class="dropdown-menu">
+						    <li><%= Html.ActionLink("Pegawai","Index","Employee") %></li>
+						    <li><%= Html.ActionLink("User","Index","User") %></li>
+						</ul>
+				    </li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
 					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Input Data <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
-						    <li><a href="#">FO</a></li>
-						    <li><a href="#">Physics</a></li>
-						    <li><a href="#">Laboratory</a></li>
-						    <li><a href="#">Rontgen</a></li>
-                            <li><a href="#">EKG</a></li>
-						    <li><a href="#">Audio</a></li>
-						    <li><a href="#">SPIRO</a></li>
+					        <%if (roles.Any(m => m.Equals("Admin") || m.Equals("FO")))
+                              {%> <li><%= Html.ActionLink("FO","Index","FO") %></li><% } %>
+						   
+						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Fisik")))
+                              {%> <li><%= Html.ActionLink("Fisik","Index","Fisik") %></li><% } %>
+
+						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Laboratorium")))
+                              {%> <li><a href="#">Laboratorium</a></li><% } %>
+
+						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Rontgen")))
+                              {%> <li><a href="#">Rontgen</a></li><% } %>
+                            
+                            <%if (roles.Any(m => m.Equals("Admin") || m.Equals("EKG")))
+                              {%> <li><a href="#">EKG</a></li><% } %>
+
+						   <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Audio")))
+                              {%> <li><a href="#">Audio</a></li><% } %>
+
+						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("SPIRO")))
+                              {%> <li><a href="#">SPIRO</a></li><% } %>
 					    </ul>
 				    </li>
+                     <%if (roles.Any(m => m.Equals("Admin")))
+                       {%>
 				    <li class="divider-vertical"></li>
                     <li class="dropdown">
 					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Report<b class="caret"></b></a>
@@ -41,14 +77,8 @@
 						    <li><a href="#">Annualy Report</a></li>
 						</ul>
 				    </li>
-                        <li class="divider-vertical"></li>
-                        <li class="dropdown">
-					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
-					    <ul class="dropdown-menu">
-						    <li><a href="#">User</a></li>
-						</ul>
-				    </li>
-			    </ul>
+                    <% } %>
+                </ul>
 			</div>
         </div>
     </nav>
@@ -57,9 +87,14 @@
         </asp:ContentPlaceHolder>
     </div>
     
-    <script type="text/javascript" src="../../Scripts/head.js"></script>
     <script type="text/javascript">
-         head.js("../../Scripts/jquery-1.10.2.min.js", "../../Scripts/bootstrap.min.js");
+        $(document).ready(function () {
+            $('.chosen').chosen();
+
+            $('.datepicker').datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
+        });
     </script>
 
 </body>
