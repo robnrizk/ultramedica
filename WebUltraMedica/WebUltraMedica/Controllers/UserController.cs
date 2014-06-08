@@ -18,23 +18,28 @@ namespace WebUltraMedica.Controllers
         {
             InitializeSession();
             var listUser = new List<USER>();
-            var user = (USER)Session["user"];
-            var roles = user.ROLES.Split(',');
+            
+            if (Session["user"] != null)
+            {
+                ViewData["ErrorMessage"] = "";
+                var user = (USER)Session["user"];
+                var roles = user.ROLES.Split(',');
 
-            if (!roles.Any(m => m.Equals("Admin")))
-            {
-                listUser.Add(user);
-            }
-            else
-            {
-                using (var dc = new db_ultramedicaDataContext())
+                if (!roles.Any(m => m.Equals("Admin")))
                 {
-                    listUser = dc.USERs.ToList();
+                    listUser.Add(user);
                 }
+                else
+                {
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                    {
+                        listUser = dc.USERs.ToList();
+                    }
+                }
+
+                return View(listUser);
             }
-
-            return View(listUser);
-
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -50,10 +55,14 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            InitializeSession();
-            ViewData["Action"] = "Create";
-            ViewData["ErrorMessage"] = "";
-            return View(new USER());
+            if (Session["user"] != null)
+            {
+                InitializeSession();
+                ViewData["Action"] = "Create";
+                ViewData["ErrorMessage"] = "";
+                return View(new USER());
+            }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -68,7 +77,7 @@ namespace WebUltraMedica.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (var dc = new db_ultramedicaDataContext())
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
                         var user = new USER();
                         user.NIK = formCollection["NIK"];
@@ -98,6 +107,8 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(string userNik)
         {
+            if (Session["user"] != null)
+            {
             InitializeSession();
             ViewData["Action"] = "Edit";
 
@@ -108,7 +119,7 @@ namespace WebUltraMedica.Controllers
                 ViewData["ErrorMessage"] = "";
 
                 // TODO: Add insert logic here
-                using (var dc = new db_ultramedicaDataContext())
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     user = dc.USERs.SingleOrDefault(o => o.NIK.Equals(userNik));
                 }
@@ -119,6 +130,8 @@ namespace WebUltraMedica.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View(new USER());
             }
+                }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -129,7 +142,7 @@ namespace WebUltraMedica.Controllers
         public ActionResult Edit(FormCollection formCollection)
         {
             ViewData["Action"] = "Edit";
-            using (var dc = new db_ultramedicaDataContext())
+            using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
                 var userdb = dc.USERs.SingleOrDefault(o => o.NIK.Equals(formCollection["NIK"]));
                 try
@@ -166,28 +179,45 @@ namespace WebUltraMedica.Controllers
         // POST: /User/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string ID)
         {
             try
             {
-                // TODO: Add delete logic here
+                USER user;
 
-                return RedirectToAction("Index");
+                ViewData["ErrorMessage"] = "";
+
+                // TODO: Add insert logic here
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    user =
+                        dc.USERs.SingleOrDefault(
+                            o => o.NIK.Equals(ID));
+
+                    if (user != null)
+                    {
+                        dc.USERs.DeleteOnSubmit(user);
+                        dc.SubmitChanges();
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewData["ErrorMessage"] = ex.Message;
             }
+
+            return RedirectToAction("Index");
         }
 
         private void InitializeSession()
         {
-            if (Session["user"] == null)
+            if (Session["user"] != null)
             {
                 var user = Helper.SetSession(Request.Cookies[FormsAuthentication.FormsCookieName]);
                 Session["user"] = user;
                 Session["roles"] = user.ROLES;
             }
+            
         }
     }
 }

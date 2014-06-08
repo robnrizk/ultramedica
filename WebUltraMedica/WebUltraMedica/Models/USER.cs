@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using WebUltraMedica.Controllers;
 
 namespace WebUltraMedica.Models
 {
@@ -15,7 +16,7 @@ namespace WebUltraMedica.Models
         {
             var objreturn = new List<string>();
 
-            using(var data = new db_ultramedicaDataContext())
+            using(var data = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
                 var roles = from f in data.ROLEs select f;
 

@@ -32,10 +32,15 @@ $page-width: 1000px;
 	.input-validation-error{border-color: #a5281b; background-color: #fa7878;}
 	.field-validation-error{display:block; color: #a5281b; padding-left:11em;}
 
+	.filter {background-color: #eee; padding:20px 10px;
+		fieldset{padding:0;}
+		}
+
 	.content{font-size:1em; font-weight: 100;
 		input[type=text], input[type=password] {
 					border-style: solid; border-color: #ddd #eee #eee #ddd; -webkit-box-shadow: none;
-					-moz-box-shadow: none; box-shadow: none; font-weight:200; }
+					-moz-box-shadow: none; box-shadow: none; font-weight:200; 
+					}
 		label {clear: left; width:12em;}
 
 		.content-col {float:left; width:50%;}
@@ -51,4 +56,6 @@ $page-width: 1000px;
 	}
 }
 .content {@include centered($page-width);}
-.login-box {border: 3px solid #ecf0f1; background-color: #82b6ea; padding: 2em; @include rounded(10px); @include centered(22em);}
+.login-box {border: 3px solid #ecf0f1; background-color: #1F3A93; padding: 2em; @include rounded(10px); @include centered(22em);}
+.currency-expense {text-align: right;}
+.currency-bank {text-align: right;}

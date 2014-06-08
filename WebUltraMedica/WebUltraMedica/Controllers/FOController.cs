@@ -14,17 +14,19 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin,FO")]
         public ActionResult Index()
         {
-            InitializeSession();
-            var listfo = new List<FO>();
-
-
-            using (var dc = new db_ultramedicaDataContext())
+            if (Session["user"] != null)
             {
-                listfo = dc.FOs.ToList();
+                InitializeSession();
+                List<FO> listfo;
+
+                ViewData["ErrorMessage"] = "";
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    listfo = dc.FOs.ToList();
+                }
+                return View(listfo);
             }
-
-
-            return View(listfo);
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -41,10 +43,14 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin,FO")]
         public ActionResult Create()
         {
-            InitializeSession();
-            ViewData["Action"] = "Create";
-            ViewData["ErrorMessage"] = "";
-            return View(new FO());
+            if (Session["user"] != null)
+            {
+                InitializeSession();
+                ViewData["Action"] = "Create";
+                ViewData["ErrorMessage"] = "";
+                return View(new FO());
+            }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -60,7 +66,7 @@ namespace WebUltraMedica.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    using (var dc = new db_ultramedicaDataContext())
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
                         var fo = new FO
                                      {
@@ -93,27 +99,31 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin,FO")]
         public ActionResult Edit(int labId)
         {
-            InitializeSession();
-            ViewData["Action"] = "Edit";
-
-            try
+            if (Session["user"] != null)
             {
-                FO fo;
+                InitializeSession();
+                ViewData["Action"] = "Edit";
 
-                ViewData["ErrorMessage"] = "";
-
-                // TODO: Add insert logic here
-                using (var dc = new db_ultramedicaDataContext())
+                try
                 {
-                    fo = dc.FOs.SingleOrDefault(o => o.LAB_ID == labId);
+                    FO fo;
+
+                    ViewData["ErrorMessage"] = "";
+
+                    // TODO: Add insert logic here
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                    {
+                        fo = dc.FOs.SingleOrDefault(o => o.LAB_ID == labId);
+                    }
+                    return View(fo);
                 }
-                return View(fo);
+                catch (Exception ex)
+                {
+                    ViewData["ErrorMessage"] = ex.Message;
+                    return View(new FO());
+                }
             }
-            catch (Exception ex)
-            {
-                ViewData["ErrorMessage"] = ex.Message;
-                return View(new FO());
-            }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -126,16 +136,16 @@ namespace WebUltraMedica.Controllers
 
             ViewData["Action"] = "Edit";
             var lab_id = int.Parse(form["LAB_ID"]);
-            using (var dc = new db_ultramedicaDataContext())
+            using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
                 var fo = dc.FOs.SingleOrDefault(o => o.LAB_ID == lab_id);
                 try
                 {
-                     if (fo != null)
+                    if (fo != null)
                     {
                         fo.EMPLOYEE_ID = form["EMPLOYEE_ID"];
                         fo.YEAR_CHECKUP = form["YEAR_CHECKUP"];
-                        fo.DATE = new DateTime(int.Parse(form["DATE"].Substring(6,4)), int.Parse(form["DATE"].Substring(3,2)), int.Parse(form["DATE"].Substring(0,2)));
+                        fo.DATE = new DateTime(int.Parse(form["DATE"].Substring(6, 4)), int.Parse(form["DATE"].Substring(3, 2)), int.Parse(form["DATE"].Substring(0, 2)));
                         fo.DISTRICT = form["DISTRICT"];
 
                         dc.SubmitChanges();
@@ -164,18 +174,34 @@ namespace WebUltraMedica.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin,FO")]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string ID)
         {
             try
             {
-                // TODO: Add delete logic here
+                FO fo;
 
-                return RedirectToAction("Index");
+                ViewData["ErrorMessage"] = "";
+
+                // TODO: Add insert logic here
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    fo =
+                        dc.FOs.SingleOrDefault(
+                            o => o.LAB_ID.Equals(ID));
+
+                    if (fo != null)
+                    {
+                        dc.FOs.DeleteOnSubmit(fo);
+                        dc.SubmitChanges();
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewData["ErrorMessage"] = ex.Message;
             }
+
+            return RedirectToAction("Index");
         }
 
         private void InitializeSession()

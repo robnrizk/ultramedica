@@ -33,6 +33,11 @@
     display: block;
     color: #a5281b;
     padding-left: 11em; }
+  #main .filter {
+    background-color: #eee;
+    padding: 20px 10px; }
+    #main .filter fieldset {
+      padding: 0; }
   #main .content {
     font-size: 1em;
     font-weight: 100; }
@@ -74,7 +79,7 @@
 
 .login-box {
   border: 3px solid #ecf0f1;
-  background-color: #82b6ea;
+  background-color: #1F3A93;
   padding: 2em;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -82,4 +87,10 @@
   width: 22em;
   margin: 0 auto;
   clear: both; }
+
+.currency-expense {
+  text-align: right; }
+
+.currency-bank {
+  text-align: right; }
 

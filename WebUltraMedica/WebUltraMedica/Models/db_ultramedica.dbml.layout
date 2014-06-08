@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="db_ultramedica">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 8.5" name="db_ultramedica">
   <DataContextMoniker Name="/db_ultramedicaDataContext" />
   <nestedChildShapes>
     <classShape Id="1e20f605-82d4-4906-8708-80f96cdf6333" isExpanded="false" absoluteBounds="0.5, 1.5, 2, 0.45">
@@ -24,12 +24,6 @@
       <DataClassMoniker Name="/db_ultramedicaDataContext/FO" />
       <nestedChildShapes>
         <elementListCompartment Id="8fca319a-8c6e-41c7-b8bf-881287f26127" absoluteBounds="6.3900000000000006, 3.3350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="26c6c61f-44aa-4a8b-9936-081b567889cd" isExpanded="false" absoluteBounds="9.875, 3, 2, 0.45">
-      <DataClassMoniker Name="/db_ultramedicaDataContext/LAB" />
-      <nestedChildShapes>
-        <elementListCompartment Id="430222c8-84ad-46ad-9de7-ee3dbef32a45" absoluteBounds="9.89, 3.4600000000000009, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="2e87ad43-658d-4515-8768-bae7d5b4908d" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
@@ -57,18 +51,11 @@
         <classShapeMoniker Id="1e20f605-82d4-4906-8708-80f96cdf6333" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.38261438461538 : 2.875); (5.78886438461538 : 2.28125); (4.375 : 2.28125); (4.375 : 1.95)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.39715284615385 : 2.875); (5.80340284615385 : 2.28125); (4.375 : 2.28125); (4.375 : 1.95)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/db_ultramedicaDataContext/FO/FO_EKG" />
       <nodes>
         <classShapeMoniker Id="1a038450-9054-42a6-8b6e-836ef758a60b" />
         <classShapeMoniker Id="0477a6f1-f641-4a2d-a1cd-c4590be65b60" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.375 : 3.1625); (9.875 : 3.1625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/db_ultramedicaDataContext/FO/FO_LAB" />
-      <nodes>
-        <classShapeMoniker Id="1a038450-9054-42a6-8b6e-836ef758a60b" />
-        <classShapeMoniker Id="26c6c61f-44aa-4a8b-9936-081b567889cd" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(7.35482892307692 : 2.875); (7.35482892307692 : 1.95)]" fixedFrom="Algorithm" fixedTo="Algorithm">
@@ -78,7 +65,7 @@
         <classShapeMoniker Id="1d3a1e3d-ba17-4270-815b-3dc80e858cf6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.34375 : 2.875); (8.34375 : 2.04375); (9.875 : 2.04375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 3.29375); (9.90625 : 3.29375); (9.90625 : 2.075)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/db_ultramedicaDataContext/FO/FO_SPIRO" />
       <nodes>
         <classShapeMoniker Id="1a038450-9054-42a6-8b6e-836ef758a60b" />
@@ -123,11 +110,24 @@
         <elementListCompartment Id="af222f0e-2e49-4652-8422-07290f7412ed" absoluteBounds="6.515, 4.71, 1.9700000000000002, 14.6719970703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.4375 : 3.325); (7.4375 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.4062475 : 3.325); (7.4062475 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/db_ultramedicaDataContext/FO/FO_FISIK" />
       <nodes>
         <classShapeMoniker Id="1a038450-9054-42a6-8b6e-836ef758a60b" />
         <classShapeMoniker Id="83aa1db0-e893-4a34-abd9-1a1602011893" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="990974ac-49c3-42f5-8856-9b57fb39146b" isExpanded="false" absoluteBounds="10, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/db_ultramedicaDataContext/LAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="502be298-7177-4c19-a29c-6f9ecdaf1983" absoluteBounds="10.015, 3.21, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 3.0375); (9.82291666666667 : 3.0375 : JumpStart); (9.98958333333333 : 3.0375 : JumpEnd); (10 : 3.0375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/db_ultramedicaDataContext/FO/FO_LAB" />
+      <nodes>
+        <classShapeMoniker Id="1a038450-9054-42a6-8b6e-836ef758a60b" />
+        <classShapeMoniker Id="990974ac-49c3-42f5-8856-9b57fb39146b" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

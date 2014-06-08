@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
@@ -41,13 +36,13 @@ namespace WebUltraMedica.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var data = new db_ultramedicaDataContext())
+                using (var data = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     var username = model.USERNAME;
                     var password = model.PASSWORD;
 
                     var employee = data.USERs.SingleOrDefault(m => m.USERNAME.Equals(model.USERNAME) &&
-                                                                       model.PASSWORD.Equals(model.PASSWORD));
+                                                                       m.PASSWORD.Equals(model.PASSWORD));
 
                     if(employee != null)
                     {
@@ -70,7 +65,8 @@ namespace WebUltraMedica.Controllers
         // URL: /Account/LogOff
         // **************************************
 
-        public ActionResult LogOff()
+        
+        public ActionResult LogOut()
         {
             Session.Remove("user");
             FormsAuthentication.SignOut();
@@ -78,6 +74,7 @@ namespace WebUltraMedica.Controllers
             return RedirectToAction("LogOn", "Account");
         }
 
+        
         // **************************************
         // URL: /Account/Register
         // **************************************

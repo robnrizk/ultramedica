@@ -1,39 +1,56 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
 <%@ Import Namespace="WebUltraMedica.Models" %>
-
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/css/application.css" rel="stylesheet" type="text/css" />
-    <link href="../../Content/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
-    <link href="../../Content/css/bootflat.css" rel="stylesheet" media="screen"/>
-    <link href="../../Content/css/bootflat-extensions.css" rel="stylesheet" media="screen"/>
-    <link href="../../Content/css/bootflat-square.css" rel="stylesheet" media="screen"/>
-    <link href="../../Content/chosen_v1.0.0/chosen.css" rel="stylesheet" media="screen"/>
-     <link href="../../Content/css/jquery-ui-1.10.4.custom.css" rel="stylesheet" media="screen"/>
-    
-    <script type="text/javascript" src="../../Scripts/head.js"></script>
-    <script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../Content/chosen_v1.0.0/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/MicrosoftAjax.js"></script>
-    <script type="text/javascript" src="../../Scripts/MicrosoftMvcValidation.js"></script>
-    <script type="text/javascript" src="../../Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="<%: Url.Content("~/Content/css/application.css") %>" rel="stylesheet"
+        type="text/css" />
+    <link href="<%: Url.Content("~/Content/bootstrap/bootstrap.min.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~//Content/css/font-awesome.min.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~/Content/css/bootflat.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%: Url.Content("~/Content/css/bootflat-extensions.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~/Content/css/bootflat-square.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~/Content/chosen_v1.0.0/chosen.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~/Content/css/jquery-ui-1.10.4.custom.css") %>" rel="stylesheet"
+        media="screen" />
+    <link href="<%: Url.Content("~/Content/css/tableblue.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%: Url.Content("~/Content/css/tablesorter.css") %>" rel="stylesheet"
+        media="screen" />
+
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/head.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/jquery-1.10.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/bootstrap.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Content/chosen_v1.0.0/chosen.jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/MicrosoftAjax.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/MicrosoftMvcValidation.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/jquery-ui-1.10.4.custom.min.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/jquery.maskMoney.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/tablesorter/jquery.tablesorter.js") %>"></script>
+    <script type="text/javascript" src="<%: Url.Content("~/Scripts/tablesorter/jquery.tablesorter.widgets.js") %>"></script>
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-square navbar-default navbar-bottom" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-square navbar-default navbar-bottom" style="background-color: #1F3A93"
+        role="navigation">
         <div class="content">
             <div class="navbar-header">
                 <a href="" class="navbar-brand">Ultra Medica</a>
             </div>
-            <% var user = (USER) Session["user"];
-               var roles = user.ROLES.Split(';');%>
+            <% var user = (USER)Session["user"];
+               var roles = user.ROLES.Split(',');%>
             <div class="collapse navbar-collapse navbar-ex3-collapse">
 				<p class="navbar-text">Selamat Datang <%: user.NAMA %></p>
-                <a href="/Account/LogOff" class="btn btn-primary navbar-btn">Keluar</a>
+                <button id="btnLogOut" class="btn btn-danger navbar-btn" onclick="javascript: LogOut();">Keluar</button>
                 <ul class="nav navbar-nav navbar-right">
 				    <li class="dropdown">
 					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master<b class="caret"></b></a>
@@ -47,25 +64,25 @@
 					    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Input Data <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
 					        <%if (roles.Any(m => m.Equals("Admin") || m.Equals("FO")))
-                              {%> <li><%= Html.ActionLink("FO","Index","FO") %></li><% } %>
+               {%> <li><%= Html.ActionLink("FO","Index","FO") %></li><% } %>
 						   
 						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Fisik")))
-                              {%> <li><%= Html.ActionLink("Fisik","Index","Fisik") %></li><% } %>
+            {%> <li><%= Html.ActionLink("Fisik","Index","Fisik") %></li><% } %>
 
 						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Laboratorium")))
-                              {%> <li><a href="#">Laboratorium</a></li><% } %>
+            {%> <li><%= Html.ActionLink("Laboratorium","Index","Lab") %></li><% } %>
 
 						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Rontgen")))
-                              {%> <li><a href="#">Rontgen</a></li><% } %>
+            {%> <li><%= Html.ActionLink("Rontgen","Index","Rontgen") %></li><% } %>
                             
                             <%if (roles.Any(m => m.Equals("Admin") || m.Equals("EKG")))
-                              {%> <li><a href="#">EKG</a></li><% } %>
+                              {%> <li><%= Html.ActionLink("EKG","Index","Ekg") %></li><% } %>
 
 						   <%if (roles.Any(m => m.Equals("Admin") || m.Equals("Audio")))
-                              {%> <li><a href="#">Audio</a></li><% } %>
+           {%> <li><%= Html.ActionLink("AUDIO","Index","Audio") %></li><% } %>
 
 						    <%if (roles.Any(m => m.Equals("Admin") || m.Equals("SPIRO")))
-                              {%> <li><a href="#">SPIRO</a></li><% } %>
+            {%> <li><%= Html.ActionLink("SPIRO","Index","Spiro") %></li><% } %>
 					    </ul>
 				    </li>
                      <%if (roles.Any(m => m.Equals("Admin")))
@@ -83,19 +100,82 @@
         </div>
     </nav>
     <div>
+        <div id="main">
+        <% if (!string.IsNullOrEmpty(ViewData["ErrorMessage"].ToString()))
+           { %>
+        <div class="alert alert-danger alert-dismissable">
+            <strong>Error : </strong>
+            <%: ViewData["ErrorMessage"].ToString() %>
+        </div>
+        <% }%>
+
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
+        </div>
     </div>
-    
     <script type="text/javascript">
+        function DeleteMedicalData(employeeid, yearcheckup) {
+            $.ajax({
+                type: "POST",
+                url: "\delete\?employee_id=" + employeeid + "&&year_checkup=" + yearcheckup,
+                success: function (data) {
+                    alert("Record succesfully deleted");
+                    window.location = '\Index';
+                },
+                failure: function () { alert("Error. Mohon refresh browser Anda."); }
+            });
+        }
+
+        function DeleteMasterData(id) {
+            $.ajax({
+                type: "POST",
+                url: "\delete\?id=" + id,
+                success: function (data) {
+                    alert("Record succesfully deleted");
+                    window.location = '\Index';
+                },
+                failure: function () { alert("Error. Mohon refresh browser Anda."); }
+            });
+        }
+
+        function LogOut() {
+            debugger;
+            var homeurl = '<%= ConfigurationManager.AppSettings["HomeUrl"] %>';
+            $.ajax({
+                type: "POST",
+                url: homeurl + 'Account/LogOut/',
+                success: function (data) {
+                    window.location = homeurl + 'Account/LogOn';
+                },
+                failure: function () { alert("Error. Mohon refresh browser Anda."); }
+            });
+        }
+
         $(document).ready(function () {
             $('.chosen').chosen();
 
             $('.datepicker').datepicker({
                 dateFormat: 'dd-mm-yy'
             });
+
+            $(".currency-bank").maskMoney({ thousands: ',', decimal: '.', defaultZero: 0 });
+
+            $(".currency-expense").maskMoney({ thousands: ',', decimal: '.', defaultZero: 0, precision: 0 });
+
+
+            if ($('.tablesorterFilters').length > 0) {
+                $(".tablesorter").tablesorter({
+                    cssInfoBlock: "tablesorter-no-sort",
+                    widgets: ['filter'],
+                    widgetOptions: {
+                        filter_columnFilters: true
+                    }
+                });
+            }
+            else {
+                $(".tablesorter").tablesorter();
+            }
         });
     </script>
-
 </body>
 </html>

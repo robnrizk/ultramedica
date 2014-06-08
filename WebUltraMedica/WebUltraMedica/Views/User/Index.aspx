@@ -5,57 +5,58 @@
     User - Index
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="main">
-        <h1>
-            INDEKS PEGAWAI
-            <%= Html.ActionLink("Tambah", "Create", "User", new {@class= "btn btn-primary right"}) %></h1>
-        <br />
-        <% var roles = Session["roles"].ToString().Split(';');%>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th width="1%">
-                        #
-                    </th>
-                    <th>
-                        Nama
-                    </th>
-                    <th width="15%">
-                        Posisi
-                    </th>
-                    <th width="12%">
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <% int i = 0; %>
-                <% foreach (var user in Model)
-                   {%>
-                <tr>
-                    <td>
-                        <%: i += 1 %>
-                    </td>
-                    <td>
-                        <%: user.NAMA %>
-                    </td>
-                    <td>
-                        <%: user.POSISI %>
-                    </td>
-                    <td>
-                        <%if (roles.Any(m => m.Equals("Admin")))
-                          { %>
-                        <%: Html.ActionLink("Edit", "Edit", new {userNik = user.NIK},
+    <h1>
+        INDEKS USER
+        <%= Html.ActionLink("Tambah", "Create", "User", new {@class= "btn btn-primary right"}) %></h1>
+    <br />
+    <% var roles = Session["roles"].ToString().Split(',');%>
+    <table class="tableblue tablesorter sortable tablesorterFilters">
+        <thead>
+            <tr>
+                <th class="sorter-false, filter-false" width="1%">
+                    #
+                </th>
+                <th>
+                    Nama
+                </th>
+                <th width="15%">
+                    Posisi
+                </th>
+                <th class="sorter-false, filter-false" width="12%">
+                </th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <% int i = 0; %>
+            <% foreach (var user in Model)
+               {%>
+            <tr>
+                <td>
+                    <%: i += 1 %>
+                </td>
+                <td>
+                    <%: user.NAMA %>
+                </td>
+                <td>
+                    <%: user.POSISI %>
+                </td>
+                <td>
+                    <%if (roles.Any(m => m.Equals("Admin")))
+                      { %>
+                    <%: Html.ActionLink("Edit", "Edit", new {userNik = user.NIK},
                                                                  new {@class = "btn btn-primary btn-xs"}) %>
-                        <%: Html.ActionLink("Hapus", "Delete", new { userNik = user.NIK },
-                                                                 new {@class = "btn btn-danger btn-xs"}) %>
-                        <% }%>
-                    </td>
-                </tr>
-                <% }%>
-            </tbody>
-        </table>
-        <div class="actions">
-            <%= Html.ActionLink("Tambah", "Create", "User", new {@class= "btn btn-primary"}) %>
-        </div>
+                    <button id="deleteFisik" onclick="javascript: DeleteMasterData('<%:user.NIK %>');"
+                        class="btn btn-danger btn-xs">
+                        Hapus
+                    </button>
+                    <% }%>
+                </td>
+            </tr>
+            <% }%>
+        </tbody>
+    </table>
+    <br />
+    <div class="actions">
+        <%= Html.ActionLink("Tambah", "Create", "User", new {@class= "btn btn-primary"}) %>
     </div>
 </asp:Content>

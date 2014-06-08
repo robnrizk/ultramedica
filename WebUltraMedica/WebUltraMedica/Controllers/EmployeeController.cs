@@ -16,14 +16,19 @@ namespace WebUltraMedica.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            InitializeSession();
-            var listEmployee = new List<EMPLOYEE>();
-            using (var dc = new db_ultramedicaDataContext())
+            if (Session["user"] != null)
             {
-                listEmployee = dc.EMPLOYEEs.ToList();
+                InitializeSession();
+                ViewData["ErrorMessage"] = "";
+                List<EMPLOYEE> listEmployee;
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    listEmployee = dc.EMPLOYEEs.ToList();
+                }
+
+                return View(listEmployee);
             }
-           
-            return View(listEmployee);
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -40,10 +45,14 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            InitializeSession();
-            ViewData["Action"] = "Create";
-            ViewData["ErrorMessage"] = "";
-            return View(new EMPLOYEE());
+            if (Session["user"] != null)
+            {
+                InitializeSession();
+                ViewData["Action"] = "Create";
+                ViewData["ErrorMessage"] = "";
+                return View(new EMPLOYEE());
+            }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
@@ -54,12 +63,12 @@ namespace WebUltraMedica.Controllers
         public ActionResult Create(EMPLOYEE employee)
         {
             ViewData["Action"] = "Create";
-            
+
             try
             {
                 if (ModelState.IsValid)
                 {
-                    using (var dc = new db_ultramedicaDataContext())
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
                         dc.EMPLOYEEs.InsertOnSubmit(employee);
                         dc.SubmitChanges();
@@ -75,7 +84,7 @@ namespace WebUltraMedica.Controllers
                 return View(new EMPLOYEE());
             }
         }
-        
+
         //
         // GET: /Employee/Edit/5
 
@@ -83,41 +92,45 @@ namespace WebUltraMedica.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(string employeeId)
         {
-            InitializeSession();
-            ViewData["Action"] = "Edit";
-            
-            try
+            if (Session["user"] != null)
             {
-                EMPLOYEE employee;
-               
-                ViewData["ErrorMessage"] = "";
+                InitializeSession();
+                ViewData["Action"] = "Edit";
 
-                // TODO: Add insert logic here
-                using (var dc = new db_ultramedicaDataContext())
+                try
                 {
-                    employee = dc.EMPLOYEEs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(employeeId));
+                    EMPLOYEE employee;
+
+                    ViewData["ErrorMessage"] = "";
+
+                    // TODO: Add insert logic here
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                    {
+                        employee = dc.EMPLOYEEs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(employeeId));
+                    }
+                    return View(employee);
                 }
-                return View(employee);
+                catch (Exception ex)
+                {
+                    ViewData["ErrorMessage"] = ex.Message;
+                    return View(new EMPLOYEE());
+                }
             }
-            catch(Exception ex)
-            {
-                ViewData["ErrorMessage"] = ex.Message;
-                return View(new EMPLOYEE());
-            }
+            return RedirectToAction("LogOut", "Account");
         }
 
         //
         // POST: /Employee/Edit/5
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]    
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(EMPLOYEE employee)
         {
             ViewData["Action"] = "Edit";
-            
+
             try
             {
-                using (var dc = new db_ultramedicaDataContext())
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     var employeedb = dc.EMPLOYEEs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(employee.EMPLOYEE_ID));
 
@@ -134,7 +147,7 @@ namespace WebUltraMedica.Controllers
                         employeedb.STATUS = employee.STATUS;
                         dc.SubmitChanges();
                     }
-                     
+
                 }
                 return RedirectToAction("Index");
             }
@@ -159,23 +172,39 @@ namespace WebUltraMedica.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(string id, FormCollection collection)
+        public ActionResult Delete(string ID)
         {
             try
             {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                EMPLOYEE employee;
+
+                ViewData["ErrorMessage"] = "";
+
+                // TODO: Add insert logic here
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    employee =
+                        dc.EMPLOYEEs.SingleOrDefault(
+                            o => o.EMPLOYEE_ID.Equals(ID));
+
+                    if (employee != null)
+                    {
+                        dc.EMPLOYEEs.DeleteOnSubmit(employee);
+                        dc.SubmitChanges();
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewData["ErrorMessage"] = ex.Message;
             }
+
+            return RedirectToAction("Index");
         }
 
         private void InitializeSession()
         {
-            if (Session["user"] == null)
+            if (Session["user"] != null)
             {
                 var user = Helper.SetSession(Request.Cookies[FormsAuthentication.FormsCookieName]);
                 Session["user"] = user;

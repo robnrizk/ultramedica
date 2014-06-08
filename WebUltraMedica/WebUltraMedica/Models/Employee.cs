@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebUltraMedica.Controllers;
 
 namespace WebUltraMedica.Models
 {
@@ -16,7 +17,7 @@ namespace WebUltraMedica.Models
             get
             {
                 var objreturn = string.Empty;
-                using (var dc = new db_ultramedicaDataContext())
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     var company = dc.COMPANies.SingleOrDefault(o => o.COMPANY_ID == this.COMPANY_ID);
                     if (company != null) objreturn = company.COMPANY_NAME;
@@ -72,7 +73,7 @@ namespace WebUltraMedica.Models
             get
             {
                 var objreturn = new List<SelectListItem>();
-                using (var dc = new db_ultramedicaDataContext())
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     var company = dc.COMPANies.OrderBy(m => m.COMPANY_NAME).ToList();
                     if (company.Any())

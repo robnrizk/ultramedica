@@ -68,25 +68,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AudioController.cs" />
+    <Compile Include="Controllers\EkgController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FisikController.cs" />
     <Compile Include="Controllers\FOController.cs" />
+    <Compile Include="Controllers\LabController.cs" />
+    <Compile Include="Controllers\RontgenController.cs" />
+    <Compile Include="Controllers\SpiroController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AUDIO.cs" />
     <Compile Include="Models\db_ultramedica.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_ultramedica.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\EKG.cs" />
     <Compile Include="Models\EMPLOYEE.cs" />
     <Compile Include="Models\FISIK.cs" />
     <Compile Include="Models\FO.cs" />
+    <Compile Include="Models\LAB.cs" />
+    <Compile Include="Models\RONTGEN.cs" />
+    <Compile Include="Models\SPIRO.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\application.css">
@@ -134,7 +149,21 @@
     <Content Include="Content\css\images\ui-icons_ff0084_256x240.png" />
     <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\css\tableblue.css" />
+    <Content Include="Content\css\tablesorter.css" />
+    <Content Include="Content\css\tablesorter\asc.gif" />
+    <Content Include="Content\css\tablesorter\barber-pole.png" />
+    <Content Include="Content\css\tablesorter\bg.gif" />
+    <Content Include="Content\css\tablesorter\desc.gif" />
+    <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.min.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.widgets-filter-formatter.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.widgets-filter-formatter.min.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.widgets.js" />
+    <Content Include="Scripts\tablesorter\jquery.tablesorter.widgets.min.js" />
     <Content Include="Content\img\check_flat\default.png" />
+    <Content Include="Content\img\ULTRA MEDICA.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\head.js" />
@@ -150,6 +179,14 @@
     <Content Include="Scripts\js\jquery-1.4.1.min.js" />
     <Content Include="Scripts\js\jquery.icheck.js" />
     <Content Include="Scripts\js\respond.min.js" />
+    <Content Include="Views\Audio\Create.aspx" />
+    <Content Include="Views\Audio\Edit.aspx" />
+    <Content Include="Views\Audio\form.ascx" />
+    <Content Include="Views\Audio\Index.aspx" />
+    <Content Include="Views\Ekg\Create.aspx" />
+    <Content Include="Views\Ekg\Edit.aspx" />
+    <Content Include="Views\Ekg\form.ascx" />
+    <Content Include="Views\Ekg\Index.aspx" />
     <Content Include="Views\Employee\Create.aspx" />
     <Content Include="Views\Employee\Edit.aspx" />
     <Content Include="Views\Employee\form.ascx" />
@@ -157,10 +194,23 @@
     <Content Include="Views\Fisik\Create.aspx" />
     <Content Include="Views\Fisik\form.ascx" />
     <Content Include="Views\Fisik\Index.aspx" />
+    <Content Include="Views\Fisik\Edit.aspx" />
     <Content Include="Views\FO\Create.aspx" />
     <Content Include="Views\FO\Edit.aspx" />
     <Content Include="Views\FO\form.ascx" />
     <Content Include="Views\FO\Index.aspx" />
+    <Content Include="Views\Lab\Create.aspx" />
+    <Content Include="Views\Lab\Edit.aspx" />
+    <Content Include="Views\Lab\form.ascx" />
+    <Content Include="Views\Lab\Index.aspx" />
+    <Content Include="Views\Rontgen\Create.aspx" />
+    <Content Include="Views\Rontgen\Edit.aspx" />
+    <Content Include="Views\Rontgen\form.ascx" />
+    <Content Include="Views\Rontgen\Index.aspx" />
+    <Content Include="Views\Spiro\Create.aspx" />
+    <Content Include="Views\Spiro\Edit.aspx" />
+    <Content Include="Views\Spiro\form.ascx" />
+    <Content Include="Views\Spiro\Index.aspx" />
     <Content Include="Views\User\Create.aspx" />
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\form.ascx" />
@@ -189,7 +239,7 @@
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
-    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Shared\LogonForm.Master" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +340,12 @@
       <DependentUpon>db_ultramedica.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -303,12 +359,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1760</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/WebUltraMedica</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

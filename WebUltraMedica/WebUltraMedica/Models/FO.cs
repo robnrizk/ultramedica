@@ -2,19 +2,35 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
+using WebUltraMedica.Controllers;
 
 namespace WebUltraMedica.Models
 {
     [MetadataType(typeof(FO_VALIDATION))]
     public partial class FO
     {
+        public string EMPLOYEE_NAME
+        {
+            get
+            {
+                var objreturn = string.Empty;
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    var employee = dc.EMPLOYEEs.SingleOrDefault(o => o.EMPLOYEE_ID == this.EMPLOYEE_ID);
+                    if (employee != null) objreturn = employee.NAME;
+                }
+                return objreturn;
+            }
+        }
+
+        
         public List<SelectListItem> EMPLOYEE_LIST
         {
             get
             {
                 var objReturn = new List<SelectListItem>();
 
-                using (var dc = new db_ultramedicaDataContext())
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     var employees = dc.EMPLOYEEs.ToList();
                     if (employees.Any())

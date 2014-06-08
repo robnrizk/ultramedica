@@ -3,13 +3,6 @@
 <% Html.EnableClientValidation(); %>
 <% using(Html.BeginForm(ViewData["Action"].ToString(), "Employee", FormMethod.Post, new{@class="content"})){%>
     
-    <% if (!string.IsNullOrEmpty(ViewData["ErrorMessage"].ToString()))
-       { %>
-        <div class="alert alert-danger alert-dismissable">
-           <strong>Error : </strong><%: ViewData["ErrorMessage"].ToString() %>
-        </div>
-    <% }%>
-
     <div class="content-col">
         <fieldset>
             <label for="EMPLOYEE_ID">NRP</label>

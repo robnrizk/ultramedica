@@ -1,21 +1,43 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<WebUltraMedica.Models.FISIK>" %>
 <% Html.EnableClientValidation(); %>
+<% if (Model.LabId == 0)
+   {%>
+<div class="content">
+<fieldset>
+    <div class="content-col">
+        <div class="content-group">
+            <label for="LAB_ID">
+                Laboratorium ID</label>
+            <%: Html.DropDownListFor(m => m.LabId, Model.LABID_LIST, new { @class = "content-data chosen" })%>
+        </div>
+        <div class="content-group">
+            <label>
+                &nbsp;</label>
+            <input type="button" value="Cari" class="btn btn-primary" onclick="GotoFisikCreateByLabID();" />
+        </div>
+    </div>
+    <div class="content-col">
+        <div class="content-group">
+            <label for="YEAR_CHECKUP">
+                Tahun Periksa</label>
+            <%: Html.TextBoxFor(model => model.YEAR_CHECKUP, new { @class = "content-data" })%>
+        </div>
+    </div>
+</fieldset>
+</div>
+<% }
+   else
+   { %>
 <% using (Html.BeginForm(ViewData["Action"].ToString(), "Fisik", FormMethod.Post, new { @class = "content" }))
    {%>
-<% if (!string.IsNullOrEmpty(ViewData["ErrorMessage"].ToString()))
-   { %>
-<div class="alert alert-danger alert-dismissable">
-    <strong>Error : </strong>
-    <%: ViewData["ErrorMessage"].ToString() %>
-</div>
-<% }%>
+
 <fieldset>
     <legend>HEADER</legend>
     <div class="content-col">
         <div class="content-group">
             <label for="LAB_ID">
                 Laboratorium ID</label>
-            <%: Html.TextBoxFor(model => model.LAB_ID, new { @class = "content-data" })%>
+            <%: Html.TextBoxFor(model => model.LabId, new { @class = "content-data" })%>
         </div>
         <div class="content-group">
             <label for="EMPLOYEE_ID">
@@ -161,73 +183,73 @@
         <div class="content-group">
             <label for="TINGGI_BADAN">
                 Tinggi Badan (cm)</label>
-            <%: Html.TextBoxFor(model => model.TINGGI_BADAN, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.TINGGI_BADAN, new { @class = "content-data currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="BMI">
                 BMI (18-25)</label>
-            <%: Html.TextBoxFor(model => model.BMI, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.BMI, new { @class = "content-data  currency-bank" })%>
         </div>
         <div class="content-group">
             <label for="LKR_PRT">
                 LKR PRT (L: < 90 P: < 80)</label>
-            <%: Html.TextBoxFor(model => model.LKR_PRT, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.LKR_PRT, new { @class = "content-data currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="T_DIASTOL">
                 T. Diastol (60 - 85)</label>
-            <%: Html.TextBoxFor(model => model.T_DIASTOL, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.T_DIASTOL, new { @class = "content-data currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="RESPIRASI">
                 Respirasi (<24/menit)</label>
-            <%: Html.TextBoxFor(model => model.RESPIRASI, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.RESPIRASI, new { @class = "content-data currency-expense" })%>
         </div>
     </div>
     <div class="content-col">
         <div class="content-group">
             <label for="BERAT_BADAN">
                 Berat Badan (kg)</label>
-            <%: Html.TextBoxFor(model => model.BERAT_BADAN, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.BERAT_BADAN, new { @class = "content-data  currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="LKR_DD">
                 LKR DD</label>
-            <%: Html.TextBoxFor(model => model.LKR_DD, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.LKR_DD, new { @class = "content-data  currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="T_SISTOL">
                 T. Sistol (90 - 130)</label>
-            <%: Html.TextBoxFor(model => model.T_SISTOL, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.T_SISTOL, new { @class = "content-data currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="NADI">
                 Nadi (<100/menit)</label>
-            <%: Html.TextBoxFor(model => model.NADI, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.NADI, new { @class = "content-data currency-expense" })%>
         </div>
     </div>
 </fieldset>
 <fieldset>
     <legend>PENGLIHATAN JAUH</legend>
-     <div class="content-col">
-         <div class="content-group">
+    <div class="content-col">
+        <div class="content-group">
             <label for="VISUS_JAUH_TANPA_KACMATA">
                 Visus J OD/OS tnp KM (6/6 m)</label>
             <%: Html.TextBoxFor(model => model.VISUS_JAUH_TANPA_KACMATA, new { @class="content-data"}) %>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="VISUS_JAUH_DENGAN">
                 Visus J OD/OS dgn KM (6/6 m)</label>
             <%: Html.TextBoxFor(model => model.VISUS_JAUH_DENGAN, new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>PENGLIHATAN DEKAT</legend>
-     <div class="content-col">
-         <div class="content-group">
+    <div class="content-col">
+        <div class="content-group">
             <label for="VISUS_DEKAT_TANPA_KACAMATA">
                 Visus D OD/OS tnp KM (30/30 cm)</label>
             <%: Html.TextBoxFor(model => model.VISUS_DEKAT_TANPA_KACAMATA, new { @class="content-data"}) %>
@@ -235,38 +257,38 @@
         <div class="content-group">
             <label for="BUTA_WARNA">
                 Buta Warna</label>
-            <%: Html.TextBoxFor(model => model.BUTA_WARNA, new { @class="content-data"}) %>
+            <%: Html.DropDownListFor(m => m.BUTA_WARNA, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="VISUS_DEKAT_DENGAN_KACAMATA">
                 Visus d OD/OS dgn KM (30/30 cm)</label>
             <%: Html.TextBoxFor(model => model.VISUS_DEKAT_DENGAN_KACAMATA, new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>ANAMNESA</legend>
-     <div class="content-col">
-         <div class="content-group">
+    <div class="content-col">
+        <div class="content-group">
             <label for="ANAMNESA_KELUHAN_UTAMA">
                 Keluhan Utama</label>
             <%: Html.TextBoxFor(model => model.ANAMNESA_KELUHAN_UTAMA, new { @class="content-data"}) %>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="ANAMNESA_KELUHAN_TAMBAHAN">
                 Keluhan Tambahan</label>
             <%: Html.TextBoxFor(model => model.ANAMNESA_KELUHAN_TAMBAHAN, new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>PEMERIKASAAN ORGAN SUPERFICIAL</legend>
     <div class="content-col">
-         <div class="content-group">
+        <div class="content-group">
             <label for="MATA">
                 MATA</label>
             <%: Html.TextBoxFor(model => model.MATA, new { @class="content-data"}) %>
@@ -306,9 +328,9 @@
                 Kulit / Kuku</label>
             <%: Html.TextBoxFor(model => model.KULIT_KUKU, new { @class="content-data"}) %>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="TELINGA">
                 Telinga</label>
             <%: Html.TextBoxFor(model => model.TELINGA, new { @class="content-data"}) %>
@@ -343,12 +365,12 @@
                 Variches / Hemoroid / H</label>
             <%: Html.TextBoxFor(model => model.VARICHES_HEMOROID,new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>PEMERIKSAAN ORGAN VISCERAL</legend>
     <div class="content-col">
-         <div class="content-group">
+        <div class="content-group">
             <label for="PULMO_SIST_RESPIRASI">
                 Pulmo Sistem Respirasi</label>
             <%: Html.TextBoxFor(model => model.PULMO_SIST_RESPIRASI, new { @class="content-data"}) %>
@@ -363,9 +385,9 @@
                 Sistem Reproduksi</label>
             <%: Html.TextBoxFor(model => model.SIST_REPROD, new { @class="content-data"}) %>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="COR_SIST_CV">
                 COR & Sist CV</label>
             <%: Html.TextBoxFor(model => model.COR_SIST_CV, new { @class="content-data"}) %>
@@ -375,12 +397,12 @@
                 SUG</label>
             <%: Html.TextBoxFor(model => model.SUG,new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>PEMERIKSAAN EXTRIMITAS OTOT DAN TULANG</legend>
     <div class="content-col">
-         <div class="content-group">
+        <div class="content-group">
             <label for="EXTRIMITAS_ATAS">
                 Extrimitas Atas</label>
             <%: Html.TextBoxFor(model => model.EXTRIMITAS_ATAS, new { @class="content-data"}) %>
@@ -390,78 +412,79 @@
                 Otot dan Tulang Lain</label>
             <%: Html.TextBoxFor(model => model.OTOT_TULANG_LAIN, new { @class="content-data"}) %>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="EXTRIMITAS_BAWAH">
                 Extrimitas Bawah</label>
             <%: Html.TextBoxFor(model => model.EXTRIMITAS_BAWAH, new { @class="content-data"}) %>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>PEMERIKSAAN GIGI</legend>
     <div class="content-col">
-         <div class="content-group">
+        <div class="content-group">
             <label for="BAU_MULUT">
                 Bau Mulut</label>
-            <%: Html.TextBoxFor(model => model.BAU_MULUT, new { @class="content-data"}) %>
+           <%: Html.DropDownListFor(m => m.BAU_MULUT, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
         <div class="content-group">
             <label for="TANGGAL">
                 Tanggal</label>
-            <%: Html.TextBoxFor(model => model.TANGGAL, new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.TANGGAL, new { @class = "content-data currency-expense" })%>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="KARIES">
-                Karies  </label>
-            <%: Html.TextBoxFor(model => model.KARIES, new { @class="content-data"}) %>
+                Karies
+            </label>
+            <%: Html.TextBoxFor(model => model.KARIES, new { @class = "content-data currency-expense" })%>
         </div>
         <div class="content-group">
             <label for="SISA_AKAR">
                 Sisa Akar</label>
-            <%: Html.TextBoxFor(model => model.SISA_AKAR,new { @class="content-data"}) %>
+            <%: Html.TextBoxFor(model => model.SISA_AKAR, new { @class = "content-data currency-expense" })%>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>SYARAF DAN KOORDINASI</legend>
     <div class="content-col">
-         <div class="content-group">
+        <div class="content-group">
             <label for="REFLEX_PATOLOGIS">
                 Reflek Patologis</label>
-            <%: Html.TextBoxFor(model => model.REFLEX_PATOLOGIS, new { @class="content-data"}) %>
+            <%: Html.DropDownListFor(m => m.REFLEX_PATOLOGIS, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
         <div class="content-group">
             <label for="PARESE">
                 Parese</label>
-            <%: Html.TextBoxFor(model => model.PARESE, new { @class="content-data"}) %>
+            <%: Html.DropDownListFor(m => m.PARESE, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
         <div class="content-group">
             <label for="PATRICK_SIGN">
                 Patrick Sign</label>
-            <%: Html.TextBoxFor(model => model.PATRICK_SIGN, new { @class="content-data"}) %>
+            <%: Html.DropDownListFor(m => m.PATRICK_SIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
-     </div>
-     <div class="content-col">
-         <div class="content-group">
+    </div>
+    <div class="content-col">
+        <div class="content-group">
             <label for="PARESTESI">
                 Parestesi</label>
-            <%: Html.TextBoxFor(model => model.PARESTESI, new { @class="content-data"}) %>
+            <%: Html.DropDownListFor(m => m.PARESTESI, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
         <div class="content-group">
             <label for="LASSAGUESIGN">
                 Lassague Sign</label>
-            <%: Html.TextBoxFor(model => model.LASSAGUESIGN,new { @class="content-data"}) %>
+           <%: Html.DropDownListFor(m => m.LASSAGUESIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>>
         </div>
         <div class="content-group">
             <label for="CONTRA_PATRICK_SIGN">
                 Contra Patrick Sign</label>
-            <%: Html.TextBoxFor(model => model.CONTRA_PATRICK_SIGN,new { @class="content-data"}) %>
+           <%: Html.DropDownListFor(m => m.CONTRA_PATRICK_SIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
-     </div>
+    </div>
 </fieldset>
 <fieldset>
     <legend>KESIMPULAN</legend>
@@ -474,7 +497,8 @@
     </div>
 </fieldset>
 <div class="actions">
-        <input type="submit" value="Simpan" class="btn btn-primary"/>
-        <%= Html.ActionLink("Kembali", "Index", "Fisik", new {@class= "btn btn-primary btn-danger"}) %>
-    </div>
+    <input type="submit" value="Simpan" class="btn btn-primary" />
+    <%= Html.ActionLink("Kembali", "Index", "Fisik", new {@class= "btn btn-primary btn-danger"}) %>
+</div>
 <% }%>
+<%}%>

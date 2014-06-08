@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using WebUltraMedica.Controllers;
 using WebUltraMedica.Models;
 
 namespace WebUltraMedica
@@ -47,7 +49,7 @@ namespace WebUltraMedica
                                 FormsAuthentication.Decrypt(httpCookie.Value).Name;
                             string roles = string.Empty;
 
-                            using (var data = new db_ultramedicaDataContext())
+                            using (var data = new db_ultramedicaDataContext(Helper.ConnectionString()))
                             {
                                 var user = data.USERs.SingleOrDefault(u => u.USERNAME == username);
 
