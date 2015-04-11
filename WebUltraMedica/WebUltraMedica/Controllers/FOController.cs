@@ -70,7 +70,7 @@ namespace WebUltraMedica.Controllers
                     {
                         var fo = new FO
                                      {
-                                         LAB_ID = int.Parse(form["LAB_ID"]),
+                                         LAB_ID = int.Parse(form["LAB_ID"] ?? "0"),
                                          EMPLOYEE_ID = form["EMPLOYEE_ID"],
                                          YEAR_CHECKUP = form["YEAR_CHECKUP"],
                                          DATE =
@@ -97,30 +97,28 @@ namespace WebUltraMedica.Controllers
         //
         // GET: /FO/Edit/5
         [Authorize(Roles = "Admin,FO")]
-        public ActionResult Edit(int labId)
+        public ActionResult Edit(string EMPLOYEE_ID, string YEAR_CHECKUP)
         {
             if (Session["user"] != null)
             {
                 InitializeSession();
                 ViewData["Action"] = "Edit";
-
+                FO fo = new FO();
                 try
                 {
-                    FO fo;
-
                     ViewData["ErrorMessage"] = "";
 
                     // TODO: Add insert logic here
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        fo = dc.FOs.SingleOrDefault(o => o.LAB_ID == labId);
+                        fo = dc.FOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                     }
                     return View(fo);
                 }
                 catch (Exception ex)
                 {
                     ViewData["ErrorMessage"] = ex.Message;
-                    return View(new FO());
+                    return View(fo);
                 }
             }
             return RedirectToAction("LogOut", "Account");
@@ -135,20 +133,26 @@ namespace WebUltraMedica.Controllers
         {
 
             ViewData["Action"] = "Edit";
-            var lab_id = int.Parse(form["LAB_ID"]);
+            var EMPLOYEE_ID = form["EMPLOYEE_ID"];
+            var YEAR_CHECKUP = form["YEAR_CHECKUP"];
+
             using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
-                var fo = dc.FOs.SingleOrDefault(o => o.LAB_ID == lab_id);
+                var fo = dc.FOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                 try
                 {
                     if (fo != null)
                     {
-                        fo.EMPLOYEE_ID = form["EMPLOYEE_ID"];
-                        fo.YEAR_CHECKUP = form["YEAR_CHECKUP"];
-                        fo.DATE = new DateTime(int.Parse(form["DATE"].Substring(6, 4)), int.Parse(form["DATE"].Substring(3, 2)), int.Parse(form["DATE"].Substring(0, 2)));
-                        fo.DISTRICT = form["DISTRICT"];
+                        if (ModelState.IsValid)
+                        {
+                            fo.LAB_ID = Int32.Parse(form["LAB_ID"]);
+                            fo.EMPLOYEE_ID = form["EMPLOYEE_ID"];
+                            fo.YEAR_CHECKUP = form["YEAR_CHECKUP"];
+                            fo.DATE = new DateTime(int.Parse(form["DATE"].Substring(6, 4)), int.Parse(form["DATE"].Substring(3, 2)), int.Parse(form["DATE"].Substring(0, 2)));
+                            fo.DISTRICT = form["DISTRICT"];
 
-                        dc.SubmitChanges();
+                            dc.SubmitChanges();
+                        }
                     }
 
                     return RedirectToAction("Index");
@@ -174,7 +178,7 @@ namespace WebUltraMedica.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin,FO")]
-        public ActionResult Delete(string ID)
+        public ActionResult Delete(string EMPLOYEE_ID, string YEAR_CHECKUP)
         {
             try
             {
@@ -186,8 +190,7 @@ namespace WebUltraMedica.Controllers
                 using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
                     fo =
-                        dc.FOs.SingleOrDefault(
-                            o => o.LAB_ID.Equals(ID));
+                        dc.FOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
 
                     if (fo != null)
                     {

@@ -81,7 +81,7 @@ namespace WebUltraMedica.Controllers
             catch (Exception ex)
             {
                 ViewData["ErrorMessage"] = ex.Message;
-                return View(new EMPLOYEE());
+                return View(employee);
             }
         }
 
@@ -96,11 +96,9 @@ namespace WebUltraMedica.Controllers
             {
                 InitializeSession();
                 ViewData["Action"] = "Edit";
-
+                EMPLOYEE employee = new EMPLOYEE();
                 try
                 {
-                    EMPLOYEE employee;
-
                     ViewData["ErrorMessage"] = "";
 
                     // TODO: Add insert logic here
@@ -113,7 +111,7 @@ namespace WebUltraMedica.Controllers
                 catch (Exception ex)
                 {
                     ViewData["ErrorMessage"] = ex.Message;
-                    return View(new EMPLOYEE());
+                    return View(employee);
                 }
             }
             return RedirectToAction("LogOut", "Account");
@@ -136,16 +134,19 @@ namespace WebUltraMedica.Controllers
 
                     if (employeedb != null)
                     {
-                        employeedb.NAME = employee.NAME;
-                        employeedb.COMPANY_ID = employee.COMPANY_ID;
-                        employeedb.DISTRICT = employee.DISTRICT;
-                        employeedb.AGE = employee.AGE;
-                        employeedb.DEPARTMENT = employee.DEPARTMENT;
-                        employeedb.MESS_STATUS = employee.MESS_STATUS;
-                        employeedb.POSITION = employee.POSITION;
-                        employeedb.SEX = employee.SEX;
-                        employeedb.STATUS = employee.STATUS;
-                        dc.SubmitChanges();
+                        if (ModelState.IsValid)
+                        {
+                            employeedb.NAME = employee.NAME;
+                            employeedb.COMPANY_ID = employee.COMPANY_ID;
+                            employeedb.DISTRICT = employee.DISTRICT;
+                            employeedb.AGE = employee.AGE;
+                            employeedb.DEPARTMENT = employee.DEPARTMENT;
+                            employeedb.MESS_STATUS = employee.MESS_STATUS;
+                            employeedb.POSITION = employee.POSITION;
+                            employeedb.SEX = employee.SEX;
+                            employeedb.STATUS = employee.STATUS;
+                            dc.SubmitChanges();
+                        }
                     }
 
                 }

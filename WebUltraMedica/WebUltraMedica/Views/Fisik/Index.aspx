@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainForm.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<WebUltraMedica.Models.FISIK>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainForm.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<WebUltraMedica.Models.FISIK_INDEX>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Fisik - Index
@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>
         INDEKS FISIK
-        <%= Html.ActionLink("Tambah", "Create", "Fisik", new {@class= "btn btn-primary right"}) %></h1>
+        <%--<%= Html.ActionLink("Tambah", "Create", "Fisik", new {@class= "btn btn-primary right"}) %>--%></h1>
     <br />
     <% var roles = Session["roles"].ToString().Split(',');%>
     <table class="tableblue tablesorter sortable tablesorterFilters">
@@ -32,7 +32,7 @@
             <% int i = 0; %>
             <% foreach (var fo in Model)
                {%>
-            <tr>
+            <tr <%if(fo.FISIK_ID == 0){%> class="danger"<%} %>>
                 <td style="text-align: center;">
                     <%: fo.LabId%>
                 </td>
@@ -47,21 +47,29 @@
                 </td>
                 <td>
                     <%if ((roles.Any(m => m.Equals("Fisik"))) || roles.Any(m => m.Equals("Fisik")))
-                      { %>
-                    <%: Html.ActionLink("Edit", "Edit", new {employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP},
-                                                                 new {@class = "btn btn-danger btn-xs"}) %>
+                      {
+                          if (fo.FISIK_ID != 0)
+                          {%>
+                    <%: Html.ActionLink("Edit", "Edit", new { employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP },
+                                                                 new { @class = "btn btn-primary btn-xs" })%>
                     <button id="deleteEmployee" onclick="javascript: DeleteMedicalData('<%:fo.EMPLOYEE_ID %>','<%:fo.YEAR_CHECKUP %>');"
                         class="btn btn-danger btn-xs">
                         Hapus
                     </button>
-                    <% }%>
+                    <% }
+                          else
+                          { %>
+                        <%: Html.ActionLink("Tambah", "Create", new { employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP },
+                                                                 new { @class = "btn btn-primary btn-xs" })%>
+                     <% }
+                      }%>
                 </td>
             </tr>
             <% }%>
         </tbody>
     </table>
     <br />
-    <div class="actions">
+    <%--<div class="actions">
         <%= Html.ActionLink("Tambah", "Create", "Fisik", new {@class= "btn btn-primary"}) %>
-    </div>
+    </div>--%>
 </asp:Content>

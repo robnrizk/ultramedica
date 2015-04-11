@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebUltraMedica.Models;
+using System.Configuration;
+using System.IO;
 
 namespace WebUltraMedica.Controllers
 {
@@ -25,13 +27,16 @@ namespace WebUltraMedica.Controllers
                     year = DateTime.Now.Year;
                 }
 
-                List<RONTGEN> listrontgen;
+                List<RONTGEN_INDEX> listRontgen = new List<RONTGEN_INDEX>();
                 using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
-                    listrontgen = dc.RONTGENs.Where(m => m.YEAR_CHECKUP.Equals(year)).ToList();
+                    var q = (from fo in dc.GetRontgenIndex()
+                             select new RONTGEN_INDEX() { EMPLOYEE_ID = fo.EMPLOYEE_ID, RONTGEN_ID = fo.RONTGEN_ID ?? 0, LabId = fo.LAB_ID, YEAR_CHECKUP = fo.YEAR_CHECKUP }).ToList();
+                    if (q.Any())
+                        listRontgen.AddRange(q);
                 }
 
-                return View(listrontgen);
+                return View(listRontgen);
             }
             return RedirectToAction("LogOut", "Account");
 
@@ -48,7 +53,7 @@ namespace WebUltraMedica.Controllers
         //
         // GET: /Rontgen/Create
         [Authorize(Roles = "Admin,Rontgen")]
-        public ActionResult Create(Nullable<int> LAB_ID, string YEAR_CHECKUP)
+        public ActionResult Create(string EMPLOYEE_ID, string YEAR_CHECKUP)
         {
             if (Session["user"] != null)
             {
@@ -57,22 +62,9 @@ namespace WebUltraMedica.Controllers
                 ViewData["ErrorMessage"] = "";
 
                 var Objreturn = new RONTGEN();
-                Objreturn.YEAR_CHECKUP = DateTime.Now.Year.ToString();
-
-                if ((LAB_ID != null) && (!string.IsNullOrEmpty(YEAR_CHECKUP)))
-                {
-                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
-                    {
-                        var FO = dc.FOs.SingleOrDefault(o => o.LAB_ID == LAB_ID && o.YEAR_CHECKUP == YEAR_CHECKUP);
-                        if (FO != null)
-                        {
-                            Objreturn.YEAR_CHECKUP = FO.YEAR_CHECKUP;
-                            Objreturn.EMPLOYEE_ID = FO.EMPLOYEE_ID;
-                        }
-                    }
-                }
-
-
+                Objreturn.YEAR_CHECKUP = YEAR_CHECKUP;
+                Objreturn.EMPLOYEE_ID = EMPLOYEE_ID;
+               
                 return View(Objreturn);
             }
             return RedirectToAction("LogOut", "Account");
@@ -86,20 +78,40 @@ namespace WebUltraMedica.Controllers
         {
             ViewData["Action"] = "Create";
 
+            RONTGEN rontgen = new RONTGEN();
             try
             {
                 if (ModelState.IsValid)
                 {
+                    USER user = (USER)Session["user"];
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        var rontgen = new RONTGEN()
+                        rontgen = new RONTGEN()
                         {
                             EMPLOYEE_ID = form["EMPLOYEE_ID"],
                             YEAR_CHECKUP = form["YEAR_CHECKUP"],
-                            RONTGEN_FILE_NAME = form["RONTGEN_FILE_NAME"],
                             RONTGEN_RESULT = form["RONTGEN_RESULT"],
-                            CHECKED_BY = ""
+                            CHECKED_BY = user.NIK
                         };
+
+                        HttpPostedFileBase file = Request.Files["FileRontgen"];
+
+                        if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                        {
+                            throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                        }
+
+                        if (file.ContentLength > 0)
+                        {
+                            string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], form["EMPLOYEE_ID"].ToString(), form["YEAR_CHECKUP"]);
+                            string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                            if (!Directory.Exists(fileDir))
+                                Directory.CreateDirectory(fileDir);
+
+                            file.SaveAs(filePath);
+
+                            rontgen.RONTGEN_FILE_NAME = Path.GetFileName(file.FileName);
+                        }
                         dc.RONTGENs.InsertOnSubmit(rontgen);
                         dc.SubmitChanges();
                     }
@@ -111,7 +123,7 @@ namespace WebUltraMedica.Controllers
             catch (Exception ex)
             {
                 ViewData["ErrorMessage"] = ex.Message;
-                return View(new RONTGEN());
+                return View(rontgen);
             }
         }
 
@@ -124,11 +136,10 @@ namespace WebUltraMedica.Controllers
             {
                 InitializeSession();
                 ViewData["Action"] = "Edit";
-
+                RONTGEN rontgen = new RONTGEN();
                 try
                 {
-                    RONTGEN rontgen;
-
+                   
                     ViewData["ErrorMessage"] = "";
 
                     // TODO: Add insert logic here
@@ -141,7 +152,7 @@ namespace WebUltraMedica.Controllers
                 catch (Exception ex)
                 {
                     ViewData["ErrorMessage"] = ex.Message;
-                    return View(new RONTGEN());
+                    return View(rontgen);
                 }
             }
             return RedirectToAction("LogOut", "Account");
@@ -157,18 +168,42 @@ namespace WebUltraMedica.Controllers
             ViewData["Action"] = "Edit";
             var EMPLOYEE_ID = form["EMPLOYEE_ID"];
             var YEAR_CHECKUP = form["YEAR_CHECKUP"];
+            RONTGEN rontgen = new RONTGEN();
             using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
-                var rontgen = dc.RONTGENs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && YEAR_CHECKUP == YEAR_CHECKUP);
+                rontgen = dc.RONTGENs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                 try
                 {
                     if (rontgen != null)
                     {
-                        rontgen.RONTGEN_FILE_NAME = form["RONTGEN_FILE_NAME"];
-                        rontgen.RONTGEN_RESULT = form["RONTGEN_RESULT"];
-                        rontgen.CHECKED_BY = "";
+                        if (ModelState.IsValid)
+                        {
+                            HttpPostedFileBase file = Request.Files["FileRontgen"];
 
-                        dc.SubmitChanges();
+                            if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                            {
+                                throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                            }
+
+
+                            if (file.ContentLength > 0)
+                            {
+                                string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], EMPLOYEE_ID.ToString(), YEAR_CHECKUP);
+                                string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                                if (!Directory.Exists(fileDir))
+                                    Directory.CreateDirectory(fileDir);
+
+                                file.SaveAs(filePath);
+
+                                rontgen.RONTGEN_FILE_NAME = Path.GetFileName(file.FileName);
+                            }
+
+                            rontgen.RONTGEN_FILE_NAME = form["RONTGEN_FILE_NAME"];
+                            rontgen.RONTGEN_RESULT = form["RONTGEN_RESULT"];
+                            rontgen.CHECKED_BY = "";
+
+                            dc.SubmitChanges();
+                        }
                     }
 
                     return RedirectToAction("Index");

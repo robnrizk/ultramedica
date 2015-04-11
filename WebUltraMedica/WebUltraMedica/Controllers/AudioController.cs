@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebUltraMedica.Models;
+using System.Configuration;
+using System.IO;
 
 namespace WebUltraMedica.Controllers
 {
@@ -24,10 +26,13 @@ namespace WebUltraMedica.Controllers
                     year = DateTime.Now.Year;
                 }
 
-                List<AUDIO> listAudio;
+                List<AUDIO_INDEX> listAudio = new List<AUDIO_INDEX>();
                 using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
-                    listAudio = dc.AUDIOs.Where(m => m.YEAR_CHECKUP.Equals(year)).ToList();
+                    var q = (from fo in dc.GetAudioIndex()
+                             select new AUDIO_INDEX() { EMPLOYEE_ID = fo.EMPLOYEE_ID, AUDIO_ID = fo.AUDIO_ID ?? 0, LabId = fo.LAB_ID, YEAR_CHECKUP = fo.YEAR_CHECKUP }).ToList();
+                    if (q.Any())
+                        listAudio.AddRange(q);
                 }
 
                 return View(listAudio);
@@ -46,7 +51,7 @@ namespace WebUltraMedica.Controllers
         //
         // GET: /Audio/Create
         [Authorize(Roles = "Admin,Audio")]
-        public ActionResult Create(Nullable<int> LAB_ID, string YEAR_CHECKUP)
+        public ActionResult Create(string EMPLOYEE_ID, string YEAR_CHECKUP)
         {
             if (Session["user"] != null)
             {
@@ -55,20 +60,10 @@ namespace WebUltraMedica.Controllers
                 ViewData["ErrorMessage"] = "";
 
                 var Objreturn = new AUDIO();
-                Objreturn.YEAR_CHECKUP = DateTime.Now.Year.ToString();
-
-                if ((LAB_ID != null) && (!string.IsNullOrEmpty(YEAR_CHECKUP)))
-                {
-                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
-                    {
-                        var FO = dc.FOs.SingleOrDefault(o => o.LAB_ID == LAB_ID && o.YEAR_CHECKUP == YEAR_CHECKUP);
-                        if (FO != null)
-                        {
-                            Objreturn.YEAR_CHECKUP = FO.YEAR_CHECKUP;
-                            Objreturn.EMPLOYEE_ID = FO.EMPLOYEE_ID;
-                        }
-                    }
-                }
+              
+                Objreturn.YEAR_CHECKUP = YEAR_CHECKUP;
+                Objreturn.EMPLOYEE_ID = EMPLOYEE_ID;
+               
                 return View(Objreturn);
             }
             return RedirectToAction("LogOut", "Account");
@@ -82,21 +77,41 @@ namespace WebUltraMedica.Controllers
         public ActionResult Create(FormCollection form)
         {
             ViewData["Action"] = "Create";
-
+            AUDIO audio = new AUDIO();
             try
             {
                 if (ModelState.IsValid)
                 {
+                    USER user = (USER)Session["user"];
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        var audio = new AUDIO()
+                        audio = new AUDIO()
                         {
                             EMPLOYEE_ID = form["EMPLOYEE_ID"],
                             YEAR_CHECKUP = form["YEAR_CHECKUP"],
-                            AUDIOMETRY_FILE_NAME = form["AUDIOMETRY_FILE_NAME"],
                             AUDIOMETRY_RESULT = form["AUDIOMETRY_RESULT"],
-                            CHECKED_BY = ""
+                            CHECKED_BY = user.NIK
                         };
+
+                        HttpPostedFileBase file = Request.Files["FileAUDIO"];
+
+                        if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                        {
+                            throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                        }
+
+                        if (file.ContentLength > 0)
+                        {
+                            string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], form["EMPLOYEE_ID"].ToString(), form["YEAR_CHECKUP"]);
+                            string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                            if (!Directory.Exists(fileDir))
+                                Directory.CreateDirectory(fileDir);
+
+                            file.SaveAs(filePath);
+
+                            audio.AUDIOMETRY_FILE_NAME = Path.GetFileName(file.FileName);
+                        }
+
                         dc.AUDIOs.InsertOnSubmit(audio);
                         dc.SubmitChanges();
                     }
@@ -108,7 +123,7 @@ namespace WebUltraMedica.Controllers
             catch (Exception ex)
             {
                 ViewData["ErrorMessage"] = ex.Message;
-                return View(new AUDIO());
+                return View(audio);
             }
         }
 
@@ -121,24 +136,22 @@ namespace WebUltraMedica.Controllers
             {
                 InitializeSession();
                 ViewData["Action"] = "Edit";
-
+                AUDIO audio = new AUDIO();
                 try
                 {
-                    AUDIO audio;
-
                     ViewData["ErrorMessage"] = "";
 
                     // TODO: Add insert logic here
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        audio = dc.AUDIOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && YEAR_CHECKUP == YEAR_CHECKUP);
+                        audio = dc.AUDIOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                     }
                     return View(audio);
                 }
                 catch (Exception ex)
                 {
                     ViewData["ErrorMessage"] = ex.Message;
-                    return View(new EKG());
+                    return View(audio);
                 }
             }
             return RedirectToAction("LogOut", "Account");
@@ -154,19 +167,42 @@ namespace WebUltraMedica.Controllers
             ViewData["Action"] = "Edit";
             var EMPLOYEE_ID = form["EMPLOYEE_ID"];
             var YEAR_CHECKUP = form["YEAR_CHECKUP"];
+
+            AUDIO audio = new AUDIO();
             using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
-                var audio =
-                    dc.AUDIOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && YEAR_CHECKUP == YEAR_CHECKUP);
+                audio = dc.AUDIOs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                 try
                 {
                     if (audio != null)
                     {
-                        audio.AUDIOMETRY_FILE_NAME = form["AUDIOMETRY_FILE_NAME"];
-                        audio.AUDIOMETRY_RESULT = form["AUDIOMETRY_RESULT"];
-                        audio.CHECKED_BY = "";
+                        if (ModelState.IsValid)
+                        {
+                            USER user = (USER)Session["user"];
+                            HttpPostedFileBase file = Request.Files["FileAUDIO"];
 
-                        dc.SubmitChanges();
+                            if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                            {
+                                throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                            }
+
+                            if (file.ContentLength > 0)
+                            {
+                                string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], form["EMPLOYEE_ID"].ToString(), form["YEAR_CHECKUP"]);
+                                string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                                if (!Directory.Exists(fileDir))
+                                    Directory.CreateDirectory(fileDir);
+
+                                file.SaveAs(filePath);
+
+                                audio.AUDIOMETRY_FILE_NAME = Path.GetFileName(file.FileName);
+                            }
+
+                            audio.AUDIOMETRY_RESULT = form["AUDIOMETRY_RESULT"];
+                            audio.CHECKED_BY = user.NIK;
+                            
+                            dc.SubmitChanges();
+                        }
                     }
 
                     return RedirectToAction("Index");

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>
-        LABORATORIUM / TAMBAH
+        RONTGEN / TAMBAH
         <%= Html.ActionLink("Kembali", "Index", "Rontgen", new {@class= "btn btn-primary btn-danger right"}) %></h1>
     <br />
     <% Html.RenderPartial("form"); %>

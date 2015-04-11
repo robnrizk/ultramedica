@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainForm.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<WebUltraMedica.Models.LAB>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainForm.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<WebUltraMedica.Models.LAB_INDEX>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Laboratorium - Index
@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>
         INDEKS LABORATORIUM
-        <%= Html.ActionLink("Tambah", "Create", "Lab", new {@class= "btn btn-primary right"}) %></h1>
+       <%-- <%= Html.ActionLink("Tambah", "Create", "Lab", new {@class= "btn btn-primary right"}) %>--%></h1>
     <br />
     <% var roles = Session["roles"].ToString().Split(',');%>
     <table class="tableblue tablesorter sortable tablesorterFilters">
@@ -46,24 +46,32 @@
                     <%: fo.YEAR_CHECKUP %>
                 </td>
                 <td>
-                    <%if ((roles.Any(m => m.Equals("Admin"))) || roles.Any(m => m.Equals("Lab")))
-                      { %>
-                    <%: Html.ActionLink("Edit", "Edit", new {employee_id = fo.EMPLOYEE_ID, year = fo.YEAR_CHECKUP},
-                                                                 new {@class = "btn btn-primary btn-xs"}) %>
+                    <%if ((roles.Any(m => m.Equals("Fisik"))) || roles.Any(m => m.Equals("Fisik")))
+                      {
+                          if (fo.LABORATORIUM_ID != 0)
+                          {%>
+                    <%: Html.ActionLink("Edit", "Edit", new { employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP },
+                                                                 new { @class = "btn btn-primary btn-xs" })%>
                     <button id="deleteEmployee" onclick="javascript: DeleteMedicalData('<%:fo.EMPLOYEE_ID %>','<%:fo.YEAR_CHECKUP %>');"
                         class="btn btn-danger btn-xs">
                         Hapus
                     </button>
-                    <% }%>
+                    <% }
+                          else
+                          { %>
+                        <%: Html.ActionLink("Tambah", "Create", new { employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP },
+                                                                 new { @class = "btn btn-primary btn-xs" })%>
+                     <% }
+                      }%>
                 </td>
             </tr>
             <% }%>
         </tbody>
     </table>
     <br />
-    <div class="actions">
+   <%-- <div class="actions">
         <%= Html.ActionLink("Tambah", "Create", "Lab", new {@class= "btn btn-primary"}) %>
-    </div>
+    </div>--%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">
 </asp:Content>

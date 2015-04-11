@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_ULTRAMEDICA" Class="db_ultramedicaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=USER-PC\SQLEXPRESS;Initial Catalog=DB_ULTRAMEDICA;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ULTRAMEDICAConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=USER-PC\SQL2008;Initial Catalog=DB_ULTRAMEDICA;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_ULTRAMEDICAConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.AUDIO" Member="AUDIOs">
     <Type Name="AUDIO">
       <Column Name="AUDIO_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -19,17 +19,6 @@
       <Association Name="COMPANY_EMPLOYEE" Member="EMPLOYEEs" ThisKey="COMPANY_ID" OtherKey="COMPANY_ID" Type="EMPLOYEE" />
     </Type>
   </Table>
-  <Table Name="dbo.EKG" Member="EKGs">
-    <Type Name="EKG">
-      <Column Name="EKG_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
-      <Column Name="EKG_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="EKG_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CHECKED_BY" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Association Name="FO_EKG" Member="FO" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="FO" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.FO" Member="FOs">
     <Type Name="FO">
       <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -38,11 +27,11 @@
       <Column Name="DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="DISTRICT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Association Name="FO_AUDIO" Member="AUDIOs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="AUDIO" />
-      <Association Name="FO_EKG" Member="EKGs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="EKG" />
       <Association Name="FO_RONTGEN" Member="RONTGENs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="RONTGEN" />
       <Association Name="FO_SPIRO" Member="SPIROs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="SPIRO" />
       <Association Name="FO_FISIK" Member="FISIKs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="FISIK" />
       <Association Name="FO_LAB" Member="LABs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="LAB" />
+      <Association Name="FO_EKG" Member="EKGs" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="EKG" />
       <Association Name="EMPLOYEE_FO" Member="EMPLOYEE" ThisKey="EMPLOYEE_ID" OtherKey="EMPLOYEE_ID" Type="EMPLOYEE" IsForeignKey="true" />
     </Type>
   </Table>
@@ -234,4 +223,63 @@
       <Association Name="FO_LAB" Member="FO" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="FO" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.EKG" Member="EKGs">
+    <Type Name="EKG">
+      <Column Name="EKG_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="EKG_RESULT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EKG_FILE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHECKED_BY" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="FO_EKG" Member="FO" ThisKey="EMPLOYEE_ID,YEAR_CHECKUP" OtherKey="EMPLOYEE_ID,YEAR_CHECKUP" Type="FO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetAudioIndex" Method="GetAudioIndex" IsComposable="true">
+    <ElementType Name="GetAudioIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AUDIO_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSpiroIndex" Method="GetSpiroIndex" IsComposable="true">
+    <ElementType Name="GetSpiroIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="SPIRO_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetEkgIndex" Method="GetEkgIndex" IsComposable="true">
+    <ElementType Name="GetEkgIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="EKG_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetFisikIndex" Method="GetFisikIndex" IsComposable="true">
+    <ElementType Name="GetFisikIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="FISIK_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetLabIndex" Method="GetLabIndex" IsComposable="true">
+    <ElementType Name="GetLabIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="LABORATORIUM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetRontgenIndex" Method="GetRontgenIndex" IsComposable="true">
+    <ElementType Name="GetRontgenIndexResult">
+      <Column Name="LAB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="YEAR_CHECKUP" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="RONTGEN_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

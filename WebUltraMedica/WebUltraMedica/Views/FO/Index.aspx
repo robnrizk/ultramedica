@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainForm.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<WebUltraMedica.Models.FO>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    FO - Index
+    FO - Indeks
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>
@@ -48,9 +48,9 @@
                 <td>
                     <%if ((roles.Any(m => m.Equals("Admin"))) || roles.Any(m => m.Equals("FO")))
                       { %>
-                    <%: Html.ActionLink("Edit", "Edit", new {labId = fo.LAB_ID},
+                    <%: Html.ActionLink("Edit", "Edit", new { employee_id = fo.EMPLOYEE_ID, year_checkup = fo.YEAR_CHECKUP },
                                                                  new {@class = "btn btn-primary btn-xs"}) %>
-                    <button id="deleteFisik" onclick="javascript: DeleteMasterData('<%:fo.LAB_ID %>');"
+                    <button id="deleteFisik" onclick="javascript: DeleteMedicalData('<%:fo.EMPLOYEE_ID %>','<%:fo.YEAR_CHECKUP %>');"
                         class="btn btn-danger btn-xs">
                         Hapus
                     </button>

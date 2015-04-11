@@ -6,15 +6,8 @@
     <fieldset>
         <label for="LAB_ID">
             Laboratorium ID</label>
-        <% if (ViewData["Action"].ToString().Equals("Create"))
-           { %>
-        <%: Html.TextBoxFor(m => m.LAB_ID, new {@class = "content-data"}) %>
+        <%: Html.TextBoxFor(m => m.LAB_ID, new { @class = "content-data", @onkeydown = "return jsDecimals(event);" })%>
         <%: Html.ValidationMessageFor(m => m.LAB_ID) %>
-        <% }
-           else
-           { %>
-        <%: Html.TextBoxFor(m => m.LAB_ID, new {@class = "content-data", @readonly = "readonly"}) %>
-        <% } %>
     </fieldset>
     <fieldset>
         <label for="EMPLOYEE_ID">

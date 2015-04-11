@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using WebUltraMedica.Models;
+using System.Web.Configuration;
 
 namespace WebUltraMedica.Controllers
 {
@@ -26,6 +27,16 @@ namespace WebUltraMedica.Controllers
         public static string ConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["DB_ULTRAMEDICAConnectionString"].ConnectionString; ;
+        }
+
+        public static int MaxRequestLength() 
+        {
+            int maxrequestlength = 0;
+            HttpRuntimeSection section = ConfigurationManager.GetSection("system.web/httpRuntime") as HttpRuntimeSection;
+            if (section != null)
+                maxrequestlength = section.MaxRequestLength;
+
+            return maxrequestlength;
         }
     }
 

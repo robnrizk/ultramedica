@@ -1,55 +1,31 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<WebUltraMedica.Models.FISIK>" %>
 <% Html.EnableClientValidation(); %>
-<% if (Model.LabId == 0)
-   {%>
-<div class="content">
-<fieldset>
-    <div class="content-col">
-        <div class="content-group">
-            <label for="LAB_ID">
-                Laboratorium ID</label>
-            <%: Html.DropDownListFor(m => m.LabId, Model.LABID_LIST, new { @class = "content-data chosen" })%>
-        </div>
-        <div class="content-group">
-            <label>
-                &nbsp;</label>
-            <input type="button" value="Cari" class="btn btn-primary" onclick="GotoFisikCreateByLabID();" />
-        </div>
-    </div>
-    <div class="content-col">
-        <div class="content-group">
-            <label for="YEAR_CHECKUP">
-                Tahun Periksa</label>
-            <%: Html.TextBoxFor(model => model.YEAR_CHECKUP, new { @class = "content-data" })%>
-        </div>
-    </div>
-</fieldset>
-</div>
-<% }
-   else
-   { %>
 <% using (Html.BeginForm(ViewData["Action"].ToString(), "Fisik", FormMethod.Post, new { @class = "content" }))
    {%>
-
 <fieldset>
     <legend>HEADER</legend>
+    <% if (Model.LabId != 0)
+       {%>
     <div class="content-col">
         <div class="content-group">
             <label for="LAB_ID">
                 Laboratorium ID</label>
-            <%: Html.TextBoxFor(model => model.LabId, new { @class = "content-data" })%>
+            <%: Html.TextBoxFor(model => model.LabId, new { @class = "content-data", @readonly = "readonly" })%>
         </div>
+    </div>
+    <% } %>
+    <div class="content-col">
         <div class="content-group">
             <label for="EMPLOYEE_ID">
                 Nama Pegawai</label>
-            <%: Html.TextBoxFor(model => model.EMPLOYEE_ID, new { @class = "content-data" })%>
+            <%: Html.TextBoxFor(model => model.EMPLOYEE_ID, new { @class = "content-data", @readonly = "readonly" })%>
         </div>
     </div>
     <div class="content-col">
         <div class="content-group">
             <label for="YEAR_CHECKUP">
                 Tahun Periksa</label>
-            <%: Html.TextBoxFor(model => model.YEAR_CHECKUP, new { @class = "content-data" })%>
+            <%: Html.TextBoxFor(model => model.YEAR_CHECKUP, new { @class = "content-data", @readonly = "readonly" })%>
         </div>
     </div>
 </fieldset>
@@ -427,7 +403,7 @@
         <div class="content-group">
             <label for="BAU_MULUT">
                 Bau Mulut</label>
-           <%: Html.DropDownListFor(m => m.BAU_MULUT, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
+            <%: Html.DropDownListFor(m => m.BAU_MULUT, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
         <div class="content-group">
             <label for="TANGGAL">
@@ -477,12 +453,12 @@
         <div class="content-group">
             <label for="LASSAGUESIGN">
                 Lassague Sign</label>
-           <%: Html.DropDownListFor(m => m.LASSAGUESIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>>
+            <%: Html.DropDownListFor(m => m.LASSAGUESIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>>
         </div>
         <div class="content-group">
             <label for="CONTRA_PATRICK_SIGN">
                 Contra Patrick Sign</label>
-           <%: Html.DropDownListFor(m => m.CONTRA_PATRICK_SIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
+            <%: Html.DropDownListFor(m => m.CONTRA_PATRICK_SIGN, Model.YA_TIDAK_LIST, new { @class = "content-data chosen" })%>
         </div>
     </div>
 </fieldset>
@@ -501,4 +477,3 @@
     <%= Html.ActionLink("Kembali", "Index", "Fisik", new {@class= "btn btn-primary btn-danger"}) %>
 </div>
 <% }%>
-<%}%>

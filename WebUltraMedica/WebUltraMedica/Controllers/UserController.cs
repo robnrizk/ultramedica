@@ -18,7 +18,7 @@ namespace WebUltraMedica.Controllers
         {
             InitializeSession();
             var listUser = new List<USER>();
-            
+
             if (Session["user"] != null)
             {
                 ViewData["ErrorMessage"] = "";
@@ -73,13 +73,13 @@ namespace WebUltraMedica.Controllers
         public ActionResult Create(FormCollection formCollection)
         {
             ViewData["Action"] = "Create";
+            var user = new USER();
             try
             {
                 if (ModelState.IsValid)
                 {
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        var user = new USER();
                         user.NIK = formCollection["NIK"];
                         user.NAMA = formCollection["NAMA"];
                         user.POSISI = formCollection["POSISI"];
@@ -98,7 +98,7 @@ namespace WebUltraMedica.Controllers
             catch (Exception ex)
             {
                 ViewData["ErrorMessage"] = ex.Message;
-                return View(new USER());
+                return View(user);
             }
         }
 
@@ -109,28 +109,26 @@ namespace WebUltraMedica.Controllers
         {
             if (Session["user"] != null)
             {
-            InitializeSession();
-            ViewData["Action"] = "Edit";
-
-            try
-            {
-                USER user;
-
-                ViewData["ErrorMessage"] = "";
-
-                // TODO: Add insert logic here
-                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                InitializeSession();
+                ViewData["Action"] = "Edit";
+                USER user = new USER();
+                try
                 {
-                    user = dc.USERs.SingleOrDefault(o => o.NIK.Equals(userNik));
+                    ViewData["ErrorMessage"] = "";
+
+                    // TODO: Add insert logic here
+                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                    {
+                        user = dc.USERs.SingleOrDefault(o => o.NIK.Equals(userNik));
+                    }
+                    return View(user);
                 }
-                return View(user);
-            }
-            catch (Exception ex)
-            {
-                ViewData["ErrorMessage"] = ex.Message;
-                return View(new USER());
-            }
+                catch (Exception ex)
+                {
+                    ViewData["ErrorMessage"] = ex.Message;
+                    return View(user);
                 }
+            }
             return RedirectToAction("LogOut", "Account");
         }
 
@@ -142,19 +140,24 @@ namespace WebUltraMedica.Controllers
         public ActionResult Edit(FormCollection formCollection)
         {
             ViewData["Action"] = "Edit";
+            var userdb = new USER();
             using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
-                var userdb = dc.USERs.SingleOrDefault(o => o.NIK.Equals(formCollection["NIK"]));
+                userdb = dc.USERs.SingleOrDefault(o => o.NIK.Equals(formCollection["NIK"]));
                 try
                 {
-                     if (userdb != null)
+                    if (userdb != null)
                     {
-                        userdb.NAMA = formCollection["NAMA"];
-                        userdb.POSISI = formCollection["POSISI"];
-                        userdb.USERNAME = formCollection["USERNAME"];
-                        if (!string.IsNullOrEmpty(formCollection["PASSWORD"])) userdb.PASSWORD = formCollection["PASSWORD"];
-                        userdb.ROLES = formCollection["ROLES"];
-                        dc.SubmitChanges();
+                        if (ModelState.IsValid)
+                        {
+
+                            userdb.NAMA = formCollection["NAMA"];
+                            userdb.POSISI = formCollection["POSISI"];
+                            userdb.USERNAME = formCollection["USERNAME"];
+                            if (!string.IsNullOrEmpty(formCollection["PASSWORD"])) userdb.PASSWORD = formCollection["PASSWORD"];
+                            userdb.ROLES = formCollection["ROLES"];
+                            dc.SubmitChanges();
+                        }
                     }
 
                     return RedirectToAction("Index");
@@ -217,7 +220,7 @@ namespace WebUltraMedica.Controllers
                 Session["user"] = user;
                 Session["roles"] = user.ROLES;
             }
-            
+
         }
     }
 }

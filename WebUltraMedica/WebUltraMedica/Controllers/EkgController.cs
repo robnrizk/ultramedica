@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebUltraMedica.Models;
+using System.Configuration;
+using System.IO;
 
 namespace WebUltraMedica.Controllers
 {
@@ -24,13 +26,16 @@ namespace WebUltraMedica.Controllers
                     year = DateTime.Now.Year;
                 }
 
-                List<EKG> lisEKG;
+                List<EKG_INDEX> listEkg = new List<EKG_INDEX>();
                 using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
-                    lisEKG = dc.EKGs.Where(m => m.YEAR_CHECKUP.Equals(year)).ToList();
+                    var q = (from fo in dc.GetEkgIndex()
+                             select new EKG_INDEX() { EMPLOYEE_ID = fo.EMPLOYEE_ID, EKG_ID = fo.EKG_ID ?? 0, LabId = fo.LAB_ID, YEAR_CHECKUP = fo.YEAR_CHECKUP }).ToList();
+                    if (q.Any())
+                        listEkg.AddRange(q);
                 }
 
-                return View(lisEKG);
+                return View(listEkg);
             }
             return RedirectToAction("LogOut", "Account");
         }
@@ -46,7 +51,7 @@ namespace WebUltraMedica.Controllers
         //
         // GET: /Ekg/Create
         [Authorize(Roles = "Admin,EKG")]
-        public ActionResult Create(Nullable<int> LAB_ID, string YEAR_CHECKUP)
+        public ActionResult Create(string EMPLOYEE_ID, string YEAR_CHECKUP)
         {
             if (Session["user"] != null)
             {
@@ -55,21 +60,8 @@ namespace WebUltraMedica.Controllers
                 ViewData["ErrorMessage"] = "";
 
                 var Objreturn = new EKG();
-                Objreturn.YEAR_CHECKUP = DateTime.Now.Year.ToString();
-
-                if ((LAB_ID != null) && (!string.IsNullOrEmpty(YEAR_CHECKUP)))
-                {
-                    using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
-                    {
-                        var FO = dc.FOs.SingleOrDefault(o => o.LAB_ID == LAB_ID && o.YEAR_CHECKUP == YEAR_CHECKUP);
-                        if (FO != null)
-                        {
-                            Objreturn.YEAR_CHECKUP = FO.YEAR_CHECKUP;
-                            Objreturn.EMPLOYEE_ID = FO.EMPLOYEE_ID;
-                        }
-                    }
-                }
-
+                Objreturn.YEAR_CHECKUP = YEAR_CHECKUP;
+                Objreturn.EMPLOYEE_ID = EMPLOYEE_ID;
 
                 return View(Objreturn);
             }
@@ -83,21 +75,41 @@ namespace WebUltraMedica.Controllers
         public ActionResult Create(FormCollection form)
         {
             ViewData["Action"] = "Create";
-
+            EKG ekg = new EKG();
             try
             {
                 if (ModelState.IsValid)
                 {
+                    USER user = (USER)Session["user"];
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        var ekg = new EKG()
+                        ekg = new EKG()
                         {
                             EMPLOYEE_ID = form["EMPLOYEE_ID"],
                             YEAR_CHECKUP = form["YEAR_CHECKUP"],
-                            EKG_FILE_NAME = form["EKG_FILE_NAME"],
                             EKG_RESULT = form["EKG_RESULT"],
-                            CHECKED_BY = ""
+                            CHECKED_BY = user.NIK
                         };
+
+                        HttpPostedFileBase file = Request.Files["FileEKG"];
+                       
+                        if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                        {
+                            throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                        }
+
+                        if (file.ContentLength > 0)
+                        {
+                            string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], form["EMPLOYEE_ID"].ToString(), form["YEAR_CHECKUP"]);
+                            string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                            if (!Directory.Exists(fileDir))
+                                Directory.CreateDirectory(fileDir);
+
+                            file.SaveAs(filePath);
+
+                            ekg.EKG_FILE_NAME = Path.GetFileName(file.FileName);
+                        }
+
                         dc.EKGs.InsertOnSubmit(ekg);
                         dc.SubmitChanges();
                     }
@@ -109,7 +121,7 @@ namespace WebUltraMedica.Controllers
             catch (Exception ex)
             {
                 ViewData["ErrorMessage"] = ex.Message;
-                return View(new EKG());
+                return View(ekg);
             }
         }
 
@@ -123,23 +135,23 @@ namespace WebUltraMedica.Controllers
                 InitializeSession();
                 ViewData["Action"] = "Edit";
 
+                EKG ekg = new EKG();
+
                 try
                 {
-                    EKG ekg;
-
                     ViewData["ErrorMessage"] = "";
 
                     // TODO: Add insert logic here
                     using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
                     {
-                        ekg = dc.EKGs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && YEAR_CHECKUP == YEAR_CHECKUP);
+                        ekg = dc.EKGs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                     }
                     return View(ekg);
                 }
                 catch (Exception ex)
                 {
                     ViewData["ErrorMessage"] = ex.Message;
-                    return View(new EKG());
+                    return View(ekg);
                 }
             }
             return RedirectToAction("LogOut", "Account");
@@ -155,18 +167,45 @@ namespace WebUltraMedica.Controllers
             ViewData["Action"] = "Edit";
             var EMPLOYEE_ID = form["EMPLOYEE_ID"];
             var YEAR_CHECKUP = form["YEAR_CHECKUP"];
+
+            EKG ekg = new EKG();
+
             using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
             {
-                var ekg = dc.EKGs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && YEAR_CHECKUP == YEAR_CHECKUP);
+                
+                ekg = dc.EKGs.SingleOrDefault(o => o.EMPLOYEE_ID.Equals(EMPLOYEE_ID) && o.YEAR_CHECKUP == YEAR_CHECKUP);
                 try
                 {
                     if (ekg != null)
                     {
-                        ekg.EKG_FILE_NAME = form["EKG_FILE_NAME"];
-                        ekg.EKG_RESULT = form["EKG_RESULT"];
-                        ekg.CHECKED_BY = "";
+                        if (ModelState.IsValid)
+                        {
+                            USER user = (USER)Session["user"];
+                            HttpPostedFileBase file = Request.Files["FileEKG"];
 
-                        dc.SubmitChanges();
+                            if (Request.ContentLength > Helper.MaxRequestLength() * 1024)
+                            {
+                                throw new Exception("Maximum request length exceeded. File allowed to be upload are " + (Helper.MaxRequestLength() / 1024).ToString() + " MB");
+                            }
+
+
+                            if (file.ContentLength > 0)
+                            {
+                                string fileDir = string.Format("{0}\\{1}_{2}", ConfigurationManager.AppSettings["FileUpload"], EMPLOYEE_ID.ToString(), YEAR_CHECKUP);
+                                string filePath = string.Format("{0}\\{1}", fileDir, Path.GetFileName(file.FileName));
+                                if (!Directory.Exists(fileDir))
+                                    Directory.CreateDirectory(fileDir);
+
+                                file.SaveAs(filePath);
+
+                                ekg.EKG_FILE_NAME = Path.GetFileName(file.FileName);
+                            }
+
+                            ekg.EKG_RESULT = form["EKG_RESULT"];
+                            ekg.CHECKED_BY = user.NIK;
+
+                            dc.SubmitChanges();
+                        }
                     }
 
                     return RedirectToAction("Index");

@@ -71,6 +71,7 @@
     <Compile Include="Controllers\AudioController.cs" />
     <Compile Include="Controllers\EkgController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\FisikController.cs" />
     <Compile Include="Controllers\FOController.cs" />
     <Compile Include="Controllers\LabController.cs" />
@@ -215,7 +216,9 @@
     <Content Include="Views\User\Edit.aspx" />
     <Content Include="Views\User\form.ascx" />
     <Content Include="Views\User\Index.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

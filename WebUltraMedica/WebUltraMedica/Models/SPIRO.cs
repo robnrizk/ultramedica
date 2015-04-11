@@ -57,5 +57,30 @@ namespace WebUltraMedica.Models
                 return objreturn;
             }
         }
+
+        public HttpPostedFileBase FileSPIRO { get; set; }
+    }
+
+    public class SPIRO_INDEX
+    {
+        public int LabId { get; set; }
+        public string EMPLOYEE_ID { get; set; }
+        public string YEAR_CHECKUP { get; set; }
+        public int SPIRO_ID { get; set; }
+
+        public string EMPLOYEE_NAME
+        {
+            get
+            {
+                var objreturn = string.Empty;
+                using (var dc = new db_ultramedicaDataContext(Helper.ConnectionString()))
+                {
+                    var employee = dc.EMPLOYEEs.SingleOrDefault(o => o.EMPLOYEE_ID == this.EMPLOYEE_ID);
+                    if (employee != null) objreturn = employee.NAME;
+                }
+                return objreturn;
+            }
+        }
+
     }
 }

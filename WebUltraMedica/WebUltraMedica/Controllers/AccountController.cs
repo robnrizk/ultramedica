@@ -38,22 +38,26 @@ namespace WebUltraMedica.Controllers
             {
                 using (var data = new db_ultramedicaDataContext(Helper.ConnectionString()))
                 {
-                    var username = model.USERNAME;
-                    var password = model.PASSWORD;
+                    bool isFound = false;
 
-                    var employee = data.USERs.SingleOrDefault(m => m.USERNAME.Equals(model.USERNAME) &&
-                                                                       m.PASSWORD.Equals(model.PASSWORD));
-
-                    if(employee != null)
+                    foreach (USER employee in data.USERs)
                     {
-                       FormsAuthentication.SetAuthCookie(username, false);
-                       {
-                           Session["user"] = employee;
-                           Session["roles"] = employee.ROLES;
-                            return RedirectToAction("Index", "Employee");
-                       }
+                        if (employee.USERNAME == model.USERNAME && employee.PASSWORD == model.PASSWORD)
+                        {
+                            isFound = true;
+                            FormsAuthentication.SetAuthCookie(model.USERNAME, false);
+                            {
+                                Session["user"] = employee;
+                                Session["roles"] = employee.ROLES;
+                                return RedirectToAction("Index", "Employee");
+                            }
+                        }
                     }
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+
+                    if (!isFound)
+                    {
+                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                    }
                 }
             }
 
