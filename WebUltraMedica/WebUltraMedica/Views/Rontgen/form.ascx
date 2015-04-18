@@ -18,7 +18,8 @@
         <div class="content-group">
             <label for="EMPLOYEE_ID">
                 Nama Pegawai</label>
-            <%: Html.TextBoxFor(model => model.EMPLOYEE_ID, new { @class = "content-data", @readonly = "readonly" })%>
+            <%: Html.TextBoxFor(model => model.EMPLOYEE_NAME, new { @class = "content-data", @readonly = "readonly" })%>
+            <%: Html.HiddenFor(model => model.EMPLOYEE_ID) %>
         </div>
     </div>
     <div class="content-col">
